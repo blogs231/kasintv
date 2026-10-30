@@ -1,0 +1,3371 @@
+{
+  "generatedAt": "2026-07-09",
+  "count": 200,
+  "tools": [
+    {
+      "slug": "uppercase-text-converter",
+      "title": "Uppercase Text Converter",
+      "op": "uppercase",
+      "purpose": "convert text to capital letters",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "lowercase-text-converter",
+      "title": "Lowercase Text Converter",
+      "op": "lowercase",
+      "purpose": "convert text to lowercase letters",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "title-case-text-converter",
+      "title": "Title Case Converter",
+      "op": "titlecase",
+      "purpose": "capitalize the main words in text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "sentence-case-text-converter",
+      "title": "Sentence Case Converter",
+      "op": "sentencecase",
+      "purpose": "normalize text into sentence capitalization",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "alternating-case-generator",
+      "title": "Alternating Case Generator",
+      "op": "alternating",
+      "purpose": "create alternating uppercase and lowercase text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "inverse-case-converter",
+      "title": "Inverse Case Converter",
+      "op": "inversecase",
+      "purpose": "swap uppercase letters with lowercase letters",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "remove-spaces-from-text",
+      "title": "Remove Spaces from Text",
+      "op": "removespace",
+      "purpose": "remove whitespace from text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "whitespace-normalizer",
+      "title": "Whitespace Normalizer",
+      "op": "normalizespace",
+      "purpose": "replace repeated spacing with clean single spaces",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "empty-line-remover",
+      "title": "Empty Line Remover",
+      "op": "emptylines",
+      "purpose": "delete blank lines from pasted text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "sort-lines-alphabetically",
+      "title": "Sort Lines Alphabetically",
+      "op": "sortlinesaz",
+      "purpose": "sort text lines from A to Z",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "sort-lines-reverse-alphabetically",
+      "title": "Reverse Alphabetical Line Sorter",
+      "op": "sortlinesza",
+      "purpose": "sort text lines from Z to A",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "reverse-line-order",
+      "title": "Reverse Line Order Tool",
+      "op": "reverselines",
+      "purpose": "reverse the order of lines",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "line-number-generator",
+      "title": "Line Number Generator",
+      "op": "numberlines",
+      "purpose": "add sequential numbers to every line",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "trim-lines-online",
+      "title": "Online Line Trimmer",
+      "op": "trimlines",
+      "purpose": "remove leading and trailing spaces from lines",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "line-list-to-comma-list",
+      "title": "Line List to Comma List",
+      "op": "commalist",
+      "purpose": "join separate lines into a comma-separated list",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "comma-list-to-lines",
+      "title": "Comma List to Lines",
+      "op": "newline",
+      "purpose": "split comma-separated values onto separate lines",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "text-repeater-online",
+      "title": "Text Repeater",
+      "op": "repeat",
+      "purpose": "repeat entered text three times",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "initials-generator",
+      "title": "Initials Generator",
+      "op": "initials",
+      "purpose": "create initials from words or a full name",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "acronym-generator",
+      "title": "Acronym Generator",
+      "op": "acronym",
+      "purpose": "build an acronym from a phrase",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "palindrome-checker",
+      "title": "Palindrome Checker",
+      "op": "palindrome",
+      "purpose": "check whether text reads the same backwards",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "vowel-counter",
+      "title": "Vowel Counter",
+      "op": "vowels",
+      "purpose": "count vowels in English text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "consonant-counter",
+      "title": "Consonant Counter",
+      "op": "consonants",
+      "purpose": "count English consonants in text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "sentence-counter",
+      "title": "Sentence Counter",
+      "op": "sentences",
+      "purpose": "estimate the number of sentences",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "paragraph-counter",
+      "title": "Paragraph Counter",
+      "op": "paragraphs",
+      "purpose": "count paragraphs separated by blank lines",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "reading-time-calculator",
+      "title": "Reading Time Calculator",
+      "op": "readingtime",
+      "purpose": "estimate reading time from word count",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "speaking-time-calculator",
+      "title": "Speaking Time Calculator",
+      "op": "speakingtime",
+      "purpose": "estimate speaking time for a script",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "longest-word-finder",
+      "title": "Longest Word Finder",
+      "op": "longestword",
+      "purpose": "find the longest word in text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "shortest-word-finder",
+      "title": "Shortest Word Finder",
+      "op": "shortestword",
+      "purpose": "find the shortest word in text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "remove-punctuation-online",
+      "title": "Punctuation Remover",
+      "op": "punctuationremove",
+      "purpose": "remove punctuation and symbols",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "punctuation-counter",
+      "title": "Punctuation Counter",
+      "op": "punctuationcount",
+      "purpose": "count punctuation marks and symbols",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "sort-words-alphabetically",
+      "title": "Alphabetical Word Sorter",
+      "op": "sortwords",
+      "purpose": "sort all recognized words alphabetically",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "unique-word-extractor",
+      "title": "Unique Word Extractor",
+      "op": "uniquewords",
+      "purpose": "list each word only once",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "email-address-extractor",
+      "title": "Email Address Extractor",
+      "op": "extractemails",
+      "purpose": "extract email addresses from text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "url-extractor",
+      "title": "URL Extractor",
+      "op": "extracturls",
+      "purpose": "extract web addresses from text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "number-extractor",
+      "title": "Number Extractor",
+      "op": "extractnumbers",
+      "purpose": "extract integers and decimal numbers",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "hashtag-extractor",
+      "title": "Hashtag Extractor",
+      "op": "extracthashtags",
+      "purpose": "extract hashtags from social text",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "mention-extractor",
+      "title": "Username Mention Extractor",
+      "op": "extractmentions",
+      "purpose": "extract @username mentions",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "shuffle-lines-online",
+      "title": "Random Line Shuffler",
+      "op": "shufflelines",
+      "purpose": "randomly shuffle the order of lines",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "random-line-picker",
+      "title": "Random Line Picker",
+      "op": "randomline",
+      "purpose": "select one random line from a list",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "lexical-density-calculator",
+      "title": "Lexical Density Calculator",
+      "op": "lexdensity",
+      "purpose": "compare unique words with total words",
+      "kind": "text",
+      "category": "Text Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Paste or type text here"
+        }
+      ]
+    },
+    {
+      "slug": "meters-to-feet",
+      "title": "Meters to Feet Converter",
+      "from": "m",
+      "to": "ft",
+      "mode": "linear",
+      "factor": 3.280839895,
+      "op": "convert",
+      "purpose": "convert m values into ft",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in m",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "kilometers-to-miles",
+      "title": "Kilometers to Miles Converter",
+      "from": "km",
+      "to": "mi",
+      "mode": "linear",
+      "factor": 0.621371192,
+      "op": "convert",
+      "purpose": "convert km values into mi",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in km",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "centimeters-to-inches",
+      "title": "Centimeters to Inches Converter",
+      "from": "cm",
+      "to": "in",
+      "mode": "linear",
+      "factor": 0.393700787,
+      "op": "convert",
+      "purpose": "convert cm values into in",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in cm",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "millimeters-to-inches",
+      "title": "Millimeters to Inches Converter",
+      "from": "mm",
+      "to": "in",
+      "mode": "linear",
+      "factor": 0.0393700787,
+      "op": "convert",
+      "purpose": "convert mm values into in",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in mm",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "yards-to-meters",
+      "title": "Yards to Meters Converter",
+      "from": "yd",
+      "to": "m",
+      "mode": "linear",
+      "factor": 0.9144,
+      "op": "convert",
+      "purpose": "convert yd values into m",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in yd",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "feet-to-centimeters",
+      "title": "Feet to Centimeters Converter",
+      "from": "ft",
+      "to": "cm",
+      "mode": "linear",
+      "factor": 30.48,
+      "op": "convert",
+      "purpose": "convert ft values into cm",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in ft",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "miles-to-kilometers",
+      "title": "Miles to Kilometers Converter",
+      "from": "mi",
+      "to": "km",
+      "mode": "linear",
+      "factor": 1.609344,
+      "op": "convert",
+      "purpose": "convert mi values into km",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in mi",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "nautical-miles-to-kilometers",
+      "title": "Nautical Miles to Kilometers",
+      "from": "nmi",
+      "to": "km",
+      "mode": "linear",
+      "factor": 1.852,
+      "op": "convert",
+      "purpose": "convert nmi values into km",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in nmi",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "microns-to-millimeters",
+      "title": "Microns to Millimeters",
+      "from": "μm",
+      "to": "mm",
+      "mode": "linear",
+      "factor": 0.001,
+      "op": "convert",
+      "purpose": "convert μm values into mm",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in μm",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "light-years-to-kilometers",
+      "title": "Light Years to Kilometers",
+      "from": "ly",
+      "to": "km",
+      "mode": "linear",
+      "factor": 9460730472000,
+      "op": "convert",
+      "purpose": "convert ly values into km",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in ly",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "kilograms-to-pounds",
+      "title": "Kilograms to Pounds",
+      "from": "kg",
+      "to": "lb",
+      "mode": "linear",
+      "factor": 2.204622622,
+      "op": "convert",
+      "purpose": "convert kg values into lb",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in kg",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "grams-to-ounces",
+      "title": "Grams to Ounces",
+      "from": "g",
+      "to": "oz",
+      "mode": "linear",
+      "factor": 0.0352739619,
+      "op": "convert",
+      "purpose": "convert g values into oz",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in g",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "pounds-to-kilograms",
+      "title": "Pounds to Kilograms",
+      "from": "lb",
+      "to": "kg",
+      "mode": "linear",
+      "factor": 0.45359237,
+      "op": "convert",
+      "purpose": "convert lb values into kg",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in lb",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "ounces-to-grams",
+      "title": "Ounces to Grams",
+      "from": "oz",
+      "to": "g",
+      "mode": "linear",
+      "factor": 28.349523125,
+      "op": "convert",
+      "purpose": "convert oz values into g",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in oz",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "tonnes-to-kilograms",
+      "title": "Tonnes to Kilograms",
+      "from": "t",
+      "to": "kg",
+      "mode": "linear",
+      "factor": 1000,
+      "op": "convert",
+      "purpose": "convert t values into kg",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in t",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "stone-to-kilograms",
+      "title": "Stone to Kilograms",
+      "from": "st",
+      "to": "kg",
+      "mode": "linear",
+      "factor": 6.35029318,
+      "op": "convert",
+      "purpose": "convert st values into kg",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in st",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "carats-to-grams",
+      "title": "Carats to Grams",
+      "from": "ct",
+      "to": "g",
+      "mode": "linear",
+      "factor": 0.2,
+      "op": "convert",
+      "purpose": "convert ct values into g",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in ct",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "milligrams-to-grams",
+      "title": "Milligrams to Grams",
+      "from": "mg",
+      "to": "g",
+      "mode": "linear",
+      "factor": 0.001,
+      "op": "convert",
+      "purpose": "convert mg values into g",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in mg",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "celsius-to-fahrenheit",
+      "title": "Celsius to Fahrenheit",
+      "from": "°C",
+      "to": "°F",
+      "mode": "cf",
+      "factor": null,
+      "op": "convert",
+      "purpose": "convert °C values into °F",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in °C",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "fahrenheit-to-celsius",
+      "title": "Fahrenheit to Celsius",
+      "from": "°F",
+      "to": "°C",
+      "mode": "fc",
+      "factor": null,
+      "op": "convert",
+      "purpose": "convert °F values into °C",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in °F",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "celsius-to-kelvin",
+      "title": "Celsius to Kelvin",
+      "from": "°C",
+      "to": "K",
+      "mode": "ck",
+      "factor": null,
+      "op": "convert",
+      "purpose": "convert °C values into K",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in °C",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "kelvin-to-celsius",
+      "title": "Kelvin to Celsius",
+      "from": "K",
+      "to": "°C",
+      "mode": "kc",
+      "factor": null,
+      "op": "convert",
+      "purpose": "convert K values into °C",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in K",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "fahrenheit-to-kelvin",
+      "title": "Fahrenheit to Kelvin",
+      "from": "°F",
+      "to": "K",
+      "mode": "fk",
+      "factor": null,
+      "op": "convert",
+      "purpose": "convert °F values into K",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in °F",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "kelvin-to-fahrenheit",
+      "title": "Kelvin to Fahrenheit",
+      "from": "K",
+      "to": "°F",
+      "mode": "kf",
+      "factor": null,
+      "op": "convert",
+      "purpose": "convert K values into °F",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in K",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "square-meters-to-square-feet",
+      "title": "Square Meters to Square Feet",
+      "from": "m²",
+      "to": "ft²",
+      "mode": "linear",
+      "factor": 10.763910417,
+      "op": "convert",
+      "purpose": "convert m² values into ft²",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in m²",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "square-feet-to-square-meters",
+      "title": "Square Feet to Square Meters",
+      "from": "ft²",
+      "to": "m²",
+      "mode": "linear",
+      "factor": 0.09290304,
+      "op": "convert",
+      "purpose": "convert ft² values into m²",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in ft²",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "acres-to-hectares",
+      "title": "Acres to Hectares",
+      "from": "acre",
+      "to": "ha",
+      "mode": "linear",
+      "factor": 0.404685642,
+      "op": "convert",
+      "purpose": "convert acre values into ha",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in acre",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "hectares-to-acres",
+      "title": "Hectares to Acres",
+      "from": "ha",
+      "to": "acre",
+      "mode": "linear",
+      "factor": 2.471053814,
+      "op": "convert",
+      "purpose": "convert ha values into acre",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in ha",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "square-kilometers-to-square-miles",
+      "title": "Square Kilometers to Square Miles",
+      "from": "km²",
+      "to": "mi²",
+      "mode": "linear",
+      "factor": 0.386102159,
+      "op": "convert",
+      "purpose": "convert km² values into mi²",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in km²",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "square-miles-to-square-kilometers",
+      "title": "Square Miles to Square Kilometers",
+      "from": "mi²",
+      "to": "km²",
+      "mode": "linear",
+      "factor": 2.58998811,
+      "op": "convert",
+      "purpose": "convert mi² values into km²",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in mi²",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "square-yards-to-square-meters",
+      "title": "Square Yards to Square Meters",
+      "from": "yd²",
+      "to": "m²",
+      "mode": "linear",
+      "factor": 0.83612736,
+      "op": "convert",
+      "purpose": "convert yd² values into m²",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in yd²",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "square-meters-to-acres",
+      "title": "Square Meters to Acres",
+      "from": "m²",
+      "to": "acre",
+      "mode": "linear",
+      "factor": 0.000247105,
+      "op": "convert",
+      "purpose": "convert m² values into acre",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in m²",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "liters-to-us-gallons",
+      "title": "Liters to US Gallons",
+      "from": "L",
+      "to": "gal",
+      "mode": "linear",
+      "factor": 0.264172052,
+      "op": "convert",
+      "purpose": "convert L values into gal",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in L",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "us-gallons-to-liters",
+      "title": "US Gallons to Liters",
+      "from": "gal",
+      "to": "L",
+      "mode": "linear",
+      "factor": 3.785411784,
+      "op": "convert",
+      "purpose": "convert gal values into L",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in gal",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "milliliters-to-fluid-ounces",
+      "title": "Milliliters to Fluid Ounces",
+      "from": "mL",
+      "to": "fl oz",
+      "mode": "linear",
+      "factor": 0.033814023,
+      "op": "convert",
+      "purpose": "convert mL values into fl oz",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in mL",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "fluid-ounces-to-milliliters",
+      "title": "Fluid Ounces to Milliliters",
+      "from": "fl oz",
+      "to": "mL",
+      "mode": "linear",
+      "factor": 29.573529563,
+      "op": "convert",
+      "purpose": "convert fl oz values into mL",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in fl oz",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "cubic-meters-to-liters",
+      "title": "Cubic Meters to Liters",
+      "from": "m³",
+      "to": "L",
+      "mode": "linear",
+      "factor": 1000,
+      "op": "convert",
+      "purpose": "convert m³ values into L",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in m³",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "cups-to-milliliters",
+      "title": "Cups to Milliliters",
+      "from": "cup",
+      "to": "mL",
+      "mode": "linear",
+      "factor": 236.5882365,
+      "op": "convert",
+      "purpose": "convert cup values into mL",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in cup",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "tablespoons-to-milliliters",
+      "title": "Tablespoons to Milliliters",
+      "from": "tbsp",
+      "to": "mL",
+      "mode": "linear",
+      "factor": 14.7867648,
+      "op": "convert",
+      "purpose": "convert tbsp values into mL",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in tbsp",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "teaspoons-to-milliliters",
+      "title": "Teaspoons to Milliliters",
+      "from": "tsp",
+      "to": "mL",
+      "mode": "linear",
+      "factor": 4.92892159,
+      "op": "convert",
+      "purpose": "convert tsp values into mL",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in tsp",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "kilometers-per-hour-to-mph",
+      "title": "Kilometers per Hour to MPH",
+      "from": "km/h",
+      "to": "mph",
+      "mode": "linear",
+      "factor": 0.621371192,
+      "op": "convert",
+      "purpose": "convert km/h values into mph",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in km/h",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "mph-to-kilometers-per-hour",
+      "title": "MPH to Kilometers per Hour",
+      "from": "mph",
+      "to": "km/h",
+      "mode": "linear",
+      "factor": 1.609344,
+      "op": "convert",
+      "purpose": "convert mph values into km/h",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in mph",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "meters-per-second-to-kph",
+      "title": "Meters per Second to KPH",
+      "from": "m/s",
+      "to": "km/h",
+      "mode": "linear",
+      "factor": 3.6,
+      "op": "convert",
+      "purpose": "convert m/s values into km/h",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in m/s",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "knots-to-kilometers-per-hour",
+      "title": "Knots to Kilometers per Hour",
+      "from": "kn",
+      "to": "km/h",
+      "mode": "linear",
+      "factor": 1.852,
+      "op": "convert",
+      "purpose": "convert kn values into km/h",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in kn",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "feet-per-second-to-meters-per-second",
+      "title": "Feet per Second to Meters per Second",
+      "from": "ft/s",
+      "to": "m/s",
+      "mode": "linear",
+      "factor": 0.3048,
+      "op": "convert",
+      "purpose": "convert ft/s values into m/s",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in ft/s",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "bytes-to-kilobytes",
+      "title": "Bytes to Kilobytes",
+      "from": "B",
+      "to": "KB",
+      "mode": "linear",
+      "factor": 0.0009765625,
+      "op": "convert",
+      "purpose": "convert B values into KB",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in B",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "kilobytes-to-megabytes",
+      "title": "Kilobytes to Megabytes",
+      "from": "KB",
+      "to": "MB",
+      "mode": "linear",
+      "factor": 0.0009765625,
+      "op": "convert",
+      "purpose": "convert KB values into MB",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in KB",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "megabytes-to-gigabytes",
+      "title": "Megabytes to Gigabytes",
+      "from": "MB",
+      "to": "GB",
+      "mode": "linear",
+      "factor": 0.0009765625,
+      "op": "convert",
+      "purpose": "convert MB values into GB",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in MB",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "gigabytes-to-terabytes",
+      "title": "Gigabytes to Terabytes",
+      "from": "GB",
+      "to": "TB",
+      "mode": "linear",
+      "factor": 0.0009765625,
+      "op": "convert",
+      "purpose": "convert GB values into TB",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in GB",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "megabytes-to-kilobytes",
+      "title": "Megabytes to Kilobytes",
+      "from": "MB",
+      "to": "KB",
+      "mode": "linear",
+      "factor": 1024,
+      "op": "convert",
+      "purpose": "convert MB values into KB",
+      "kind": "converter",
+      "category": "Unit Converters",
+      "inputs": [
+        {
+          "label": "Value in MB",
+          "type": "number",
+          "placeholder": "Enter a number"
+        }
+      ]
+    },
+    {
+      "slug": "sum-calculator",
+      "title": "Sum Calculator",
+      "op": "sum",
+      "purpose": "add a list of numbers",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "average-calculator-online",
+      "title": "Average Calculator",
+      "op": "average",
+      "purpose": "calculate the arithmetic mean",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "median-calculator-online",
+      "title": "Median Calculator",
+      "op": "median",
+      "purpose": "find the middle number in a data set",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "mode-calculator-online",
+      "title": "Mode Calculator",
+      "op": "mode",
+      "purpose": "find the most frequent values",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "range-calculator-online",
+      "title": "Range Calculator",
+      "op": "range",
+      "purpose": "subtract the minimum from the maximum",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "minimum-number-finder",
+      "title": "Minimum Number Finder",
+      "op": "minimum",
+      "purpose": "find the smallest number",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "maximum-number-finder",
+      "title": "Maximum Number Finder",
+      "op": "maximum",
+      "purpose": "find the largest number",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "number-product-calculator",
+      "title": "Number Product Calculator",
+      "op": "product",
+      "purpose": "multiply a list of numbers",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "population-variance-calculator",
+      "title": "Population Variance Calculator",
+      "op": "variance",
+      "purpose": "calculate population variance",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "standard-deviation-calculator",
+      "title": "Standard Deviation Calculator",
+      "op": "stddev",
+      "purpose": "calculate population standard deviation",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "geometric-mean-calculator",
+      "title": "Geometric Mean Calculator",
+      "op": "geometric",
+      "purpose": "calculate a geometric mean",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "harmonic-mean-calculator",
+      "title": "Harmonic Mean Calculator",
+      "op": "harmonic",
+      "purpose": "calculate a harmonic mean",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "root-mean-square-calculator",
+      "title": "Root Mean Square Calculator",
+      "op": "rms",
+      "purpose": "calculate the quadratic mean",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "number-count-calculator",
+      "title": "Number Count Calculator",
+      "op": "count",
+      "purpose": "count numeric values in a list",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "number-sorter-online",
+      "title": "Online Number Sorter",
+      "op": "sortnumbers",
+      "purpose": "sort numbers from smallest to largest",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numbers",
+          "type": "textarea",
+          "placeholder": "Enter numbers separated by spaces or commas"
+        }
+      ]
+    },
+    {
+      "slug": "gcd-calculator",
+      "title": "GCD Calculator",
+      "op": "gcd",
+      "purpose": "find the greatest common divisor",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "First integer",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Second integer",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "lcm-calculator",
+      "title": "LCM Calculator",
+      "op": "lcm",
+      "purpose": "find the least common multiple",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "First integer",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Second integer",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "modulo-calculator",
+      "title": "Modulo Calculator",
+      "op": "modulo",
+      "purpose": "calculate a division remainder",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Dividend",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Divisor",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "power-calculator",
+      "title": "Power Calculator",
+      "op": "power",
+      "purpose": "raise a base to an exponent",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Base",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Exponent",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "nth-root-calculator",
+      "title": "Nth Root Calculator",
+      "op": "nthroot",
+      "purpose": "calculate any real root",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Number",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Root",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "logarithm-calculator",
+      "title": "Logarithm Calculator",
+      "op": "logarithm",
+      "purpose": "calculate a logarithm with a chosen base",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Number",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Base",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "percentage-change-calculator",
+      "title": "Percentage Change Calculator",
+      "op": "percentchange",
+      "purpose": "measure percentage increase or decrease",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Original value",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "New value",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "discount-price-calculator",
+      "title": "Discount Price Calculator",
+      "op": "discount",
+      "purpose": "calculate a price after discount",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Original price",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Discount percent",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "markup-calculator",
+      "title": "Markup Calculator",
+      "op": "markup",
+      "purpose": "add a markup percentage to cost",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Cost",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Markup percent",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "profit-margin-calculator",
+      "title": "Profit Margin Calculator",
+      "op": "margin",
+      "purpose": "calculate gross profit margin",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Cost",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Selling price",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "tip-calculator-online",
+      "title": "Tip Calculator",
+      "op": "tip",
+      "purpose": "calculate a tip amount",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Bill amount",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Tip percent",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "sales-tax-calculator",
+      "title": "Sales Tax Calculator",
+      "op": "salestax",
+      "purpose": "add sales tax to an amount",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Amount",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Tax percent",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "simple-interest-calculator",
+      "title": "Simple Interest Calculator",
+      "op": "simpleinterest",
+      "purpose": "calculate simple interest",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Principal",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Annual rate percent",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Years",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "compound-interest-calculator",
+      "title": "Compound Interest Calculator",
+      "op": "compoundinterest",
+      "purpose": "calculate compound balance",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Principal",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Annual rate percent",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Years",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Compounds per year",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "metric-bmi-calculator",
+      "title": "Metric BMI Calculator",
+      "op": "bmi",
+      "purpose": "calculate body mass index from kilograms and centimeters",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Weight in kg",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Height in cm",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "ratio-simplifier",
+      "title": "Ratio Simplifier",
+      "op": "ratio",
+      "purpose": "reduce a two-number ratio",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "First number",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Second number",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "proportion-calculator",
+      "title": "Proportion Calculator",
+      "op": "proportion",
+      "purpose": "solve A divided by B times C",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "A",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "B",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "C",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "fraction-to-decimal-calculator",
+      "title": "Fraction to Decimal Calculator",
+      "op": "fractiondecimal",
+      "purpose": "convert numerator and denominator to decimal",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Numerator",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Denominator",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "decimal-to-percent-calculator",
+      "title": "Decimal to Percent Calculator",
+      "op": "decimalpercent",
+      "purpose": "convert a decimal to percent",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Decimal",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "percent-to-decimal-calculator",
+      "title": "Percent to Decimal Calculator",
+      "op": "percentdecimal",
+      "purpose": "convert a percentage to decimal",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Percent",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "square-calculator",
+      "title": "Square Calculator",
+      "op": "square",
+      "purpose": "square a number",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Number",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "cube-calculator",
+      "title": "Cube Calculator",
+      "op": "cube",
+      "purpose": "cube a number",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Number",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "square-root-calculator",
+      "title": "Square Root Calculator",
+      "op": "squareroot",
+      "purpose": "calculate a principal square root",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Number",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "cube-root-calculator",
+      "title": "Cube Root Calculator",
+      "op": "cuberoot",
+      "purpose": "calculate a cube root",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Number",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "factorial-calculator",
+      "title": "Factorial Calculator",
+      "op": "factorial",
+      "purpose": "calculate the factorial of an integer",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Non-negative integer",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "prime-number-checker",
+      "title": "Prime Number Checker",
+      "op": "prime",
+      "purpose": "test whether an integer is prime",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Integer",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "fibonacci-sequence-generator",
+      "title": "Fibonacci Sequence Generator",
+      "op": "fibonacci",
+      "purpose": "generate Fibonacci terms",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Number of terms",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "quadratic-equation-solver",
+      "title": "Quadratic Equation Solver",
+      "op": "quadratic",
+      "purpose": "solve ax² + bx + c = 0",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "a",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "b",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "c",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "linear-equation-solver",
+      "title": "Linear Equation Solver",
+      "op": "linear",
+      "purpose": "solve ax + b = 0",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "a",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "b",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "decimal-rounding-calculator",
+      "title": "Decimal Rounding Calculator",
+      "op": "round",
+      "purpose": "round a number to chosen decimal places",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Number",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Decimal places",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "random-number-between",
+      "title": "Random Number Between Two Values",
+      "op": "randomnumber",
+      "purpose": "generate an integer in an inclusive range",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Minimum",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Maximum",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "break-even-point-calculator",
+      "title": "Break-Even Point Calculator",
+      "op": "breakeven",
+      "purpose": "calculate fixed cost divided by contribution margin",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Fixed costs",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Price per unit",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Variable cost per unit",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "return-on-investment-calculator",
+      "title": "ROI Calculator",
+      "op": "roi",
+      "purpose": "calculate return on investment percentage",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Initial investment",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Final value",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "cagr-calculator",
+      "title": "CAGR Calculator",
+      "op": "cagr",
+      "purpose": "calculate compound annual growth rate",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Beginning value",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Ending value",
+          "type": "number",
+          "placeholder": ""
+        },
+        {
+          "label": "Years",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "rule-of-72-calculator",
+      "title": "Rule of 72 Calculator",
+      "op": "doubling",
+      "purpose": "estimate investment doubling time",
+      "kind": "calculation",
+      "category": "Math Calculators",
+      "inputs": [
+        {
+          "label": "Annual return percent",
+          "type": "number",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "slug": "random-pin-generator",
+      "title": "Random PIN Generator",
+      "op": "pin",
+      "purpose": "generate random four-digit PINs",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "otp-generator-online",
+      "title": "OTP Generator",
+      "op": "otp",
+      "purpose": "generate random six-digit one-time codes",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "coupon-code-generator",
+      "title": "Coupon Code Generator",
+      "op": "coupon",
+      "purpose": "generate uppercase coupon codes",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-token-generator",
+      "title": "Random Token Generator",
+      "op": "token",
+      "purpose": "generate random alphanumeric tokens",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "api-key-generator",
+      "title": "API Key Generator",
+      "op": "apikey",
+      "purpose": "generate placeholder API keys for development",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-username-generator",
+      "title": "Random Username Generator",
+      "op": "username",
+      "purpose": "generate simple random usernames",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "secure-password-maker",
+      "title": "Secure Password Maker",
+      "op": "password",
+      "purpose": "generate random 16-character passwords",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-hex-color-generator",
+      "title": "Random HEX Color Generator",
+      "op": "hexcolor",
+      "purpose": "generate random hexadecimal colors",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-rgb-color-generator",
+      "title": "Random RGB Color Generator",
+      "op": "rgbcolor",
+      "purpose": "generate random RGB colors",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "css-gradient-generator-random",
+      "title": "Random CSS Gradient Generator",
+      "op": "gradient",
+      "purpose": "generate two-color CSS gradients",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-ipv4-generator",
+      "title": "Random IPv4 Generator",
+      "op": "ipv4",
+      "purpose": "generate random IPv4 examples",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-mac-address-generator",
+      "title": "Random MAC Address Generator",
+      "op": "mac",
+      "purpose": "generate random MAC address examples",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "invoice-number-generator",
+      "title": "Invoice Number Generator",
+      "op": "invoice",
+      "purpose": "generate timestamp-friendly invoice numbers",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "order-number-generator",
+      "title": "Order Number Generator",
+      "op": "order",
+      "purpose": "generate random order references",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-filename-generator",
+      "title": "Random Filename Generator",
+      "op": "filename",
+      "purpose": "generate unique-looking text filenames",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "lorem-ipsum-sentence-generator",
+      "title": "Lorem Ipsum Generator",
+      "op": "lorem",
+      "purpose": "generate placeholder Latin text",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-sentence-generator",
+      "title": "Random Sentence Generator",
+      "op": "sentence",
+      "purpose": "pick a short sample sentence",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-yes-no-generator",
+      "title": "Random Yes or No Generator",
+      "op": "yesno",
+      "purpose": "make a random binary choice",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "dice-roller-online",
+      "title": "Online Dice Roller",
+      "op": "dice",
+      "purpose": "roll a six-sided die",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "coin-flip-online",
+      "title": "Online Coin Flip",
+      "op": "coin",
+      "purpose": "randomly choose heads or tails",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "test-card-number-generator",
+      "title": "Test Card Number Generator",
+      "op": "card",
+      "purpose": "generate display-only test number patterns",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-cvv-generator",
+      "title": "Random CVV Generator",
+      "op": "cvv",
+      "purpose": "generate display-only three-digit codes",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-date-generator",
+      "title": "Random Date Generator",
+      "op": "date",
+      "purpose": "generate random dates near the current year",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-time-generator",
+      "title": "Random Time Generator",
+      "op": "time",
+      "purpose": "generate random 24-hour times",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-emoji-generator",
+      "title": "Random Emoji Generator",
+      "op": "emoji",
+      "purpose": "pick random common emoji",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-country-picker",
+      "title": "Random Country Picker",
+      "op": "country",
+      "purpose": "pick a country from a sample list",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-letter-generator",
+      "title": "Random Letter Generator",
+      "op": "letter",
+      "purpose": "pick random uppercase letters",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "random-number-generator-online",
+      "title": "Random Number Generator",
+      "op": "number",
+      "purpose": "generate random non-negative integers",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "css-box-shadow-generator-random",
+      "title": "Random CSS Box Shadow Generator",
+      "op": "cssshadow",
+      "purpose": "generate CSS box-shadow values",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "css-border-radius-generator",
+      "title": "CSS Border Radius Generator",
+      "op": "borderradius",
+      "purpose": "generate random border-radius values",
+      "kind": "generator",
+      "category": "Generators",
+      "inputs": [
+        {
+          "label": "How many results?",
+          "type": "number",
+          "placeholder": "1"
+        }
+      ]
+    },
+    {
+      "slug": "text-to-hex-converter",
+      "title": "Text to Hex Converter",
+      "op": "hexencode",
+      "purpose": "encode Unicode text as hexadecimal bytes",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "hex-to-text-converter",
+      "title": "Hex to Text Converter",
+      "op": "hexdecode",
+      "purpose": "decode hexadecimal bytes to text",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Hexadecimal bytes",
+          "type": "textarea",
+          "placeholder": "Enter hexadecimal bytes"
+        }
+      ]
+    },
+    {
+      "slug": "text-to-binary-converter",
+      "title": "Text to Binary Converter",
+      "op": "binaryencode",
+      "purpose": "encode text as eight-bit binary bytes",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "binary-to-text-converter",
+      "title": "Binary to Text Converter",
+      "op": "binarydecode",
+      "purpose": "decode space-separated binary bytes",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Binary bytes",
+          "type": "textarea",
+          "placeholder": "Enter binary bytes"
+        }
+      ]
+    },
+    {
+      "slug": "text-to-ascii-converter",
+      "title": "Text to ASCII Code Converter",
+      "op": "asciiencode",
+      "purpose": "convert characters to Unicode code points",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "ascii-to-text-converter",
+      "title": "ASCII Codes to Text Converter",
+      "op": "asciidecode",
+      "purpose": "convert numeric code points to text",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Numeric codes",
+          "type": "textarea",
+          "placeholder": "Enter numeric codes"
+        }
+      ]
+    },
+    {
+      "slug": "json-string-escape-tool",
+      "title": "JSON String Escape Tool",
+      "op": "jsonescape",
+      "purpose": "escape text for a JSON string",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "rot13-converter-online",
+      "title": "ROT13 Converter",
+      "op": "rot13",
+      "purpose": "apply reversible ROT13 letter substitution",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "url-parser-online",
+      "title": "URL Parser",
+      "op": "urlparse",
+      "purpose": "inspect the origin, path and query parameters of a URL",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Absolute URL",
+          "type": "textarea",
+          "placeholder": "Enter absolute url"
+        }
+      ]
+    },
+    {
+      "slug": "query-string-parser",
+      "title": "Query String Parser",
+      "op": "queryparse",
+      "purpose": "convert URL query parameters to JSON",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Query string",
+          "type": "textarea",
+          "placeholder": "Enter query string"
+        }
+      ]
+    },
+    {
+      "slug": "jwt-decoder-online",
+      "title": "JWT Payload Decoder",
+      "op": "jwtdecode",
+      "purpose": "decode the readable payload of a JWT without verification",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "JWT",
+          "type": "textarea",
+          "placeholder": "Enter jwt"
+        }
+      ]
+    },
+    {
+      "slug": "regex-escape-tool",
+      "title": "Regex Escape Tool",
+      "op": "regexescape",
+      "purpose": "escape regular-expression special characters",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "html-minifier-online",
+      "title": "HTML Minifier",
+      "op": "htmlminify",
+      "purpose": "remove comments and optional spacing from HTML",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "HTML",
+          "type": "textarea",
+          "placeholder": "Enter html"
+        }
+      ]
+    },
+    {
+      "slug": "css-minifier-online",
+      "title": "CSS Minifier",
+      "op": "cssminify",
+      "purpose": "remove CSS comments and optional spacing",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "CSS",
+          "type": "textarea",
+          "placeholder": "Enter css"
+        }
+      ]
+    },
+    {
+      "slug": "javascript-minifier-basic",
+      "title": "Basic JavaScript Minifier",
+      "op": "jsminify",
+      "purpose": "remove comments and repeated spacing from simple JavaScript",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "JavaScript",
+          "type": "textarea",
+          "placeholder": "Enter javascript"
+        }
+      ]
+    },
+    {
+      "slug": "email-format-validator",
+      "title": "Email Format Validator",
+      "op": "emailvalidate",
+      "purpose": "check a basic email address format",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Email address",
+          "type": "textarea",
+          "placeholder": "Enter email address"
+        }
+      ]
+    },
+    {
+      "slug": "absolute-url-validator",
+      "title": "Absolute URL Validator",
+      "op": "urlvalidate",
+      "purpose": "check whether text is a valid absolute URL",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "URL",
+          "type": "textarea",
+          "placeholder": "Enter url"
+        }
+      ]
+    },
+    {
+      "slug": "ipv4-address-validator",
+      "title": "IPv4 Address Validator",
+      "op": "ipv4validate",
+      "purpose": "validate dotted IPv4 address syntax",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "IPv4 address",
+          "type": "textarea",
+          "placeholder": "Enter ipv4 address"
+        }
+      ]
+    },
+    {
+      "slug": "uuid-validator-online",
+      "title": "UUID Validator",
+      "op": "uuidvalidate",
+      "purpose": "validate standard UUID syntax and version",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "UUID",
+          "type": "textarea",
+          "placeholder": "Enter uuid"
+        }
+      ]
+    },
+    {
+      "slug": "base64url-encoder",
+      "title": "Base64URL Encoder",
+      "op": "base64urlencode",
+      "purpose": "encode text using URL-safe Base64",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "base64url-decoder",
+      "title": "Base64URL Decoder",
+      "op": "base64urldecode",
+      "purpose": "decode URL-safe Base64 to text",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Base64URL",
+          "type": "textarea",
+          "placeholder": "Enter base64url"
+        }
+      ]
+    },
+    {
+      "slug": "csv-to-html-table-generator",
+      "title": "CSV to HTML Table Generator",
+      "op": "htmltable",
+      "purpose": "turn comma-separated rows into an HTML table",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "CSV data",
+          "type": "textarea",
+          "placeholder": "Enter csv data"
+        }
+      ]
+    },
+    {
+      "slug": "csv-to-markdown-table",
+      "title": "CSV to Markdown Table",
+      "op": "markdowntable",
+      "purpose": "turn comma-separated rows into a Markdown table",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "CSV data",
+          "type": "textarea",
+          "placeholder": "Enter csv data"
+        }
+      ]
+    },
+    {
+      "slug": "meta-title-description-generator",
+      "title": "Meta Title and Description Generator",
+      "op": "metatags",
+      "purpose": "create title and meta description tags",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Page title",
+          "type": "textarea",
+          "placeholder": "Enter page title"
+        },
+        {
+          "label": "Meta description",
+          "type": "textarea",
+          "placeholder": "Enter meta description"
+        }
+      ]
+    },
+    {
+      "slug": "canonical-tag-generator",
+      "title": "Canonical Tag Generator",
+      "op": "canonical",
+      "purpose": "create a canonical link tag",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Canonical URL",
+          "type": "textarea",
+          "placeholder": "Enter canonical url"
+        }
+      ]
+    },
+    {
+      "slug": "robots-txt-generator",
+      "title": "Robots.txt Generator",
+      "op": "robots",
+      "purpose": "create a simple allow-all robots.txt file",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Website origin",
+          "type": "textarea",
+          "placeholder": "Enter website origin"
+        }
+      ]
+    },
+    {
+      "slug": "sha1-hash-generator",
+      "title": "SHA-1 Hash Generator",
+      "op": "sha1",
+      "purpose": "calculate a SHA-1 digest locally",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "sha256-hash-generator",
+      "title": "SHA-256 Hash Generator",
+      "op": "sha256",
+      "purpose": "calculate a SHA-256 digest locally",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "sha384-hash-generator",
+      "title": "SHA-384 Hash Generator",
+      "op": "sha384",
+      "purpose": "calculate a SHA-384 digest locally",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    },
+    {
+      "slug": "sha512-hash-generator",
+      "title": "SHA-512 Hash Generator",
+      "op": "sha512",
+      "purpose": "calculate a SHA-512 digest locally",
+      "kind": "developer",
+      "category": "Developer Tools",
+      "inputs": [
+        {
+          "label": "Text",
+          "type": "textarea",
+          "placeholder": "Enter text"
+        }
+      ]
+    }
+  ]
+}

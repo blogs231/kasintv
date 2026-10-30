@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/morse-code-converter.html">
+    <meta property="og:url" content="https://kasin-tv.com/morse-code-converter.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Morse Code Converter — Text ↔ Morse | Kasin TV</title>
+    <meta name="description" content="Convert text to Morse code or decode Morse to text instantly. Fast, privacy-first, mobile-friendly Morse Code Converter by Kasin TV.">
+    <meta name="keywords" content="morse code converter, text to morse, morse to text, morse code translator, online morse encoder, morse decoder">
+    <meta name="author" content="Kasin TV">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Morse Code Converter — Text ↔ Morse | Kasin TV">
+    <meta property="og:description" content="Convert text to Morse code or decode Morse to text instantly. Fast, privacy-first, mobile-friendly Morse Code Converter by Kasin TV.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://kasin-tv.com/images/morse-code-og.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Morse Code Converter — Kasin TV">
+    <meta name="twitter:description" content="Convert text to Morse code or decode Morse to text instantly. Fast, privacy-first, mobile-friendly.">
+    <meta name="twitter:image" content="https://kasin-tv.com/images/morse-code-og.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Morse Code Converter - Kasin TV",
+      "url": "https://kasin-tv.com/morse-code-converter.html",
+      "description": "Convert text to Morse code or decode Morse to text instantly. Fast, privacy-first, mobile-friendly.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+  <style>
+    :root{
+      --kasin-red:#dc2626;
+      --kasin-dark:#111827;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+    }
+    html,body{height:100%;}
+    body { font-family: 'Inter', sans-serif; background:linear-gradient(180deg,#f8fafc 0%, #f1f5f9 100%); color:var(--kasin-dark); }
+
+    /* Layout */
+    main{padding-top:2.5rem;padding-bottom:2.5rem}
+    header img{border-radius:8px}
+
+    /* Cards */
+    .rounded-xl{border-radius:12px}
+    .shadow-md{box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    .shadow{box-shadow: 0 10px 25px rgba(2,6,23,0.08)}
+
+    /* Buttons */
+    .action-btn{display:inline-flex;align-items:center;gap:.5rem;border:none;cursor:pointer;border-radius:10px;padding:.6rem .9rem;font-weight:600}
+    .action-btn:focus{outline:3px solid rgba(220,38,38,0.12);outline-offset:2px}
+    .action-btn.bg-red-600{background:var(--kasin-red);color:#fff}
+    .action-btn.bg-blue-600{background:#2563eb;color:#fff}
+    .action-btn.bg-green-600{background:#059669;color:#fff}
+    .action-btn.bg-gray-200{background:#f3f4f6}
+    .action-btn:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(2,6,23,0.08)}
+
+    /* Mode buttons */
+    .mode-btn{border-radius:10px;padding:.5rem .9rem}
+    .mode-btn[aria-pressed="true"]{box-shadow:0 6px 18px rgba(16,24,40,0.08), inset 0 -2px 0 rgba(0,0,0,0.04)}
+
+    /* Inputs */
+    textarea{border-radius:10px;border:1px solid #e6e9ef;background:#fcfdff;padding:.85rem;font-size:.95rem}
+    textarea:focus{box-shadow:0 6px 18px rgba(16,24,40,0.06);outline:none;border-color:rgba(220,38,38,0.2)}
+
+    /* Copy popup */
+    .copy-popup{position:fixed;top:14%;right:2rem;background:var(--kasin-red);color:#fff;padding:.5rem .85rem;border-radius:8px;font-weight:600;opacity:0;transform:translateY(-6px);transition:all .2s ease;z-index:2200}
+    .copy-popup.show{opacity:1;transform:translateY(0)}
+
+    /* Ad placeholder */
+    .ad-slot{background:linear-gradient(180deg,#fff 0,#fbfdff 100%);border-radius:8px;border:1px solid #eef2f7;min-height:88px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+
+    /* Responsive tweaks */
+    @media (max-width:640px){
+      .action-btn{padding:.55rem .7rem;font-size:.95rem}
+      .ad-slot{min-height:68px}
+    }
+  </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+  <main class="min-h-screen flex items-start justify-center py-8 px-4">
+    <div class="w-full max-w-4xl">
+      <section class="bg-white rounded-xl shadow-md p-6 mb-6 flex items-center gap-4">
+       
+        <div>
+          <h1 class="text-2xl font-bold">Morse Code Converter</h1>
+          <p class="text-sm text-gray-600 mt-1">Convert text to Morse code or decode Morse to text instantly — privacy-first and fully client-side.</p>
+        </div>
+      </section>
+
+      <!-- Tool card -->
+      <section class="bg-white rounded-xl shadow p-6 mb-6">
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+          <div class="flex-1">
+            <div class="flex gap-2 mb-4" role="tablist" aria-label="Conversion mode">
+              <button id="textToMorseBtn" class="action-btn mode-btn bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold" aria-pressed="true">Text to Morse</button>
+              <button id="morseToTextBtn" class="action-btn mode-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold" aria-pressed="false">Morse to Text</button>
+            </div>
+
+            <label id="inputLabel" for="inputText" class="block text-sm font-semibold mb-2">Enter Text to Convert to Morse Code</label>
+            <textarea id="inputText" aria-labelledby="inputLabel" placeholder='Enter text to convert (e.g., SOS → "... --- ...") or enter Morse using dots, dashes and / for word gap' class="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 h-36 resize-y"></textarea>
+
+            <div class="flex gap-2 mt-4">
+              <button id="convertBtn" class="action-btn bg-red-600 text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2" aria-label="Convert"> <i class="fas fa-exchange-alt"></i> Convert</button>
+              <button id="copyBtn" class="action-btn bg-green-600 text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2" aria-label="Copy result"> <i class="fas fa-copy"></i> Copy Result</button>
+              <button id="resetBtn" class="action-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-lg font-semibold flex items-center gap-2" aria-label="Reset form"> <i class="fas fa-undo"></i> Reset</button>
+            </div>
+          </div>
+
+          <aside class="w-full sm:w-80">
+            <label class="block text-sm font-semibold mb-2">Result</label>
+            <textarea id="resultText" readonly class="w-full p-3 border border-gray-200 rounded-lg bg-gray-50 h-36 resize-y" placeholder="Converted result will appear here..."></textarea>
+            <p id="errorMessage" class="text-sm text-red-600 mt-3 hidden" role="alert">Error: Invalid input. Please check your text or Morse code.</p>
+
+            <!-- Logical ad placement (placeholder) -->
+            <div class="ad-slot mt-4" aria-label="ad-slot">Ad Slot</div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- How it works + Use Cases -->
+      <section class="bg-white rounded-xl shadow p-6 mb-6">
+        <h2 class="text-lg font-bold mb-3">How it works</h2>
+        <ol class="list-decimal list-inside text-sm text-gray-700 space-y-2 mb-4">
+          <li>Choose conversion mode: Text to Morse or Morse to Text.</li>
+          <li>Type or paste your input. For Morse use dot (.), dash (-), space between letters and slash (/) between words.</li>
+          <li>Click Convert — results appear instantly. Copy or download as needed.</li>
+        </ol>
+
+        <h3 class="text-md font-semibold mt-4 mb-2">Common Use Cases</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          <div class="p-3 bg-gray-50 rounded">Learning Morse for ham radio or education</div>
+          <div class="p-3 bg-gray-50 rounded">Generating puzzles or codes for games</div>
+          <div class="p-3 bg-gray-50 rounded">Decoding simple messages from text dumps</div>
+          <div class="p-3 bg-gray-50 rounded">Teaching telecommunication history and encoding</div>
+        </div>
+      </section>
+
+      <!-- Pro Tips + FAQ -->
+      <section class="bg-white rounded-xl shadow p-6 mb-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h2 class="text-lg font-bold mb-3">Pro Tips</h2>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-2">
+              <li>Use uppercase for text-to-Morse for consistency.</li>
+              <li>Separate words in Morse with '/' when decoding.</li>
+              <li>Test on short samples before converting long texts.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold mb-3">FAQ</h2>
+            <details class="bg-gray-50 p-3 rounded mb-2"><summary class="font-semibold">Which characters are supported?</summary><p class="mt-2 text-sm text-gray-700">Letters A-Z, digits 0-9, common punctuation (.,?,!, ,) and space/word separator '/'.</p></details>
+            <details class="bg-gray-50 p-3 rounded mb-2"><summary class="font-semibold">Is my data sent anywhere?</summary><p class="mt-2 text-sm text-gray-700">No — all conversion happens in your browser; nothing is uploaded to a server.</p></details>
+            <details class="bg-gray-50 p-3 rounded mb-2"><summary class="font-semibold">How do I indicate a word gap in Morse?</summary><p class="mt-2 text-sm text-gray-700">Use a slash '/' between words (e.g., '... --- ... / .-.. --- ... -').</p></details>
+            <details class="bg-gray-50 p-3 rounded"><summary class="font-semibold">Can I download the result?</summary><p class="mt-2 text-sm text-gray-700">Yes — copy the result or use your browser's save/copy features. This tool is client-side and supports download via the page UI.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Tools & Footer -->
+      <section class="bg-white rounded-xl shadow p-6 mb-6">
+        <h2 class="text-lg font-bold mb-3">Related Tools</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+          <a href="/find-replace.html" class="p-3 bg-gray-50 rounded text-center">Find & Replace</a>
+          <a href="/html-encode-decode.html" class="p-3 bg-gray-50 rounded text-center">HTML Encoder/Decoder</a>
+          <a href="/url-encode-decode.html" class="p-3 bg-gray-50 rounded text-center">URL Encoder/Decoder</a>
+          
+        </div>
+      </section>
+
+      
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+    </div>
+  </main>
+
+  <script>
+        const morseCodeMap = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
+            'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
+            'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+            'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-',
+            '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.', '.': '.-.-.-', ',': '--..--',
+            '?': '..--..', '!': '-.-.--', ' ': '/'
+        };
+
+        const reverseMorseCodeMap = Object.fromEntries(
+            Object.entries(morseCodeMap).map(([key, value]) => [value, key])
+        );
+
+        let mode = 'textToMorse'; // Default mode: text to Morse
+
+        function showPopup(message = 'Copied!') {
+            const popup = document.createElement('div');
+            popup.className = 'copy-popup';
+            popup.innerHTML = `<i class="fas fa-check-circle mr-2"></i>${message}`;
+            document.body.appendChild(popup);
+            setTimeout(() => popup.classList.add('show'), 10);
+            setTimeout(() => {
+                popup.classList.remove('show');
+                setTimeout(() => popup.remove(), 300);
+            }, 2000);
+        }
+
+        function toggleMode(newMode) {
+            mode = newMode;
+            const textToMorseBtn = document.getElementById('textToMorseBtn');
+            const morseToTextBtn = document.getElementById('morseToTextBtn');
+            const inputLabel = document.getElementById('inputLabel');
+            const convertBtn = document.getElementById('convertBtn');
+
+            if (mode === 'textToMorse') {
+                textToMorseBtn.classList.add('bg-red-600');
+                textToMorseBtn.classList.remove('bg-blue-600');
+                textToMorseBtn.setAttribute('aria-pressed','true');
+                morseToTextBtn.classList.remove('bg-red-600');
+                morseToTextBtn.classList.add('bg-blue-600');
+                morseToTextBtn.setAttribute('aria-pressed','false');
+                inputLabel.textContent = 'Enter Text to Convert to Morse Code';
+                convertBtn.classList.remove('bg-blue-600');
+                convertBtn.classList.add('bg-red-600');
+                document.getElementById('inputText').placeholder = 'Enter text to convert to Morse code (e.g., "SOS" becomes "... --- ...")...';
+            } else {
+                morseToTextBtn.classList.add('bg-blue-600');
+                morseToTextBtn.classList.remove('bg-red-600');
+                morseToTextBtn.setAttribute('aria-pressed','true');
+                textToMorseBtn.classList.remove('bg-blue-600');
+                textToMorseBtn.classList.add('bg-red-600');
+                textToMorseBtn.setAttribute('aria-pressed','false');
+                inputLabel.textContent = 'Enter Morse Code to Convert to Text';
+                convertBtn.classList.remove('bg-red-600');
+                convertBtn.classList.add('bg-blue-600');
+                document.getElementById('inputText').placeholder = 'Enter Morse code to convert to text (e.g., "... --- ..." becomes "SOS")...';
+            }
+            document.getElementById('resultText').value = '';
+            document.getElementById('errorMessage').classList.add('hidden');
+            convertText();
+        }
+
+        function convertText() {
+            const input = document.getElementById('inputText').value.trim();
+            const resultText = document.getElementById('resultText');
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.classList.add('hidden');
+
+            if (!input) {
+                resultText.value = '';
+                return;
+            }
+
+            if (mode === 'textToMorse') {
+                try {
+                    const result = input.toUpperCase().split('').map(char => {
+                        if (morseCodeMap[char]) return morseCodeMap[char];
+                        throw new Error('Invalid character in input');
+                    }).join(' ');
+                    resultText.value = result;
+                } catch (e) {
+                    errorMessage.textContent = 'Error: Invalid text. Only letters, numbers, and common punctuation (., ,, ?, !, space) are supported.';
+                    errorMessage.classList.remove('hidden');
+                    resultText.value = '';
+                }
+            } else {
+                try {
+                    const morseWords = input.split('/').map(word => word.trim());
+                    const result = morseWords.map(word => {
+                        const chars = word.split(' ').filter(c => c);
+                        return chars.map(code => {
+                            if (reverseMorseCodeMap[code]) return reverseMorseCodeMap[code];
+                            throw new Error('Invalid Morse code');
+                        }).join('');
+                    }).join(' ');
+                    resultText.value = result;
+                } catch (e) {
+                    errorMessage.textContent = 'Error: Invalid Morse code. Use dots (.), dashes (-), spaces, and slashes (/) for word separation.';
+                    errorMessage.classList.remove('hidden');
+                    resultText.value = '';
+                }
+            }
+        }
+
+        document.getElementById('textToMorseBtn').addEventListener('click', () => toggleMode('textToMorse'));
+        document.getElementById('morseToTextBtn').addEventListener('click', () => toggleMode('morseToText'));
+        document.getElementById('convertBtn').addEventListener('click', convertText);
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const result = document.getElementById('resultText').value;
+            if (result) {
+                navigator.clipboard.writeText(result).then(() => showPopup('Copied to clipboard!'));
+            } else {
+                showPopup('No text to copy');
+            }
+        });
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            document.getElementById('inputText').value = '';
+            document.getElementById('resultText').value = '';
+            document.getElementById('errorMessage').classList.add('hidden');
+            toggleMode('textToMorse');
+        });
+
+        // Update result on input
+        document.getElementById('inputText').addEventListener('input', convertText);
+
+        // Initialize text to Morse mode
+        toggleMode('textToMorse');
+  </script>
+</body>
+</html>

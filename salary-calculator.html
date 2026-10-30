@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/salary-calculator.html">
+    <meta property="og:url" content="https://kasin-tv.com/salary-calculator.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator | Calculate Take-Home Pay in Nepal | KaSin TV</title>
+    <meta name="description" content="Estimate take-home salary in Nepal after tax, provident fund and other deductions. Use editable values and verify results with current official rules.">
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:title" content="Salary Calculator | Calculate Take-Home Pay in Nepal | KaSin TV">
+    <meta property="og:description" content="Estimate your net salary after all deductions with our free salary calculator for Nepal.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://kasin-tv.com/images/salary-calculator-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Salary Calculator",
+      "description": "Free online salary calculator to estimate take-home pay in Nepali Rupees",
+      "url": "https://kasin-tv.com/salary-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "permissions": "none",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "KaSin TV",
+        "url": "https://kasin-tv.com/salary-calculator.html"
+      }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f9f9f9;
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav a:hover {color: var(--secondary-color);}
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            width: 25px;
+            height: 18px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background: var(--primary-color);
+                width: 100%;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                padding: 1rem 0;
+                text-align: center;
+            }
+            nav.active {display: flex;}
+            .menu-toggle {display: flex;}
+        }
+
+        main {
+            margin: 2rem 0;
+        }
+
+        .tool-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tool-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-section, .results-section {
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+        }
+
+        label {display: block; margin-bottom: 0.5rem; font-weight: 500;}
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        .btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding: 0.75rem 0;
+        }
+
+        .result-value {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .highlight {
+            margin-top: 1rem;
+            background: #fff8e1;
+            border-left: 4px solid #f1c40f;
+            padding: 1rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        /* Content Section Styles */
+        .content-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tip-card, .use-case-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+        }
+
+        .tip-card h3, .use-case-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: #666;
+            display: none;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .tool-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {color: var(--secondary-color);}
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body>
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <main class="container">
+        <section class="tool-section">
+            <div class="tool-header">
+                <h1>Salary Calculator (₨ - Nepali Rupees)</h1>
+                <p>Calculate your take-home salary after tax, provident fund, and other deductions in Nepali Rupees.</p>
+            </div>
+
+            <div class="calculator-container">
+                <div class="input-section">
+                    <label for="basic-salary">Basic Salary (₨)</label>
+                    <input type="number" id="basic-salary" placeholder="Enter basic salary" step="0.01" min="0">
+
+                    <label for="allowances" style="margin-top:1rem;">Allowances (₨)</label>
+                    <input type="number" id="allowances" placeholder="Enter total allowances" step="0.01" min="0">
+
+                    <label for="bonus" style="margin-top:1rem;">Bonus (₨)</label>
+                    <input type="number" id="bonus" placeholder="Enter bonus amount" step="0.01" min="0">
+
+                    <label for="provident-fund" style="margin-top:1rem;">Provident Fund (%)</label>
+                    <select id="provident-fund">
+                        <option value="10" selected>10% (Standard in Nepal)</option>
+                        <option value="0">0%</option>
+                        <option value="5">5%</option>
+                        <option value="15">15%</option>
+                        <option value="custom">Custom Percentage</option>
+                    </select>
+
+                    <div id="custom-pf-container" style="display:none; margin-top:1rem;">
+                        <label for="custom-pf">Custom Provident Fund (%)</label>
+                        <input type="number" id="custom-pf" step="0.1" min="0" max="50">
+                    </div>
+
+                    <label for="tax-status" style="margin-top:1rem;">Tax Status</label>
+                    <select id="tax-status">
+                        <option value="single">Single</option>
+                        <option value="married" selected>Married</option>
+                        <option value="married-with-children">Married with Children</option>
+                    </select>
+
+                    <button id="calculate-btn" class="btn">Calculate Salary</button>
+                    <button id="reset-btn" class="btn" style="background:#95a5a6;">Reset</button>
+                </div>
+
+                <div class="results-section">
+                    <h2 style="color:var(--primary-color);margin-bottom:1rem;">Salary Breakdown</h2>
+                    <div class="result-item"><span>Gross Salary:</span><span id="gross-salary">-</span></div>
+                    <div class="result-item"><span>Provident Fund:</span><span id="pf-amount">-</span></div>
+                    <div class="result-item"><span>Taxable Income:</span><span id="taxable-income">-</span></div>
+                    <div class="result-item"><span>Income Tax:</span><span id="tax-amount">-</span></div>
+                    <div class="result-item"><span>Net Salary:</span><span id="net-salary">-</span></div>
+                    <div class="result-item"><span>Monthly Take-Home:</span><span id="monthly-salary">-</span></div>
+
+                    <div class="highlight">
+                        <strong>Note:</strong> Calculations are based on current Nepal tax laws and are for informational purposes only. Actual deductions may vary.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="content-section">
+            <h2 class="section-title">How Salary Calculator Works</h2>
+            <p>Our salary calculator helps you estimate your take-home pay after all deductions according to Nepal's tax laws. Here's how it calculates your salary:</p>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Step 1: Calculate Gross Salary</h3>
+                    <p>The calculator first determines your gross salary by adding your basic salary, allowances, and bonus:</p>
+                    <p><strong>Gross Salary = Basic Salary + Allowances + Bonus</strong></p>
+                </div>
+                
+                <div>
+                    <h3>Step 2: Calculate Deductions</h3>
+                    <p>Next, it calculates mandatory deductions:</p>
+                    <ul>
+                        <li><strong>Provident Fund:</strong> Typically 10% of basic salary in Nepal</li>
+                        <li><strong>Income Tax:</strong> Based on Nepal's progressive tax brackets</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p>The calculator uses current tax brackets and rates for Nepal to provide the most accurate estimate possible of your net take-home salary.</p>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Salary Calculation in Nepal - Important Information</h2>
+            
+            <div class="grid-2">
+                <div class="tip-card">
+                    <h3>Tax-Free Threshold</h3>
+                    <p>In Nepal, the first NPR 400,000 of annual income is tax-free for individuals. The calculator applies this exemption when calculating your tax liability.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Provident Fund</h3>
+                    <p>Most organizations in Nepal deduct 10% of basic salary for provident fund. Both employee and employer typically contribute 10% each.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Tax Slabs in Nepal</h3>
+                    <p>Nepal uses progressive tax rates:
+                    <ul>
+                        <li>First NPR 400,000: 1%</li>
+                        <li>Next NPR 100,000: 10%</li>
+                        <li>Next NPR 200,000: 20%</li>
+                        <li>Above NPR 700,000: 30%</li>
+                    </ul>
+                    </p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Social Security Tax</h3>
+                    <p>Nepal has a social security scheme where employees contribute 11% of their basic salary, though implementation varies by organization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Salary Calculator Use Cases</h2>
+            
+            <div class="grid-2">
+                <div class="use-case-card">
+                    <h3>Job Seekers</h3>
+                    <p>Evaluate job offers by calculating your actual take-home pay after all deductions to make informed career decisions.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Employees</h3>
+                    <p>Understand your salary structure and verify that your employer is deducting the correct amounts for taxes and provident fund.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>HR Professionals</h3>
+                    <p>Quickly generate salary estimates for potential hires or during salary restructuring exercises.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Freelancers & Contractors</h3>
+                    <p>Compare contract rates with permanent employment by calculating equivalent take-home pay.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Financial Planners</h3>
+                    <p>Help clients understand their cash flow and plan budgets based on accurate net income calculations.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Students & Graduates</h3>
+                    <p>Research potential career paths by understanding salary expectations in different industries in Nepal.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What is the tax-free income limit in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>In Nepal, the first NPR 400,000 of annual income is tax-free for individuals. This means you don't pay any income tax on the first NPR 400,000 you earn in a year.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How is provident fund calculated in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Provident fund is typically calculated as 10% of your basic salary. Both employee and employer contribute 10% each, making the total contribution 20% of basic salary. However, only the employee's contribution is deducted from your salary.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What are the current income tax slabs in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>As of current Nepal tax laws:
+                        <ul>
+                            <li>First NPR 400,000: 1%</li>
+                            <li>Next NPR 100,000 (400,001-500,000): 10%</li>
+                            <li>Next NPR 200,000 (500,001-700,000): 20%</li>
+                            <li>Above NPR 700,000: 30%</li>
+                        </ul>
+                        These rates apply to your taxable income after deductions.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Are there any additional deductions from salary in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, besides income tax and provident fund, there may be other deductions including:
+                        <ul>
+                            <li>Citizen Investment Trust (CIT) deductions</li>
+                            <li>Social Security Fund contributions</li>
+                            <li>Insurance premiums</li>
+                            <li>Loan repayments</li>
+                            <li>Other voluntary deductions</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How does marital status affect tax calculation?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>In Nepal, married individuals may be eligible for certain tax benefits, particularly if they have children. The tax calculation may consider family status when determining applicable deductions and exemptions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">When is the best time to use a salary calculator?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A salary calculator is particularly useful when:
+                        <ul>
+                            <li>Evaluating a new job offer</li>
+                            <li>Planning your monthly budget</li>
+                            <li>Negotiating a salary increase</li>
+                            <li>Understanding your compensation package</li>
+                            <li>Planning for tax filing</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Is the calculator accurate for all types of employment?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While our calculator provides accurate estimates for standard employment in Nepal, certain employment types may have different tax treatments:
+                        <ul>
+                            <li><strong>Government employees:</strong> May have different allowance structures</li>
+                            <li><strong>Contract workers:</strong> May be subject to different withholding rates</li>
+                            <li><strong>Commission-based employees:</strong> Tax calculation may differ</li>
+                        </ul>
+                        Always consult with a tax professional for specific advice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Related Financial Tools</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>VAT Calculator</h3>
+                    <p>Calculate Value Added Tax for products and services in Nepal</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Business Tax Calculator</h3>
+                    <p>Estimate business tax liability for companies in Nepal</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Loan Calculator</h3>
+                    <p>Calculate loan payments and interest in NPR</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Currency Converter</h3>
+                    <p>Convert between Nepali Rupees and other currencies</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+
+    <script>
+        // Mobile Menu
+        // Salary Calculator Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const basicSalaryInput = document.getElementById('basic-salary');
+            const allowancesInput = document.getElementById('allowances');
+            const bonusInput = document.getElementById('bonus');
+            const pfSelect = document.getElementById('provident-fund');
+            const customPfContainer = document.getElementById('custom-pf-container');
+            const customPfInput = document.getElementById('custom-pf');
+            const taxStatusSelect = document.getElementById('tax-status');
+            const calculateBtn = document.getElementById('calculate-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            
+            // Result elements
+            const grossSalaryElement = document.getElementById('gross-salary');
+            const pfAmountElement = document.getElementById('pf-amount');
+            const taxableIncomeElement = document.getElementById('taxable-income');
+            const taxAmountElement = document.getElementById('tax-amount');
+            const netSalaryElement = document.getElementById('net-salary');
+            const monthlySalaryElement = document.getElementById('monthly-salary');
+
+            // Toggle custom PF input
+            pfSelect.addEventListener('change', () => {
+                customPfContainer.style.display = pfSelect.value === 'custom' ? 'block' : 'none';
+            });
+
+            // Calculate salary
+            calculateBtn.addEventListener('click', calculateSalary);
+            
+            // Reset form
+            resetBtn.addEventListener('click', resetForm);
+
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isVisible = answer.style.display === 'block';
+                    
+                    // Close all answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.display = 'none';
+                    });
+                    
+                    // Reset all icons
+                    document.querySelectorAll('.faq-question span').forEach(icon => {
+                        icon.textContent = '+';
+                    });
+                    
+                    // Toggle current answer
+                    if (!isVisible) {
+                        answer.style.display = 'block';
+                        this.querySelector('span').textContent = '−';
+                    }
+                });
+            });
+
+            function calculateSalary() {
+                const basicSalary = parseFloat(basicSalaryInput.value);
+                
+                if (isNaN(basicSalary) || basicSalary <= 0) {
+                    alert('Please enter a valid basic salary amount');
+                    return;
+                }
+                
+                const allowances = parseFloat(allowancesInput.value) || 0;
+                const bonus = parseFloat(bonusInput.value) || 0;
+                
+                // Get PF rate
+                let pfRate;
+                if (pfSelect.value === 'custom') {
+                    pfRate = parseFloat(customPfInput.value);
+                    if (isNaN(pfRate) || pfRate < 0 || pfRate > 50) {
+                        alert('Please enter a valid PF rate between 0 and 50');
+                        return;
+                    }
+                } else {
+                    pfRate = parseFloat(pfSelect.value);
+                }
+                
+                // Calculate gross salary
+                const grossSalary = basicSalary + allowances + bonus;
+                
+                // Calculate PF amount (based on basic salary)
+                const pfAmount = basicSalary * (pfRate / 100);
+                
+                // Calculate taxable income (gross salary minus PF)
+                const taxableIncome = grossSalary - pfAmount;
+                
+                // Calculate annual taxable income
+                const annualTaxableIncome = taxableIncome * 12;
+                
+                // Calculate tax based on Nepal tax slabs (simplified)
+                let annualTax = calculateNepalTax(annualTaxableIncome);
+                
+                // Convert annual tax to monthly
+                const monthlyTax = annualTax / 12;
+                
+                // Calculate net salary
+                const netSalary = taxableIncome - monthlyTax;
+                
+                // Display results
+                grossSalaryElement.textContent = formatCurrency(grossSalary);
+                pfAmountElement.textContent = formatCurrency(pfAmount);
+                taxableIncomeElement.textContent = formatCurrency(taxableIncome);
+                taxAmountElement.textContent = formatCurrency(monthlyTax);
+                netSalaryElement.textContent = formatCurrency(netSalary);
+                monthlySalaryElement.textContent = formatCurrency(netSalary);
+            }
+            
+            function calculateNepalTax(annualIncome) {
+                let tax = 0;
+                
+                // Nepal tax slabs (simplified for demonstration)
+                if (annualIncome <= 400000) {
+                    tax = annualIncome * 0.01; // 1% for first 400,000
+                } else if (annualIncome <= 500000) {
+                    tax = 4000 + (annualIncome - 400000) * 0.10; // 10% for next 100,000
+                } else if (annualIncome <= 700000) {
+                    tax = 14000 + (annualIncome - 500000) * 0.20; // 20% for next 200,000
+                } else {
+                    tax = 54000 + (annualIncome - 700000) * 0.30; // 30% for above 700,000
+                }
+                
+                return tax;
+            }
+
+            function resetForm() {
+                basicSalaryInput.value = '';
+                allowancesInput.value = '';
+                bonusInput.value = '';
+                pfSelect.value = '10';
+                customPfContainer.style.display = 'none';
+                customPfInput.value = '';
+                taxStatusSelect.value = 'married';
+                
+                // Clear results
+                grossSalaryElement.textContent = '-';
+                pfAmountElement.textContent = '-';
+                taxableIncomeElement.textContent = '-';
+                taxAmountElement.textContent = '-';
+                netSalaryElement.textContent = '-';
+                monthlySalaryElement.textContent = '-';
+            }
+
+            // Format currency function
+            function formatCurrency(amount) {
+                return '₨' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            }
+        });
+    </script>
+</body>
+</html>

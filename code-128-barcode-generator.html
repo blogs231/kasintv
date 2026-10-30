@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/code-128-barcode-generator.html">
+    <meta property="og:url" content="https://kasin-tv.com/code-128-barcode-generator.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Free Code 128 Barcode Generator | KaSin TV</title>
+    <meta name="description" content="Free Code-128 Barcode Generator by KaSin TV. Create custom barcodes with captions. Generate SVG code, download as JPG/PNG. Perfect for inventory, retail, and logistics.">
+    <meta name="keywords" content="code-128 barcode generator, free barcode creator, online barcode generator, code-128 barcode maker, barcode with caption, barcode download, svg barcode">
+    <meta name="author" content="KaSin TV Tools Team">
+    <meta property="og:title" content="Code-128 Barcode Generator - Free Online Barcode Creator | KaSin TV">
+    <meta property="og:description" content="Create custom Code-128 barcodes with captions. Generate SVG code and download as JPG/PNG. Free online tool for business and personal use.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Code-128 Barcode Generator - KaSin TV">
+    <meta name="twitter:description" content="Free online Code-128 Barcode Generator to create custom barcodes with captions and download options.">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Code-128 Barcode Generator - KaSin TV",
+        "description": "Free online Code-128 Barcode Generator to create custom barcodes with captions and download options",
+        "url": "https://kasin-tv.com/code-128-barcode-generator.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "KaSin TV",
+            "url": "https://kasin-tv.com/code-128-barcode-generator.html"
+        }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #dc2626;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .input-field {
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(245, 158, 11, 0.3);
+        }
+        
+        .barcode-preview {
+            background: white;
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .barcode-preview.active {
+            border-color: var(--primary-color);
+        }
+        
+        .section-header {
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .copy-popup {
+            animation: popup 2s ease-in-out;
+        }
+        
+        @keyframes popup {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+        
+        .tool-tip {
+            position: relative;
+            cursor: help;
+        }
+        
+        .tool-tip:hover::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 768px) {
+            .tool-card {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .btn-mobile {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body class="min-h-screen py-8">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Header -->
+        <section class="text-center mb-12">
+            <div class="flex items-center justify-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl flex items-center justify-center mr-4">
+                    <i class="fas fa-barcode text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Code-128 Barcode Generator</h1>
+                    <p class="text-blue-600 font-medium">KaSin TV Free Tools</p>
+                </div>
+            </div>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Create professional Code-128 barcodes with custom captions. 
+                Generate SVG code and download as JPG or PNG. Free and instant.
+            </p>
+        </section>
+
+        <!-- Main Tool Section -->
+        <main class="tool-card p-6 md:p-8 mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Input Section -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 section-header">Create Your Barcode</h2>
+                    
+                    <form onsubmit="return false;" class="space-y-6">
+                        <div>
+                            <label for="inputText" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Barcode Content
+                                <span class="tool-tip text-blue-500 ml-1" data-tip="Enter numbers, letters, or symbols for your barcode">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="inputText" 
+                                placeholder="Enter text (e.g., ABC123456)"
+                                class="w-full p-4 input-field rounded-xl focus:outline-none text-base"
+                                aria-describedby="inputTextHelp"
+                            >
+                            <p id="inputTextHelp" class="text-sm text-gray-500 mt-2">Supports alphanumeric characters and common symbols</p>
+                        </div>
+
+                        <div>
+                            <label for="inputCaption" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Caption (Optional)
+                                <span class="tool-tip text-blue-500 ml-1" data-tip="Text displayed below the barcode">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="inputCaption" 
+                                placeholder="Enter caption (e.g., Product Code)"
+                                class="w-full p-4 input-field rounded-xl focus:outline-none text-base"
+                                aria-describedby="inputCaptionHelp"
+                            >
+                            <p id="inputCaptionHelp" class="text-sm text-gray-500 mt-2">Optional text to display below the barcode</p>
+                        </div>
+
+                        <!-- Format Options -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Barcode Height</label>
+                                <select id="heightSelect" class="w-full p-4 input-field rounded-xl focus:outline-none text-base">
+                                    <option value="80">Short (80px)</option>
+                                    <option value="100" selected>Medium (100px)</option>
+                                    <option value="120">Tall (120px)</option>
+                                    <option value="150">Extra Tall (150px)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Bar Width</label>
+                                <select id="widthSelect" class="w-full p-4 input-field rounded-xl focus:outline-none text-base">
+                                    <option value="1">Thin (1px)</option>
+                                    <option value="2" selected>Standard (2px)</option>
+                                    <option value="3">Thick (3px)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+                            <button 
+                                id="generateBtn" 
+                                class="btn-primary text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-barcode mr-2"></i>
+                                Generate
+                            </button>
+                            <button 
+                                id="copyBtn" 
+                                class="btn-secondary text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-copy mr-2"></i>
+                                Copy SVG
+                            </button>
+                            <button 
+                                id="downloadBtn" 
+                                class="btn-accent text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-download mr-2"></i>
+                                Download
+                            </button>
+                            <button 
+                                id="resetBtn" 
+                                class="bg-gray-500 text-white font-semibold py-4 px-6 rounded-xl hover:bg-gray-600 transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-redo mr-2"></i>
+                                Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Preview Section -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 section-header">Barcode Preview</h2>
+                    
+                    <div id="barcodePreview" class="barcode-preview">
+                        <div class="text-center">
+                            <div class="text-gray-400 mb-4">
+                                <i class="fas fa-barcode text-6xl"></i>
+                            </div>
+                            <p class="text-gray-500 text-sm">Enter text above to generate barcode</p>
+                            <p class="text-gray-400 text-xs mt-2">Preview will appear here</p>
+                        </div>
+                    </div>
+
+                    <!-- Generated Content -->
+                    <div class="mt-6 space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">
+                                SVG Code
+                                <span class="tool-tip text-blue-500 ml-1" data-tip="Scalable Vector Graphics code for your barcode">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                            </label>
+                            <textarea 
+                                id="barcodeCode" 
+                                readonly 
+                                class="w-full p-4 border-2 border-gray-200 rounded-xl bg-gray-50 text-sm resize-none h-32 font-mono"
+                                placeholder="Generated SVG code will appear here..."
+                            ></textarea>
+                        </div>
+
+                        <!-- Quick Info -->
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                            <h3 class="font-bold text-blue-900 mb-3 flex items-center">
+                                <i class="fas fa-lightbulb mr-2"></i>
+                                Pro Tips
+                            </h3>
+                            <ul class="text-blue-800 text-sm space-y-2">
+                                <li>• Code-128 supports full ASCII character set</li>
+                                <li>• Use thicker bars for better printing quality</li>
+                                <li>• Taller barcodes are easier to scan from distance</li>
+                                <li>• Test your barcode with multiple scanners</li>
+                            </ul>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div id="errorMessage" class="hidden p-4 bg-red-50 border border-red-200 rounded-xl">
+                            <p class="text-red-700 font-medium text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- How It Works Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-edit text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">1. Enter Content</h3>
+                    <p class="text-gray-600 text-sm">Input your barcode data and optional caption. Choose height and bar width for optimal scanning</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">2. Generate Barcode</h3>
+                    <p class="text-gray-600 text-sm">Our tool creates accurate Code-128 barcodes with proper encoding and checksum validation</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-download text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">3. Download & Use</h3>
+                    <p class="text-gray-600 text-sm">Copy SVG code or download as JPG/PNG for use in documents, labels, or digital media</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Common Use Cases</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-boxes text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Inventory Management</h3>
+                    <p class="text-gray-600 text-sm">Create barcodes for product tracking, stock control, and warehouse management systems</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shopping-cart text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Retail & POS</h3>
+                    <p class="text-gray-600 text-sm">Generate barcodes for price tags, product labels, and point-of-sale systems</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shipping-fast text-purple-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Shipping & Logistics</h3>
+                    <p class="text-gray-600 text-sm">Create tracking barcodes for packages, shipments, and delivery management</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-id-card text-orange-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Asset Tracking</h3>
+                    <p class="text-gray-600 text-sm">Generate barcodes for equipment, tools, and company asset management</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-file-invoice text-red-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Document Management</h3>
+                    <p class="text-gray-600 text-sm">Create barcodes for file tracking, document indexing, and archive systems</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-ticket-alt text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Event & Access</h3>
+                    <p class="text-gray-600 text-sm">Generate barcodes for tickets, access passes, and event registration</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pro Tips Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Pro Barcode Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 rounded-xl p-6">
+                    <h3 class="font-bold text-blue-900 mb-3 flex items-center">
+                        <i class="fas fa-paint-brush mr-2"></i>
+                        Design Best Practices
+                    </h3>
+                    <ul class="text-blue-800 text-sm space-y-2">
+                        <li>• Maintain sufficient quiet zones (margins) on both sides</li>
+                        <li>• Ensure high contrast between bars and background</li>
+                        <li>• Use appropriate bar width for your printing method</li>
+                        <li>• Test barcode readability with multiple scanners</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-xl p-6">
+                    <h3 class="font-bold text-green-900 mb-3 flex items-center">
+                        <i class="fas fa-print mr-2"></i>
+                        Printing Guidelines
+                    </h3>
+                    <ul class="text-green-800 text-sm space-y-2">
+                        <li>• Use 300 DPI or higher resolution for printing</li>
+                        <li>• Laser printers generally produce better barcodes</li>
+                        <li>• Avoid glossy paper that creates glare for scanners</li>
+                        <li>• Test print on actual label stock before mass production</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 rounded-xl p-6">
+                    <h3 class="font-bold text-purple-900 mb-3 flex items-center">
+                        <i class="fas fa-barcode mr-2"></i>
+                        Code-128 Specifics
+                    </h3>
+                    <ul class="text-purple-800 text-sm space-y-2">
+                        <li>• Code-128 supports all 128 ASCII characters</li>
+                        <li>• Includes built-in error detection with checksum</li>
+                        <li>• Most compact of the linear barcode symbologies</li>
+                        <li>• Widely supported by scanning equipment globally</li>
+                    </ul>
+                </div>
+                <div class="bg-orange-50 rounded-xl p-6">
+                    <h3 class="font-bold text-orange-900 mb-3 flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        Quality & Validation
+                    </h3>
+                    <ul class="text-orange-800 text-sm space-y-2">
+                        <li>• Always verify barcode content before deployment</li>
+                        <li>• Use verification tools to check print quality</li>
+                        <li>• Consider barcode grade requirements for your industry</li>
+                        <li>• Keep backup of SVG files for future reprints</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What is Code-128 barcode format?</h3>
+                    <p class="text-gray-600">Code-128 is a high-density linear barcode symbology that can encode all 128 ASCII characters. It's widely used in shipping, packaging, and inventory management due to its compact size and excellent readability.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What characters can I use in Code-128 barcodes?</h3>
+                    <p class="text-gray-600">Code-128 supports the full ASCII character set including uppercase and lowercase letters, numbers, punctuation marks, and special characters. This makes it versatile for various applications.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What's the difference between SVG, JPG, and PNG downloads?</h3>
+                    <p class="text-gray-600">SVG is vector-based and can be scaled without quality loss. JPG is best for photographs but may compress barcode details. PNG is lossless and ideal for digital use with transparent backgrounds.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Why is my barcode not scanning properly?</h3>
+                    <p class="text-gray-600">Common issues include insufficient quiet zones (margins), low contrast, incorrect bar width for the scanning distance, or printing resolution issues. Ensure your barcode meets industry standards for size and quality.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Can I use these barcodes for commercial purposes?</h3>
+                    <p class="text-gray-600">Yes, all barcodes generated with our free tool can be used for personal and commercial purposes without any restrictions or attribution required.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What are the optimal dimensions for printing barcodes?</h3>
+                    <p class="text-gray-600">For most applications, 1-2 inch width with proportional height works well. Ensure your printer supports at least 300 DPI resolution and test print a sample before mass production.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Do you store the barcodes I generate?</h3>
+                    <p class="text-gray-600">No, all barcode generation happens locally in your browser. We don't store your data, barcode content, or generated images on our servers, ensuring complete privacy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">More Free Tools</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="/qr-code-generator.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-500 block text-center">
+                    <i class="fas fa-qrcode text-blue-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">QR Code Generator</h3>
+                </a>
+                <a href="/qr-code-reader.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-green-500 block text-center">
+                    <i class="fas fa-camera text-green-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">QR Code Reader</h3>
+                </a>
+                <a href="/barcode-scanner.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-purple-500 block text-center">
+                    <i class="fas fa-barcode text-purple-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">Barcode Scanner</h3>
+                </a>
+                <a href="/label-maker.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-orange-500 block text-center">
+                    <i class="fas fa-file-alt text-orange-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">Label Maker</h3>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Copy Popup -->
+    <div id="copyPopup" class="copy-popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg font-semibold hidden">
+        Copied to Clipboard!
+    </div>
+
+    <script>
+        function showPopup(message) {
+            const popup = document.getElementById('copyPopup');
+            popup.textContent = message;
+            popup.classList.remove('hidden');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 2000);
+        }
+
+        function generateCode128(text) {
+            if (!text || text.length === 0) {
+                throw new Error('Text input is required');
+            }
+            if (!/^[ -~]+$/.test(text)) {
+                throw new Error('Text must contain only printable ASCII characters (32-126)');
+            }
+
+            // Code-128 character set (simplified for Code-128-B)
+            const code128B = {
+                ' ': 0, '!': 1, '"': 2, '#': 3, '$': 4, '%': 5, '&': 6, "'": 7, '(': 8, ')': 9,
+                '*': 10, '+': 11, ',': 12, '-': 13, '.': 14, '/': 15, '0': 16, '1': 17, '2': 18,
+                '3': 19, '4': 20, '5': 21, '6': 22, '7': 23, '8': 24, '9': 25, ':': 26, ';': 27,
+                '<': 28, '=': 29, '>': 30, '?': 31, '@': 32, 'A': 33, 'B': 34, 'C': 35, 'D': 36,
+                'E': 37, 'F': 38, 'G': 39, 'H': 40, 'I': 41, 'J': 42, 'K': 43, 'L': 44, 'M': 45,
+                'N': 46, 'O': 47, 'P': 48, 'Q': 49, 'R': 50, 'S': 51, 'T': 52, 'U': 53, 'V': 54,
+                'W': 55, 'X': 56, 'Y': 57, 'Z': 58, '[': 59, '\\': 60, ']': 61, '^': 62, '_': 63,
+                '`': 64, 'a': 65, 'b': 66, 'c': 67, 'd': 68, 'e': 69, 'f': 70, 'g': 71, 'h': 72,
+                'i': 73, 'j': 74, 'k': 75, 'l': 76, 'm': 77, 'n': 78, 'o': 79, 'p': 80, 'q': 81,
+                'r': 82, 's': 83, 't': 84, 'u': 85, 'v': 86, 'w': 87, 'x': 88, 'y': 89, 'z': 90,
+                '{': 91, '|': 92, '}': 93, '~': 94
+            };
+
+            // Code-128 patterns (6 bars per character: 3 black, 3 white)
+            const patterns = [
+                "11011001100", "11001101100", "11001100110", "10010011000", "10010001100",
+                "10001001100", "10011001000", "10011000100", "10001100100", "11001001000",
+                "11001000100", "11000100100", "10110011100", "10011011100", "10011001110",
+                "10111001100", "10011101100", "10011100110", "11001110010", "11001011100",
+                "11001001110", "11011100100", "11001110100", "11101101110", "11101001100",
+                "11100101100", "11100100110", "10110011000", "10110001100", "10001101100",
+                "10111011000", "10111000110", "10001110110", "11101101000", "11101100100",
+                "11100110100", "11100110010", "11011011000", "11011000110", "11000110110",
+                "10100011000", "10001011000", "10001000110", "10110001000", "10001101000",
+                "10001100010", "11010001000", "11000101000", "11000100010", "10110111000",
+                "10110001110", "10001101110", "10111010000", "10111000100", "10001110100",
+                "11101011000", "11101000110", "11100010110", "11101101000", "11101100010",
+                "11100011010", "11101111010", "11001000010", "11110001010", "10100110000",
+                "10100001100", "10010110000", "10010000110", "10000101100", "10000100110",
+                "10110010000", "10110000100", "10011010000", "10011000010", "10000110100",
+                "10000110010", "11000010010", "11001010000", "11110111010", "11000010100",
+                "10001111010", "10100111100", "10010111100", "10010011110", "10111100100",
+                "10011110100", "10011110010", "11110100100", "11110010100", "11110010010",
+                "11011011110", "11011110110", "11110110110", "10101111000", "10100101110",
+                "10111101000", "10111100010", "11010111100", "11010011110", "11011110010",
+                "11110111000", "11001111010", "11110011000", "10101101110"
+            ];
+
+            // Start with Code-128-B start code (value 104)
+            let code = [104];
+            let checksum = 104; // Start code value for checksum
+
+            // Encode each character
+            for (let i = 0; i < text.length; i++) {
+                const charValue = code128B[text[i]];
+                if (charValue === undefined) {
+                    throw new Error(`Invalid character: ${text[i]}`);
+                }
+                code.push(charValue);
+                checksum += charValue * (i + 1);
+            }
+
+            // Calculate checksum (mod 103)
+            checksum = checksum % 103;
+            code.push(checksum);
+
+            // Add stop code (value 106)
+            code.push(106);
+
+            // Generate bars
+            let bars = '';
+            code.forEach(value => {
+                bars += patterns[value];
+            });
+
+            return bars;
+        }
+
+        function generateSVG(bars, text, caption, barWidth = 2, height = 100) {
+            const width = bars.length * barWidth;
+            const totalHeight = height + (text ? 30 : 0) + (caption ? 30 : 0);
+            
+            let svg = `<svg width="${width}" height="${totalHeight}" viewBox="0 0 ${width} ${totalHeight}" xmlns="http://www.w3.org/2000/svg">`;
+            
+            // Draw barcode bars
+            for (let i = 0; i < bars.length; i++) {
+                if (bars[i] === '1') {
+                    svg += `<rect x="${i * barWidth}" y="0" width="${barWidth}" height="${height}" fill="black"/>`;
+                }
+            }
+            
+            // Draw text and caption
+            if (text) {
+                svg += `<text x="${width / 2}" y="${height + 20}" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#4b5563">${text}</text>`;
+            }
+            if (caption) {
+                svg += `<text x="${width / 2}" y="${height + (text ? 40 : 20)}" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#6b7280">${caption}</text>`;
+            }
+            
+            svg += '</svg>';
+            return svg;
+        }
+
+        function svgToImage(svg, format = 'jpg') {
+            return new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const img = new Image();
+                const svgBlob = new Blob([svg], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(svgBlob);
+
+                img.onload = () => {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.fillStyle = '#fff';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(img, 0, 0);
+                    
+                    canvas.toBlob(blob => {
+                        resolve(blob);
+                        URL.revokeObjectURL(url);
+                    }, `image/${format}`, format === 'jpg' ? 0.95 : 1);
+                };
+                img.src = url;
+            });
+        }
+
+        function processInput() {
+            const inputText = document.getElementById('inputText').value.trim();
+            const inputCaption = document.getElementById('inputCaption').value.trim();
+            const height = parseInt(document.getElementById('heightSelect').value);
+            const barWidth = parseInt(document.getElementById('widthSelect').value);
+            const barcodeCode = document.getElementById('barcodeCode');
+            const barcodePreview = document.getElementById('barcodePreview');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            errorMessage.classList.add('hidden');
+            barcodeCode.value = '';
+
+            if (!inputText) {
+                barcodePreview.innerHTML = `
+                    <div class="text-center">
+                        <div class="text-gray-400 mb-4">
+                            <i class="fas fa-barcode text-6xl"></i>
+                        </div>
+                        <p class="text-gray-500 text-sm">Enter text above to generate barcode</p>
+                        <p class="text-gray-400 text-xs mt-2">Preview will appear here</p>
+                    </div>
+                `;
+                return;
+            }
+
+            try {
+                const bars = generateCode128(inputText);
+                const svg = generateSVG(bars, inputText, inputCaption, barWidth, height);
+                
+                barcodeCode.value = svg;
+                barcodePreview.innerHTML = svg;
+                barcodePreview.classList.add('active');
+                
+                // Store data for download
+                document.getElementById('downloadBtn').dataset.svg = svg;
+                document.getElementById('downloadBtn').dataset.text = inputText;
+                document.getElementById('downloadBtn').dataset.caption = inputCaption;
+                
+            } catch (e) {
+                errorMessage.querySelector('p').textContent = `Error: ${e.message}`;
+                errorMessage.classList.remove('hidden');
+                barcodePreview.innerHTML = `
+                    <div class="text-center">
+                        <div class="text-red-400 mb-4">
+                            <i class="fas fa-exclamation-triangle text-6xl"></i>
+                        </div>
+                        <p class="text-red-500 text-sm">${e.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Event Listeners
+        document.getElementById('generateBtn').addEventListener('click', processInput);
+        
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const result = document.getElementById('barcodeCode').value;
+            if (result) {
+                navigator.clipboard.writeText(result).then(() => {
+                    showPopup('SVG Code Copied!');
+                }).catch(() => {
+                    const errorMessage = document.getElementById('errorMessage');
+                    errorMessage.querySelector('p').textContent = 'Failed to copy code. Please try again.';
+                    errorMessage.classList.remove('hidden');
+                });
+            } else {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.querySelector('p').textContent = 'No barcode generated. Please generate a barcode first.';
+                errorMessage.classList.remove('hidden');
+            }
+        });
+        
+        document.getElementById('downloadBtn').addEventListener('click', async () => {
+            const svg = document.getElementById('downloadBtn').dataset.svg;
+            const text = document.getElementById('downloadBtn').dataset.text;
+            const caption = document.getElementById('downloadBtn').dataset.caption;
+            
+            if (!svg) {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.querySelector('p').textContent = 'No barcode generated. Please generate a barcode first.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                // Create download options
+                const format = confirm('Download as PNG (Cancel for JPG)?\n\nPNG: Better quality, larger file\nJPG: Smaller file, good for web') ? 'png' : 'jpg';
+                
+                const blob = await svgToImage(svg, format);
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `barcode_${text || 'generated'}.${format}`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                showPopup(`Downloaded as ${format.toUpperCase()}!`);
+            } catch (error) {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.querySelector('p').textContent = 'Download failed. Please try again.';
+                errorMessage.classList.remove('hidden');
+            }
+        });
+        
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            document.getElementById('inputText').value = '';
+            document.getElementById('inputCaption').value = '';
+            document.getElementById('heightSelect').value = '100';
+            document.getElementById('widthSelect').value = '2';
+            document.getElementById('barcodeCode').value = '';
+            document.getElementById('barcodePreview').innerHTML = `
+                <div class="text-center">
+                    <div class="text-gray-400 mb-4">
+                        <i class="fas fa-barcode text-6xl"></i>
+                    </div>
+                    <p class="text-gray-500 text-sm">Enter text above to generate barcode</p>
+                    <p class="text-gray-400 text-xs mt-2">Preview will appear here</p>
+                </div>
+            `;
+            document.getElementById('barcodePreview').classList.remove('active');
+            document.getElementById('errorMessage').classList.add('hidden');
+        });
+
+        // Auto-generate on input changes
+        document.getElementById('inputText').addEventListener('input', processInput);
+        document.getElementById('inputCaption').addEventListener('input', processInput);
+        document.getElementById('heightSelect').addEventListener('change', processInput);
+        document.getElementById('widthSelect').addEventListener('change', processInput);
+
+        // Initialize with example
+        document.getElementById('inputText').value = 'ABC123456';
+        document.getElementById('inputCaption').value = 'Product Code';
+        processInput();
+    </script>
+
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+</body>
+</html>

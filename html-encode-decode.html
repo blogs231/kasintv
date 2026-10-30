@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+        <link rel="canonical" href="https://kasin-tv.com/html-encode-decode.html">
+    <meta property="og:url" content="https://kasin-tv.com/html-encode-decode.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HTML Encoder and Decoder Online | KaSin TV</title>
+  <meta name="description" content="Encode special characters as HTML entities or decode HTML entities into readable text. Free browser-based HTML encoder and decoder with no signup." />
+  <meta name="keywords" content="html encoder, html decoder, html entity converter, encode html entities, decode html entities, online html encoder" />
+  <meta name="author" content="KaSin TV">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free HTML Encoder & Decoder | Online HTML Entity Converter">
+  <meta property="og:description" content="Encode text to safe HTML entities or decode HTML entities to readable text. Works in your browser. No upload required.">
+  <meta property="og:type" content="website">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free HTML Encoder & Decoder">
+  <meta name="twitter:description" content="Encode or decode HTML entities in your browser. Fast, secure, accessible.">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HTML Encode / Decode Tool",
+    "url": "https://kasin-tv.com/html-encode-decode.html",
+    "description": "Encode text to HTML entities or decode HTML entities to plain text in your browser.",
+    "applicationCategory": "DeveloperTool",
+    "operatingSystem": "All"
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,\n    sans-serif;background:#f8fafc}
+    .btn{transition:transform .12s ease,box-shadow .12s ease}
+    .btn:active{transform:translateY(1px)}
+    .toast{position:fixed;left:50%;top:20%;transform:translateX(-50%);padding:.6rem 1rem;border-radius:.5rem;box-shadow:0 6px 18px rgba(2,6,23,.12);z-index:2000;opacity:0;pointer-events:none}
+    .toast.show{opacity:1;pointer-events:auto}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+  <main class="w-full max-w-4xl bg-white rounded-2xl shadow-lg p-6 md:p-10">
+    <section class="text-center mb-6">
+      <div class="flex items-center justify-center gap-3">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden class="text-teal-600">
+          <path d="M3 7h18M3 17h18" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M8 6v12l8-6L8 6z" fill="#0f766e"></path>
+        </svg>
+        <h1 class="text-xl md:text-2xl font-semibold text-slate-800">HTML Encode / Decode Tool</h1>
+      </div>
+      <p class="text-sm text-slate-500 mt-2">Encode special characters to HTML entities. Decode entities to plain text. Works in your browser.</p>
+    </section>
+
+    <section aria-labelledby="tool-heading">
+      <h2 id="tool-heading" class="sr-only">HTML encoder and decoder</h2>
+
+      <div class="flex flex-col md:flex-row gap-4">
+        <div class="flex-1 bg-slate-50 p-4 rounded-lg border border-slate-100">
+          <div class="flex gap-2 mb-3" role="tablist" aria-label="Mode toggle">
+            <button id="encodeBtn" class="btn px-3 py-2 rounded-lg bg-teal-600 text-white font-medium" role="tab" aria-pressed="true">Encode</button>
+            <button id="decodeBtn" class="btn px-3 py-2 rounded-lg bg-slate-100 text-slate-700" role="tab" aria-pressed="false">Decode</button>
+          </div>
+
+          <label for="inputText" id="inputLabel" class="block text-sm font-medium text-slate-700 mb-1">Enter text to encode</label>
+          <textarea id="inputText" class="w-full p-3 rounded-lg border border-slate-200 resize-y h-36 text-sm" placeholder="Type or paste text here" aria-describedby="helperText"></textarea>
+          <p id="helperText" class="text-xs text-slate-400 mt-2">Press Convert to run. Result updates while you type.</p>
+
+          <div class="flex gap-2 mt-4">
+            <button id="convertBtn" class="btn px-4 py-2 rounded-lg bg-teal-600 text-white font-medium">Convert</button>
+            <button id="copyBtn" class="btn px-4 py-2 rounded-lg bg-emerald-600 text-white font-medium">Copy</button>
+            <button id="resetBtn" class="btn px-4 py-2 rounded-lg bg-slate-200 text-slate-700">Reset</button>
+          </div>
+        </div>
+
+        <div class="flex-1 bg-slate-50 p-4 rounded-lg border border-slate-100">
+          <label for="resultText" class="block text-sm font-medium text-slate-700 mb-1">Result</label>
+          <textarea id="resultText" readonly class="w-full p-3 rounded-lg border border-slate-200 bg-white h-36 text-sm" aria-live="polite" aria-atomic="true" placeholder="Converted output appears here"></textarea>
+          <p id="errorMessage" class="text-xs text-red-600 mt-2 hidden">Error: Invalid input.</p>
+        </div>
+      </div>
+
+      <noscript>
+        <div class="mt-4 text-sm text-amber-700">This tool requires JavaScript to run. Enable JavaScript in your browser.</div>
+      </noscript>
+    </section>
+
+    <section class="mt-8 text-slate-600 text-sm">
+      <h3 class="font-semibold text-slate-800">About</h3>
+      <p class="mt-2">This tool converts characters to safe HTML entities. It prevents accidental HTML insertion when you display code on a page. It runs in your browser. No data leaves your device.</p>
+    </section>
+
+    
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+  </main>
+
+  <div id="toast" class="toast rounded-lg bg-slate-900 text-white px-4 py-2" role="status" aria-live="polite"></div>
+
+  <script>
+    // Mode state
+    let mode = 'encode';
+
+    const encodeBtn = document.getElementById('encodeBtn');
+    const decodeBtn = document.getElementById('decodeBtn');
+    const inputText = document.getElementById('inputText');
+    const resultText = document.getElementById('resultText');
+    const convertBtn = document.getElementById('convertBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const errorMessage = document.getElementById('errorMessage');
+    const toast = document.getElementById('toast');
+
+    function setMode(newMode){
+      mode = newMode;
+      const isEncode = mode === 'encode';
+      encodeBtn.setAttribute('aria-pressed', isEncode);
+      decodeBtn.setAttribute('aria-pressed', !isEncode);
+
+      if(isEncode){
+        encodeBtn.classList.add('bg-teal-600','text-white');
+        decodeBtn.classList.remove('bg-teal-600','text-white');
+        decodeBtn.classList.add('bg-slate-100');
+        document.getElementById('inputLabel').textContent = 'Enter text to encode';
+        inputText.placeholder = 'Example: <p> becomes &lt;p&gt;';
+      } else {
+        decodeBtn.classList.add('bg-teal-600','text-white');
+        encodeBtn.classList.remove('bg-teal-600','text-white');
+        encodeBtn.classList.add('bg-slate-100');
+        document.getElementById('inputLabel').textContent = 'Enter HTML-encoded text to decode';
+        inputText.placeholder = 'Example: &lt;p&gt; becomes <p>';
+      }
+      resultText.value = '';
+    }
+
+    function encodeHTML(str){
+      const el = document.createElement('div');
+      el.textContent = str;
+      return el.innerHTML;
+    }
+
+    function decodeHTML(str){
+      const ta = document.createElement('textarea');
+      ta.innerHTML = str;
+      return ta.value;
+    }
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'),1600);
+    }
+
+    function convert(){
+      const val = inputText.value;
+      errorMessage.classList.add('hidden');
+      if(!val){
+        resultText.value = '';
+        return;
+      }
+      try{
+        if(mode === 'encode') resultText.value = encodeHTML(val);
+        else resultText.value = decodeHTML(val);
+      } catch(e){
+        errorMessage.textContent = 'Error: Invalid input.';
+        errorMessage.classList.remove('hidden');
+        resultText.value = '';
+      }
+    }
+
+    encodeBtn.addEventListener('click', ()=>{ setMode('encode'); convert(); });
+    decodeBtn.addEventListener('click', ()=>{ setMode('decode'); convert(); });
+    convertBtn.addEventListener('click', convert);
+    inputText.addEventListener('input', convert);
+
+    copyBtn.addEventListener('click', async ()=>{
+      const text = resultText.value;
+      if(!text) return;
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast('Copied');
+      } catch(e){
+        showToast('Copy failed');
+      }
+    });
+
+    resetBtn.addEventListener('click', ()=>{
+      inputText.value = '';
+      resultText.value = '';
+      errorMessage.classList.add('hidden');
+      setMode('encode');
+    });
+
+    // Initialize
+    setMode('encode');
+  </script>
+</body>
+</html>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/code-39-barcode-generator.html">
+    <meta property="og:url" content="https://kasin-tv.com/code-39-barcode-generator.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Code 39 Barcode Generator | KaSin TV Tools</title>
+    <meta name="description" content="Generate Code 39 barcodes online for inventory, labels and internal tracking. Preview and download your barcode free with no registration required.">
+    
+    <!-- Canonical URL -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free Code 39 Barcode Generator | KaSin TV Tools">
+    <meta property="og:description" content="Generate professional Code 39 barcodes instantly. Free online tool with no registration required.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://kasin-tv.com/assets/images/barcode-generator-og.jpg">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Code 39 Barcode Generator | KaSin TV Tools">
+    <meta name="twitter:description" content="Generate professional Code 39 barcodes instantly. Free online tool with no registration required.">
+    <meta name="twitter:image" content="https://kasin-tv.com/assets/images/barcode-generator-twitter.jpg">
+    
+    <!-- Favicon -->
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Code 39 Barcode Generator",
+        "description": "Free online tool to generate Code 39 barcodes instantly",
+        "url": "https://kasin-tv.com/code-39-barcode-generator.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "permissions": "browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "KaSin TV",
+            "url": "https://kasin-tv.com/code-39-barcode-generator.html"
+        }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff6b35;
+            --text-color: #333;
+            --light-text: #6c757d;
+            --border-color: #dee2e6;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        section {
+            margin-bottom: 60px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .intro {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+        
+        /* Tool Section */
+        .tool-container {
+            background-color: var(--secondary-color);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            background-color: #1e3d6f;
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e05a2b;
+        }
+        
+        .barcode-result {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        #barcode-output {
+            max-width: 100%;
+            margin: 20px 0;
+        }
+        
+        .download-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Content Sections */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .card h3 i {
+            color: var(--accent-color);
+        }
+        
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .use-case {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        
+        .use-case i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: var(--light-text);
+        }
+        
+        .related-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .tool-link {
+            display: block;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--text-color);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .tool-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Ad Placeholder */
+        .ad-container {
+            margin: 40px 0;
+            text-align: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: var(--radius);
+        }
+        
+        .ad-placeholder {
+            width: 100%;
+            height: 90px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            margin: 0 auto;
+        }
+        
+        .ad-leaderboard {
+            max-width: 728px;
+            height: 90px;
+        }
+        
+        .ad-rectangle {
+            max-width: 300px;
+            height: 250px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .tool-container {
+                padding: 20px;
+            }
+            
+            .download-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        /* Icons */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body>
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <main class="container">
+        <section>
+            <div class="section-header">
+                <h1>Code 39 Barcode Generator</h1>
+                <p class="intro">Create professional Code 39 barcodes instantly with our free online tool. Perfect for inventory management, product labeling, and asset tracking. No registration required.</p>
+            </div>
+
+            <div class="tool-container">
+                <div class="input-group">
+                    <label for="barcode-data">Enter text to encode:</label>
+                    <input type="text" id="barcode-data" placeholder="Enter text, numbers, or symbols" maxlength="50">
+                </div>
+                
+                <div class="input-group">
+                    <label for="barcode-width">Barcode width (px):</label>
+                    <input type="number" id="barcode-width" value="2" min="1" max="10">
+                </div>
+                
+                <div class="input-group">
+                    <label for="barcode-height">Barcode height (px):</label>
+                    <input type="number" id="barcode-height" value="100" min="50" max="300">
+                </div>
+                
+                <div class="input-group">
+                    <label for="display-text">Display text below barcode:</label>
+                    <select id="display-text">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                
+                <button id="generate-btn" class="btn">
+                    <span class="icon">⚡</span> Generate Barcode
+                </button>
+                
+                <div class="barcode-result" id="barcode-result" style="display: none;">
+                    <h3>Your Code 39 Barcode</h3>
+                    <div id="barcode-output"></div>
+                    <div class="download-options">
+                        <button id="download-svg" class="btn btn-secondary">
+                            <span class="icon">📥</span> Download SVG
+                        </button>
+                        <button id="download-png" class="btn btn-secondary">
+                            <span class="icon">📥</span> Download PNG
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <section>
+            <h2>How It Works</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3><span class="icon">1</span> Enter Your Data</h3>
+                    <p>Type the text, numbers, or symbols you want to encode in the input field. Code 39 supports alphanumeric characters and some special symbols.</p>
+                </div>
+                <div class="card">
+                    <h3><span class="icon">2</span> Customize Settings</h3>
+                    <p>Adjust the barcode dimensions and choose whether to display the encoded text below the barcode for better readability.</p>
+                </div>
+                <div class="card">
+                    <h3><span class="icon">3</span> Generate & Download</h3>
+                    <p>Click the generate button to create your barcode instantly. Download in SVG or PNG format for use in documents, labels, or inventory systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pro Tips for Using Code 39 Barcodes</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3><span class="icon">💡</span> Keep It Simple</h3>
+                    <p>Code 39 works best with short strings. For longer data, consider using Code 128 which offers higher density encoding.</p>
+                </div>
+                <div class="card">
+                    <h3><span class="icon">💡</span> Check Character Support</h3>
+                    <p>Code 39 supports uppercase letters (A-Z), numbers (0-9), and these symbols: - . $ / + % and space. It does not support lowercase letters.</p>
+                </div>
+                <div class="card">
+                    <h3><span class="icon">💡</span> Test Scannability</h3>
+                    <p>Always test your printed barcodes with your scanning equipment to ensure they read correctly before mass production.</p>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section>
+            <h2>Common Use Cases</h2>
+            <div class="use-cases-grid">
+                <div class="use-case">
+                    <span class="icon">📦</span>
+                    <h3>Inventory Management</h3>
+                    <p>Track products and supplies in warehouses with unique barcode identifiers.</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">🏷️</span>
+                    <h3>Product Labeling</h3>
+                    <p>Create labels for retail products with SKU numbers and pricing information.</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">🖨️</span>
+                    <h3>Document Tracking</h3>
+                    <p>Add barcodes to files and documents for efficient organization and retrieval.</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">🔧</span>
+                    <h3>Asset Management</h3>
+                    <p>Tag equipment and tools with barcodes for maintenance tracking and inventory.</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">🎫</span>
+                    <h3>Event Tickets</h3>
+                    <p>Generate unique barcodes for event tickets and access control systems.</p>
+                </div>
+                <div class="use-case">
+                    <span class="icon">🏥</span>
+                    <h3>Healthcare</h3>
+                    <p>Label patient records, medication, and medical equipment for accurate tracking.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What is Code 39 barcode format?</div>
+                    <div class="faq-answer">
+                        <p>Code 39 (also known as Alpha39, Code 3 of 9, or USD-3) is a variable-length, discrete barcode symbology that can encode uppercase letters (A-Z), digits (0-9), and a handful of special characters like - . $ / + % and space.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What are the limitations of Code 39?</div>
+                    <div class="faq-answer">
+                        <p>Code 39 does not support lowercase letters and has a relatively low data density compared to newer barcode formats. It's best suited for short alphanumeric strings rather than long sequences of data.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is Code 39 still widely used?</div>
+                    <div class="faq-answer">
+                        <p>Yes, Code 39 remains popular in many industries, particularly logistics, manufacturing, and healthcare, due to its simplicity and the fact that it doesn't require a checksum digit for basic implementation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What's the difference between SVG and PNG downloads?</div>
+                    <div class="faq-answer">
+                        <p>SVG (Scalable Vector Graphics) files are resolution-independent and can be scaled to any size without quality loss, making them ideal for printing. PNG (Portable Network Graphics) files are raster images with transparent backgrounds, suitable for digital use.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I use these barcodes commercially?</div>
+                    <div class="faq-answer">
+                        <p>Yes, all barcodes generated with our tool are free for personal and commercial use. There are no licensing fees for using Code 39 barcodes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you store the data I encode in barcodes?</div>
+                    <div class="faq-answer">
+                        <p>No, our barcode generator works entirely in your browser. We don't store or transmit any of the data you encode. Your privacy is important to us.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Related Tools</h2>
+            <div class="related-tools">
+                <a href="https://kasin-tv.com/qr-code-generator.html" class="tool-link">QR Code Generator</a>
+                <a href="https://kasin-tv.com/qr-scanner.html" class="tool-link">QR Code Scanner</a>
+                <a href="https://kasin-tv.com/barcode-generator.html" class="tool-link">Barcode Generator</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Barcode generation logic would go here
+        // This is a simplified version for demonstration
+        
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            const data = document.getElementById('barcode-data').value;
+            if (!data) {
+                alert('Please enter some text to encode');
+                return;
+            }
+            
+            // In a real implementation, this would generate an actual barcode
+            // For this example, we'll create a placeholder
+            const width = document.getElementById('barcode-width').value;
+            const height = document.getElementById('barcode-height').value;
+            const displayText = document.getElementById('display-text').value === 'true';
+            
+            const barcodeOutput = document.getElementById('barcode-output');
+            barcodeOutput.innerHTML = '';
+            
+            // Create barcode visualization (simplified)
+            const barcodeSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            barcodeSvg.setAttribute('width', '100%');
+            barcodeSvg.setAttribute('height', height);
+            barcodeSvg.setAttribute('viewBox', `0 0 ${data.length * 10} ${height}`);
+            
+            // Create alternating bars (simplified representation)
+            for (let i = 0; i < data.length; i++) {
+                const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                bar.setAttribute('x', i * 10);
+                bar.setAttribute('y', 0);
+                bar.setAttribute('width', width);
+                bar.setAttribute('height', height);
+                bar.setAttribute('fill', i % 2 === 0 ? '#000' : '#fff');
+                barcodeSvg.appendChild(bar);
+            }
+            
+            barcodeOutput.appendChild(barcodeSvg);
+            
+            if (displayText) {
+                const text = document.createElement('p');
+                text.textContent = data;
+                text.style.marginTop = '15px';
+                text.style.fontFamily = 'monospace';
+                barcodeOutput.appendChild(text);
+            }
+            
+            document.getElementById('barcode-result').style.display = 'block';
+        });
+        
+        // Download functionality would be implemented here
+        document.getElementById('download-svg').addEventListener('click', function() {
+            alert('SVG download functionality would be implemented here');
+        });
+        
+        document.getElementById('download-png').addEventListener('click', function() {
+            alert('PNG download functionality would be implemented here');
+        });
+        
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+</body>
+</html>

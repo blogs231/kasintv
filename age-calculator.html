@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/age-calculator.html">
+    <meta property="og:url" content="https://kasin-tv.com/age-calculator.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Age Calculator Tool - Free Online Age Calculation | KaSin TV</title>
+    <meta name="description" content="Calculate exact age from a date of birth in years, months and days. See total weeks, hours and the next birthday countdown instantly on any device.">
+    <meta name="keywords" content="age calculator, online age calculator, free age calculator tool, calculate age online, age in years months days, age in weeks hours minutes seconds, day of birth calculator, next birthday calculator, age calculation tool, birthday age calculator, precise age calculator, age from date of birth, age calculator online free, how old am i calculator, age computation tool, kasin tv">
+    <meta name="author" content="KaSin TV">
+    <meta property="og:title" content="Age Calculator Tool - Free Online Age Calculation | Kasin TV">
+    <meta property="og:description" content="Calculate your age accurately with Kasin TV's free online Age Calculator. Get instant results for age in years, months, days, weeks, hours, minutes, seconds, and real-time birthday countdown.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Age Calculator Tool - Free Online Age Calculation | Kasin TV">
+    <meta name="twitter:description" content="Calculate your age accurately with Kasin TV's free online Age Calculator. Get instant results for age in years, months, days, and real-time birthday countdown.">
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Age Calculator Tool - Kasin TV",
+            "description": "A free online Age Calculator Tool by Kasin TV to compute age in years, months, days, weeks, hours, minutes, seconds, day of birth, and real-time birthday countdown. Ideal for personal planning on all devices.",
+            "url": "https://kasin-tv.com/age-calculator.html",
+            "applicationCategory": "Utility",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "author": {
+                "@type": "Organization",
+                "name": "Kasin TV",
+                "url": "https://kasin-tv.com/age-calculator.html"
+            },
+            "keywords": ["age calculator", "online age calculator", "free age calculator tool", "calculate age online", "age in years months days", "age in weeks hours minutes seconds", "day of birth calculator", "next birthday calculator", "age calculation tool", "birthday age calculator", "precise age calculator", "age from date of birth", "age calculator online free", "how old am i calculator", "age computation tool"]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is the Kasin TV Age Calculator Tool?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The Kasin TV Age Calculator Tool is a free online age calculator designed for accurate age computation. This tool supports age in years, months, days, weeks, hours, minutes, seconds, day of birth calculation, and next birthday countdown, making it a reliable calculator for personal planning."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How to use the Kasin TV Age Calculator?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Simply enter your birth date using the date picker. Click 'Calculate' to get instant age results including years, months, days, and a real-time countdown to your next birthday. The tool is secure, browser-based, and works on all devices."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Why use the Kasin TV Age Calculator?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Kasin TV's age calculator is fast, accurate, and user-friendly, offering seamless age calculations with real-time birthday countdown. It provides reliable estimates and works perfectly on all devices without requiring any downloads or installations."
+                    }
+                }
+            ]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.kasin-tv.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Age Calculator",
+                    "item": "https://kasin-tv.com/age-calculator.html"
+                }
+            ]
+        }
+    ]
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .action-btn {
+            transition: all 0.3s ease;
+        }
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .action-btn:active {
+            transform: scale(0.98);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .result-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .result-table th, .result-table td {
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+        }
+        .result-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .result-table td {
+            color: #4b5563;
+            background: white;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .result-table tr:last-child td {
+            border-bottom: none;
+        }
+        .result-table tr:nth-child(even) td {
+            background-color: #f9fafb;
+        }
+        @media (max-width: 640px) {
+            .result-table th, .result-table td {
+                padding: 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
+        input[type="date"] {
+            font-family: 'Poppins', sans-serif;
+        }
+        .input-focus:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .logo-text {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <div class="glass-effect rounded-2xl shadow-2xl p-4 sm:p-6 md:p-10 w-full max-w-5xl">
+        <!-- Header Section -->
+        <section class="text-center mb-8">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-tv text-4xl sm:text-5xl mr-3 gradient-text"></i>
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text logo-text">KASIN TV</h1>
+            </div>
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-birthday-cake text-purple-600 text-2xl sm:text-3xl mr-3"></i>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">Age Calculator</h2>
+            </div>
+            <p class="text-xs sm:text-sm md:text-base text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Calculate your age accurately with Kasin TV's free online Age Calculator. Get instant results for age in years, months, days, weeks, hours, minutes, seconds, and real-time birthday countdown. Perfect for personal planning on all devices.
+            </p>
+        </section>
+
+        <!-- Age Calculator Form and Output -->
+        <section class="mb-8">
+            <div class="bg-gradient-to-br from-purple-50 to-indigo-50 p-6 rounded-xl border-2 border-purple-200 shadow-lg">
+                <form onsubmit="return false;">
+                    <div class="mb-6">
+                        <label class="block text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-3 flex items-center" for="birthDateInput">
+                            <i class="fas fa-calendar-day text-purple-600 mr-2"></i>
+                            Select Your Birth Date
+                        </label>
+                        <input id="birthDateInput" class="w-full p-3 sm:p-4 border-2 border-purple-300 rounded-xl input-focus transition text-sm sm:text-base font-medium" type="date" max="" aria-describedby="birthDateInputHelp">
+                        <p id="birthDateInputHelp" class="text-xs sm:text-sm text-gray-600 mt-2 ml-1">
+                            <i class="fas fa-info-circle text-purple-500 mr-1"></i>
+                            Please select your date of birth (must be in the past)
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                        <button type="button" id="calculateBtn" class="action-btn bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-xl hover:from-purple-700 hover:to-indigo-700 shadow-lg flex items-center justify-center text-sm sm:text-base">
+                            <i class="fas fa-calculator mr-2"></i>
+                            Calculate
+                        </button>
+                        <button type="button" id="resetBtn" class="action-btn bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-xl hover:from-pink-600 hover:to-rose-600 shadow-lg flex items-center justify-center text-sm sm:text-base">
+                            <i class="fas fa-redo mr-2"></i>
+                            Reset
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-8">
+                    <label class="block text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-chart-line text-purple-600 mr-2"></i>
+                        Your Age Calculation Results
+                    </label>
+                    <div class="overflow-x-auto rounded-xl">
+                        <table class="result-table" aria-describedby="resultHelp">
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><i class="fas fa-list mr-2"></i>Metric</th>
+                                    <th class="text-left"><i class="fas fa-chart-bar mr-2"></i>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultTable">
+                                <tr><td class="font-medium">Age (Years, Months, Days)</td><td id="ageYMD" class="font-semibold text-purple-700">-</td></tr>
+                                <tr><td class="font-medium">Total Weeks</td><td id="totalWeeks" class="font-semibold text-purple-700">-</td></tr>
+                                <tr><td class="font-medium">Total Hours</td><td id="totalHours" class="font-semibold text-purple-700">-</td></tr>
+                                <tr><td class="font-medium">Total Minutes</td><td id="totalMinutes" class="font-semibold text-purple-700">-</td></tr>
+                                <tr><td class="font-medium">Total Seconds</td><td id="totalSeconds" class="font-semibold text-purple-700">-</td></tr>
+                                <tr><td class="font-medium">Day of Birth</td><td id="birthDay" class="font-semibold text-purple-700">-</td></tr>
+                                <tr><td class="font-medium">Next Birthday In</td><td id="nextBirthday" class="font-semibold text-purple-700">-</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p id="resultHelp" class="text-xs sm:text-sm text-gray-600 mt-3 ml-1">
+                        <i class="fas fa-clock text-purple-500 mr-1"></i>
+                        Results are calculated based on today's date and update in real-time
+                    </p>
+                    <p id="errorMessage" class="text-sm sm:text-base text-red-600 mt-3 ml-1 hidden font-medium" role="alert" aria-live="assertive">
+                        <i class="fas fa-exclamation-triangle mr-1"></i>
+                        Error: Please enter a valid birth date.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="feature-card bg-white p-4 rounded-xl shadow-md text-center border-2 border-purple-100">
+                <i class="fas fa-bolt text-3xl text-purple-600 mb-2"></i>
+                <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Fast & Accurate</h3>
+                <p class="text-xs text-gray-600 mt-1">Instant calculations with precise results</p>
+            </div>
+            <div class="feature-card bg-white p-4 rounded-xl shadow-md text-center border-2 border-purple-100">
+                <i class="fas fa-shield-alt text-3xl text-purple-600 mb-2"></i>
+                <h3 class="font-semibold text-gray-800 text-sm sm:text-base">100% Private</h3>
+                <p class="text-xs text-gray-600 mt-1">All calculations done in your browser</p>
+            </div>
+            <div class="feature-card bg-white p-4 rounded-xl shadow-md text-center border-2 border-purple-100">
+                <i class="fas fa-mobile-alt text-3xl text-purple-600 mb-2"></i>
+                <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Mobile Friendly</h3>
+                <p class="text-xs text-gray-600 mt-1">Works perfectly on all devices</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="mt-10">
+            <div class="bg-gradient-to-r from-purple-100 to-indigo-100 p-4 sm:p-6 rounded-xl mb-6">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    <i class="fas fa-info-circle text-purple-600 mr-3"></i>
+                    About Kasin TV Age Calculator
+                </h2>
+            </div>
+            
+            <article class="mb-6 bg-white p-5 rounded-xl shadow-md border border-purple-100">
+                <h3 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-question-circle text-purple-600 mr-2"></i>
+                    What is the Kasin TV Age Calculator?
+                </h3>
+                <p class="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">
+                    The Kasin TV Age Calculator is a free, powerful online tool designed for accurate age computation. Calculate your age in years, months, days, weeks, hours, minutes, and seconds. Our calculator also shows you the day of the week you were born and provides a real-time countdown to your next birthday. Perfect for personal planning, milestone tracking, or simply satisfying your curiosity.
+                </p>
+            </article>
+            
+            <article class="mb-6 bg-white p-5 rounded-xl shadow-md border border-purple-100">
+                <h3 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-user-check text-purple-600 mr-2"></i>
+                    How to Use This Age Calculator
+                </h3>
+                <p class="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">
+                    Using Kasin TV's Age Calculator is simple and straightforward. Enter your birth date using the date picker, then click the "Calculate" button. You'll instantly receive comprehensive age information including your exact age in years, months, and days, plus total weeks, hours, minutes, and seconds you've been alive. The calculator also displays the day of the week you were born and shows a live countdown to your next birthday. Click "Reset" to clear all fields and start over.
+                </p>
+            </article>
+            
+            <article class="mb-6 bg-white p-5 rounded-xl shadow-md border border-purple-100">
+                <h3 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-star text-purple-600 mr-2"></i>
+                    Why Choose Kasin TV's Age Calculator?
+                </h3>
+                <p class="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">
+                    Kasin TV's Age Calculator stands out with its fast, accurate, and user-friendly interface. Our tool provides detailed age calculations with a beautiful, modern design that works seamlessly on all devices - desktop, tablet, and mobile. All calculations are performed directly in your browser, ensuring complete privacy and security. No downloads, no installations, no registration required - just instant, reliable age calculations whenever you need them.
+                </p>
+            </article>
+        </section>
+
+        <!-- Footer Section -->
+        
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+    </div>
+
+    <script>
+        function trackEvent(event, data) {
+            console.log(`Event: ${event}`, data);
+        }
+        trackEvent('page_load', { page: window.location.href });
+
+        let countdownInterval = null;
+
+        function formatCountdown(untilMs) {
+            const untilDays = Math.floor(untilMs / (1000 * 60 * 60 * 24));
+            const untilHours = Math.floor((untilMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const untilMinutes = Math.floor((untilMs % (1000 * 60 * 60)) / (1000 * 60));
+            const untilSeconds = Math.floor((untilMs % (1000 * 60)) / 1000);
+            return untilDays >= 0 ? `${untilDays} Days, ${untilHours} Hours, ${untilMinutes} Minutes, ${untilSeconds} Seconds` : '🎉 Today is your birthday!';
+        }
+
+        function startCountdown(birthDate, nextBirthday) {
+            if (countdownInterval) clearInterval(countdownInterval);
+            countdownInterval = setInterval(() => {
+                const now = new Date();
+                const untilMs = nextBirthday - now;
+                document.getElementById('nextBirthday').textContent = formatCountdown(untilMs);
+                if (untilMs < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('nextBirthday').textContent = '🎉 Today is your birthday!';
+                }
+            }, 1000);
+        }
+
+        function calculateAge(birthDateStr) {
+            try {
+                const birthDate = new Date(birthDateStr);
+                const today = new Date();
+                if (isNaN(birthDate) || birthDate > today) {
+                    throw new Error('Invalid or future birth date');
+                }
+                const diffMs = today - birthDate;
+                const diffSeconds = Math.floor(diffMs / 1000);
+                const diffMinutes = Math.floor(diffSeconds / 60);
+                const diffHours = Math.floor(diffMinutes / 60);
+                const diffDays = Math.floor(diffHours / 24);
+                const diffWeeks = Math.floor(diffDays / 7);
+                let years = today.getFullYear() - birthDate.getFullYear();
+                let months = today.getMonth() - birthDate.getMonth();
+                let days = today.getDate() - birthDate.getDate();
+                if (days < 0) {
+                    months--;
+                    days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+                }
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+                let nextBirthdayYear = today.getFullYear();
+                let nextBirthday = new Date(nextBirthdayYear, birthDate.getMonth(), birthDate.getDate());
+                const todayZeroed = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+                if (nextBirthday.getTime() === todayZeroed.getTime()) {
+                    nextBirthday = new Date(nextBirthdayYear + 1, birthDate.getMonth(), birthDate.getDate());
+                } else if (nextBirthday < today) {
+                    nextBirthday = new Date(nextBirthdayYear + 1, birthDate.getMonth(), birthDate.getDate());
+                }
+                if (birthDate.getMonth() === 1 && birthDate.getDate() === 29) {
+                    const isLeapYear = (year) => (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+                    if (!isLeapYear(nextBirthday.getFullYear())) {
+                        nextBirthday.setDate(28);
+                    }
+                }
+                const untilMs = nextBirthday - today;
+                const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const birthDayOfWeek = daysOfWeek[birthDate.getDay()];
+                return {
+                    ageYMD: `${years} Years, ${months} Months, ${days} Days`,
+                    totalWeeks: diffWeeks.toLocaleString(),
+                    totalHours: diffHours.toLocaleString(),
+                    totalMinutes: diffMinutes.toLocaleString(),
+                    totalSeconds: diffSeconds.toLocaleString(),
+                    birthDay: birthDayOfWeek,
+                    nextBirthday: formatCountdown(untilMs),
+                    nextBirthdayDate: nextBirthday
+                };
+            } catch (e) {
+                throw new Error('Error calculating age: ' + e.message);
+            }
+        }
+
+        document.getElementById('calculateBtn').addEventListener('click', () => {
+            const birthDate = document.getElementById('birthDateInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const calculateBtn = document.getElementById('calculateBtn');
+            errorMessage.classList.add('hidden');
+            if (countdownInterval) clearInterval(countdownInterval);
+            document.getElementById('ageYMD').textContent = '-';
+            document.getElementById('totalWeeks').textContent = '-';
+            document.getElementById('totalHours').textContent = '-';
+            document.getElementById('totalMinutes').textContent = '-';
+            document.getElementById('totalSeconds').textContent = '-';
+            document.getElementById('birthDay').textContent = '-';
+            document.getElementById('nextBirthday').textContent = '-';
+            if (!birthDate) {
+                errorMessage.textContent = 'Error: Please enter a valid birth date.';
+                errorMessage.classList.remove('hidden');
+                trackEvent('calculate_error', { error: 'empty_input' });
+                return;
+            }
+            calculateBtn.disabled = true;
+            calculateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Calculating...';
+            setTimeout(() => {
+                try {
+                    const result = calculateAge(birthDate);
+                    document.getElementById('ageYMD').textContent = result.ageYMD;
+                    document.getElementById('totalWeeks').textContent = result.totalWeeks;
+                    document.getElementById('totalHours').textContent = result.totalHours;
+                    document.getElementById('totalMinutes').textContent = result.totalMinutes;
+                    document.getElementById('totalSeconds').textContent = result.totalSeconds;
+                    document.getElementById('birthDay').textContent = result.birthDay;
+                    document.getElementById('nextBirthday').textContent = result.nextBirthday;
+                    if (result.nextBirthday !== '🎉 Today is your birthday!') {
+                        startCountdown(new Date(birthDate), result.nextBirthdayDate);
+                    }
+                    trackEvent('age_calculated', { birthDate });
+                } catch (e) {
+                    errorMessage.textContent = e.message;
+                    errorMessage.classList.remove('hidden');
+                    trackEvent('calculate_error', { error: e.message });
+                } finally {
+                    calculateBtn.disabled = false;
+                    calculateBtn.innerHTML = '<i class="fas fa-calculator mr-2"></i>Calculate';
+                }
+            }, 300);
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            if (countdownInterval) clearInterval(countdownInterval);
+            document.getElementById('birthDateInput').value = '';
+            document.getElementById('ageYMD').textContent = '-';
+            document.getElementById('totalWeeks').textContent = '-';
+            document.getElementById('totalHours').textContent = '-';
+            document.getElementById('totalMinutes').textContent = '-';
+            document.getElementById('totalSeconds').textContent = '-';
+            document.getElementById('birthDay').textContent = '-';
+            document.getElementById('nextBirthday').textContent = '-';
+            document.getElementById('errorMessage').classList.add('hidden');
+            trackEvent('reset_form', {});
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const birthDateInput = document.getElementById("birthDateInput");
+            if (birthDateInput) {
+                birthDateInput.max = new Date().toISOString().slice(0, 10);
+            }
+        });
+    </script>
+</body>
+</html>

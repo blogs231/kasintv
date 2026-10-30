@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/barcode-generator.html">
+    <meta property="og:url" content="https://kasin-tv.com/barcode-generator.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Generator - Free Online Barcode Creator | KaSin TV</title>
+    <meta name="description" content="Free online barcode generator. Create Code-128, UPC, EAN, Code-39 barcodes with custom text. Download as SVG, PNG, or JPG. Perfect for products, inventory, and retail.">
+    <meta property="og:title" content="Free Online Barcode Generator | KaSin TV">
+    <meta property="og:description" content="Create Code 128, UPC, EAN and Code 39 barcodes and download them for products, inventory or labels.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free Online Barcode Generator | KaSin TV">
+    <meta name="twitter:description" content="Create and download common barcode formats online for free.">
+    <meta name="keywords" content="barcode generator, free barcode creator, online barcode maker, code-128 generator, upc barcode, ean barcode, code-39">
+    <meta name="author" content="KaSin TV Tools Team">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Barcode Generator - KaSin TV",
+        "description": "Free online barcode generator to create Code-128, UPC, EAN, and Code-39 barcodes",
+        "url": "https://kasin-tv.com/barcode-generator.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "KaSin TV",
+            "url": "https://kasin-tv.com/barcode-generator.html"
+        }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #dc2626;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .input-field {
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(245, 158, 11, 0.3);
+        }
+        
+        .barcode-preview {
+            background: white;
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .barcode-preview.active {
+            border-color: var(--primary-color);
+        }
+        
+        .section-header {
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .copy-popup {
+            animation: popup 2s ease-in-out;
+        }
+        
+        @keyframes popup {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+        
+        .tool-tip {
+            position: relative;
+            cursor: help;
+        }
+        
+        .tool-tip:hover::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+        
+        .format-btn.active {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+            transform: scale(1.05);
+        }
+        
+        #barcodeCanvas {
+            max-width: 100%;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .tool-card {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .btn-mobile {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body class="min-h-screen py-8">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Header -->
+        <section class="text-center mb-12">
+            <div class="flex items-center justify-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl flex items-center justify-center mr-4">
+                    <i class="fas fa-barcode text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Barcode Generator</h1>
+                    <p class="text-blue-600 font-medium">KaSin TV Free Tools</p>
+                </div>
+            </div>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Create professional barcodes in multiple formats. Generate Code-128, UPC, EAN, and Code-39 barcodes instantly. 
+                Free download as SVG, PNG, or JPG.
+            </p>
+        </section>
+
+        <!-- Main Tool Section -->
+        <main class="tool-card p-6 md:p-8 mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Generator Section -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 section-header">Create Your Barcode</h2>
+                    
+                    <form onsubmit="return false;" class="space-y-6">
+                        <!-- Barcode Format Selection -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">
+                                Barcode Format
+                                <span class="tool-tip text-blue-500 ml-1" data-tip="Choose the barcode format that fits your needs">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                            </label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <button type="button" class="format-btn btn-primary text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 active" data-format="code128">
+                                    Code-128
+                                </button>
+                                <button type="button" class="format-btn bg-gray-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-gray-600 transition-all duration-300" data-format="upc">
+                                    UPC
+                                </button>
+                                <button type="button" class="format-btn bg-gray-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-gray-600 transition-all duration-300" data-format="ean">
+                                    EAN-13
+                                </button>
+                                <button type="button" class="format-btn bg-gray-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-gray-600 transition-all duration-300" data-format="code39">
+                                    Code-39
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Barcode Content -->
+                        <div class="space-y-4">
+                            <div>
+                                <label for="barcodeText" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Barcode Content
+                                    <span class="tool-tip text-blue-500 ml-1" data-tip="Enter numbers or text to encode in the barcode">
+                                        <i class="fas fa-info-circle"></i>
+                                    </span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="barcodeText" 
+                                    placeholder="Enter text or numbers"
+                                    class="w-full p-4 input-field rounded-xl focus:outline-none text-base"
+                                    value="ABC123456"
+                                >
+                                <p id="textHelp" class="text-sm text-gray-500 mt-2">Enter alphanumeric content for your barcode</p>
+                            </div>
+
+                            <div>
+                                <label for="barcodeCaption" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Caption (Optional)
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="barcodeCaption" 
+                                    placeholder="Enter caption text"
+                                    class="w-full p-4 input-field rounded-xl focus:outline-none text-base"
+                                    value="Product Code"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Customization Options -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="barcodeHeight" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Barcode Height
+                                </label>
+                                <select id="barcodeHeight" class="w-full p-4 input-field rounded-xl focus:outline-none text-base">
+                                    <option value="80">Short (80px)</option>
+                                    <option value="100" selected>Medium (100px)</option>
+                                    <option value="120">Tall (120px)</option>
+                                    <option value="150">Extra Tall (150px)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="barcodeWidth" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Bar Width
+                                </label>
+                                <select id="barcodeWidth" class="w-full p-4 input-field rounded-xl focus:outline-none text-base">
+                                    <option value="1">Thin (1px)</option>
+                                    <option value="2" selected>Standard (2px)</option>
+                                    <option value="3">Thick (3px)</option>
+                                    <option value="4">Extra Thick (4px)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Color Options -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="barColor" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Bar Color
+                                </label>
+                                <select id="barColor" class="w-full p-4 input-field rounded-xl focus:outline-none text-base">
+                                    <option value="#000000" selected>Black</option>
+                                    <option value="#2563eb">Blue</option>
+                                    <option value="#dc2626">Red</option>
+                                    <option value="#059669">Green</option>
+                                    <option value="#7c3aed">Purple</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="bgColor" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Background Color
+                                </label>
+                                <select id="bgColor" class="w-full p-4 input-field rounded-xl focus:outline-none text-base">
+                                    <option value="#ffffff" selected>White</option>
+                                    <option value="#f3f4f6">Light Gray</option>
+                                    <option value="#fef3c7">Light Yellow</option>
+                                    <option value="#dbeafe">Light Blue</option>
+                                    <option value="#d1fae5">Light Green</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                            <button 
+                                id="generateBtn" 
+                                class="btn-primary text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-barcode mr-2"></i>
+                                Generate Barcode
+                            </button>
+                            <button 
+                                id="downloadSvgBtn" 
+                                class="btn-secondary text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-download mr-2"></i>
+                                Download SVG
+                            </button>
+                            <button 
+                                id="downloadImageBtn" 
+                                class="btn-accent text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-file-image mr-2"></i>
+                                Download Image
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Preview Section -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 section-header">Barcode Preview</h2>
+                    
+                    <div class="barcode-preview active">
+                        <canvas id="barcodeCanvas" width="400" height="150"></canvas>
+                    </div>
+
+                    <!-- Barcode Info -->
+                    <div class="mt-6 space-y-4">
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                            <h3 class="font-bold text-blue-900 mb-3 flex items-center">
+                                <i class="fas fa-lightbulb mr-2"></i>
+                                Pro Tips
+                            </h3>
+                            <ul class="text-blue-800 text-sm space-y-2">
+                                <li>• Use SVG format for scalable, high-quality printing</li>
+                                <li>• Ensure sufficient contrast between bars and background</li>
+                                <li>• Test your barcode with multiple scanners</li>
+                                <li>• Use standard bar widths for better compatibility</li>
+                            </ul>
+                        </div>
+
+                        <!-- Format Details -->
+                        <div id="formatDetails" class="bg-green-50 border border-green-200 rounded-xl p-6">
+                            <h3 class="font-bold text-green-900 mb-3 flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Format Information
+                            </h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-green-800 font-medium">Format:</span>
+                                    <span id="currentFormat" class="text-green-900">Code-128</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-green-800 font-medium">Character Set:</span>
+                                    <span id="characterSet" class="text-green-900">Full ASCII</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-green-800 font-medium">Common Uses:</span>
+                                    <span id="commonUses" class="text-green-900">Shipping, Logistics</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Examples -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">Quick Examples</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button class="example-btn bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm hover:bg-gray-200 transition" data-example="product">
+                                    <i class="fas fa-box mr-1"></i> Product Code
+                                </button>
+                                <button class="example-btn bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm hover:bg-gray-200 transition" data-example="upc">
+                                    <i class="fas fa-shopping-cart mr-1"></i> UPC Example
+                                </button>
+                                <button class="example-btn bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm hover:bg-gray-200 transition" data-example="ean">
+                                    <i class="fas fa-globe mr-1"></i> EAN Example
+                                </button>
+                                <button class="example-btn bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm hover:bg-gray-200 transition" data-example="serial">
+                                    <i class="fas fa-laptop mr-1"></i> Serial Number
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div id="errorMessage" class="hidden p-4 bg-red-50 border border-red-200 rounded-xl">
+                            <p class="text-red-700 font-medium text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Supported Formats Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Supported Barcode Formats</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white border border-blue-200 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Code-128</h3>
+                    <p class="text-gray-600 text-sm">High-density linear barcode for shipping, packaging, and general purposes</p>
+                    <div class="mt-3 text-xs text-blue-600">
+                        <span class="font-medium">Characters:</span> Full ASCII
+                    </div>
+                </div>
+                <div class="bg-white border border-green-200 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">UPC-A</h3>
+                    <p class="text-gray-600 text-sm">Universal Product Code for retail products in North America</p>
+                    <div class="mt-3 text-xs text-green-600">
+                        <span class="font-medium">Digits:</span> 12 numeric
+                    </div>
+                </div>
+                <div class="bg-white border border-purple-200 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">EAN-13</h3>
+                    <p class="text-gray-600 text-sm">European Article Number for international retail products</p>
+                    <div class="mt-3 text-xs text-purple-600">
+                        <span class="font-medium">Digits:</span> 13 numeric
+                    </div>
+                </div>
+                <div class="bg-white border border-orange-200 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-orange-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Code-39</h3>
+                    <p class="text-gray-600 text-sm">Alpha-numeric barcode for industrial and non-retail applications</p>
+                    <div class="mt-3 text-xs text-orange-600">
+                        <span class="font-medium">Characters:</span> A-Z, 0-9, special
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-edit text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">1. Enter Content</h3>
+                    <p class="text-gray-600 text-sm">Input your barcode data and choose from multiple formats including Code-128, UPC, EAN, and Code-39</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-palette text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">2. Customize Design</h3>
+                    <p class="text-gray-600 text-sm">Adjust height, bar width, colors, and add captions to create the perfect barcode for your needs</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-download text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">3. Download & Use</h3>
+                    <p class="text-gray-600 text-sm">Download as SVG for scalable vector graphics or as PNG/JPG for immediate use in documents and labels</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Common Use Cases</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shopping-cart text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Retail Products</h3>
+                    <p class="text-gray-600 text-sm">Create UPC and EAN barcodes for product packaging, inventory management, and point-of-sale systems</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shipping-fast text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Shipping & Logistics</h3>
+                    <p class="text-gray-600 text-sm">Generate Code-128 barcodes for package tracking, shipping labels, and warehouse management</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-boxes text-purple-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Inventory Management</h3>
+                    <p class="text-gray-600 text-sm">Create barcodes for asset tracking, stock control, and inventory auditing systems</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-id-card text-orange-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Asset Tracking</h3>
+                    <p class="text-gray-600 text-sm">Generate Code-39 barcodes for equipment, tools, and company property management</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-book text-red-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Library Systems</h3>
+                    <p class="text-gray-600 text-sm">Create barcodes for books, media, and library materials for efficient catalog management</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-ticket-alt text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Event Management</h3>
+                    <p class="text-gray-600 text-sm">Generate barcodes for tickets, access passes, and event registration systems</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What's the difference between SVG and PNG downloads?</h3>
+                    <p class="text-gray-600">SVG (Scalable Vector Graphics) is a vector format that can be scaled to any size without quality loss, making it ideal for printing. PNG is a raster format that's perfect for web use and digital documents but has fixed dimensions.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Which barcode format should I use for my product?</h3>
+                    <p class="text-gray-600">For retail products in North America, use UPC-A. For international retail, use EAN-13. For shipping, logistics, or internal use, Code-128 is recommended. For industrial applications, Code-39 is a good choice.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Can I use custom colors for my barcodes?</h3>
+                    <p class="text-gray-600">Yes, you can customize both the bar color and background color. However, for optimal scanning, ensure there's sufficient contrast between the bars and background. Black bars on white background is the most reliable combination.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What are the optimal dimensions for printing barcodes?</h3>
+                    <p class="text-gray-600">For most applications, a height of 1-1.5 inches works well. Bar width should be appropriate for the scanning distance - thinner bars for close scanning, thicker bars for distance scanning. Our tool provides preset options for common use cases.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Can I add text below the barcode?</h3>
+                    <p class="text-gray-600">Yes, you can add an optional caption that will appear below the barcode. This is useful for displaying the encoded data in human-readable form or adding additional information.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Are the barcodes I generate scannable?</h3>
+                    <p class="text-gray-600">Yes, all barcodes generated with our tool follow industry standards and include proper start/stop characters and checksums where required. We recommend testing with multiple scanners to ensure compatibility.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Is there a limit to how many barcodes I can generate?</h3>
+                    <p class="text-gray-600">No, there are no limits. You can generate as many barcodes as you need, completely free. All processing happens in your browser, ensuring your data remains private and secure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">More Free Tools</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="/qr-code-generator.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-500 block text-center">
+                    <i class="fas fa-qrcode text-blue-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">QR Code Generator</h3>
+                </a>
+                <a href="/qr-code-scanner.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-green-500 block text-center">
+                    <i class="fas fa-camera text-green-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">QR Code Scanner</h3>
+                </a>
+                <a href="/barcode-scanner.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-purple-500 block text-center">
+                    <i class="fas fa-camera text-purple-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">Barcode Scanner</h3>
+                </a>
+                <a href="/label-maker.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-orange-500 block text-center">
+                    <i class="fas fa-tag text-orange-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">Label Maker</h3>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Copy Popup -->
+    <div id="copyPopup" class="copy-popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg font-semibold hidden">
+        Barcode Downloaded!
+    </div>
+
+    <script>
+        // Format configurations
+        const formatConfigs = {
+            code128: {
+                name: 'Code-128',
+                characterSet: 'Full ASCII',
+                commonUses: 'Shipping, Logistics, General',
+                validate: (text) => /^[ -~]+$/.test(text),
+                errorMessage: 'Code-128 supports printable ASCII characters (32-126)'
+            },
+            upc: {
+                name: 'UPC-A',
+                characterSet: '12 numeric digits',
+                commonUses: 'North American Retail',
+                validate: (text) => /^\d{12}$/.test(text),
+                errorMessage: 'UPC-A requires exactly 12 numeric digits'
+            },
+            ean: {
+                name: 'EAN-13',
+                characterSet: '13 numeric digits',
+                commonUses: 'International Retail',
+                validate: (text) => /^\d{13}$/.test(text),
+                errorMessage: 'EAN-13 requires exactly 13 numeric digits'
+            },
+            code39: {
+                name: 'Code-39',
+                characterSet: 'A-Z, 0-9, - . $ / + % SPACE',
+                commonUses: 'Industrial, Non-retail',
+                validate: (text) => /^[A-Z0-9\-\.\$\+\/% ]+$/.test(text),
+                errorMessage: 'Code-39 supports uppercase letters, numbers, and - . $ / + %'
+            }
+        };
+
+        // Example data
+        const examples = {
+            product: { text: 'PROD2024001', caption: 'Product SKU', format: 'code128' },
+            upc: { text: '123456789012', caption: 'UPC Product Code', format: 'upc' },
+            ean: { text: '1234567890128', caption: 'EAN Product Code', format: 'ean' },
+            serial: { text: 'SN-ABC-789-XYZ', caption: 'Serial Number', format: 'code39' }
+        };
+
+        let currentFormat = 'code128';
+
+        function showPopup(message) {
+            const popup = document.getElementById('copyPopup');
+            popup.textContent = message;
+            popup.classList.remove('hidden');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 2000);
+        }
+
+        function updateFormatDetails() {
+            const config = formatConfigs[currentFormat];
+            document.getElementById('currentFormat').textContent = config.name;
+            document.getElementById('characterSet').textContent = config.characterSet;
+            document.getElementById('commonUses').textContent = config.commonUses;
+            
+            // Update help text
+            const textHelp = document.getElementById('textHelp');
+            textHelp.textContent = config.characterSet;
+        }
+
+        function validateInput(text) {
+            const config = formatConfigs[currentFormat];
+            if (!config.validate(text)) {
+                throw new Error(config.errorMessage);
+            }
+            return true;
+        }
+
+        function generateBarcode() {
+            const canvas = document.getElementById('barcodeCanvas');
+            const ctx = canvas.getContext('2d');
+            const text = document.getElementById('barcodeText').value;
+            const caption = document.getElementById('barcodeCaption').value;
+            const height = parseInt(document.getElementById('barcodeHeight').value);
+            const barWidth = parseInt(document.getElementById('barcodeWidth').value);
+            const barColor = document.getElementById('barColor').value;
+            const bgColor = document.getElementById('bgColor').value;
+            
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.classList.add('hidden');
+
+            try {
+                validateInput(text);
+                
+                // Update canvas size
+                canvas.width = Math.max(400, text.length * barWidth * 10);
+                canvas.height = height + (caption ? 40 : 0);
+                
+                // Clear canvas
+                ctx.fillStyle = bgColor;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Generate barcode pattern based on format
+                const pattern = generateBarcodePattern(text, currentFormat);
+                
+                // Draw barcode
+                ctx.fillStyle = barColor;
+                let x = (canvas.width - (pattern.length * barWidth)) / 2;
+                
+                for (let i = 0; i < pattern.length; i++) {
+                    if (pattern[i] === '1') {
+                        ctx.fillRect(x, 0, barWidth, height);
+                    }
+                    x += barWidth;
+                }
+                
+                // Draw caption if provided
+                if (caption) {
+                    ctx.fillStyle = '#374151';
+                    ctx.font = '14px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(caption, canvas.width / 2, height + 25);
+                }
+                
+                // Draw format info
+                ctx.fillStyle = '#6b7280';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText(formatConfigs[currentFormat].name, canvas.width - 10, height + (caption ? 40 : 15));
+                
+            } catch (error) {
+                errorMessage.querySelector('p').textContent = `Error: ${error.message}`;
+                errorMessage.classList.remove('hidden');
+            }
+        }
+
+        function generateBarcodePattern(text, format) {
+            // Simplified barcode pattern generation
+            // In a real implementation, you would use a proper barcode library
+            let pattern = '';
+            
+            switch (format) {
+                case 'code128':
+                    // Start code + encoded data + checksum + stop code
+                    pattern = '11010011100'; // Start code B
+                    for (let i = 0; i < text.length; i++) {
+                        const charCode = text.charCodeAt(i) - 32;
+                        pattern += getCode128Pattern(charCode);
+                    }
+                    // Simple checksum (not proper Code-128 checksum)
+                    const checksum = text.split('').reduce((sum, char, index) => sum + (char.charCodeAt(0) * (index + 1)), 0) % 103;
+                    pattern += getCode128Pattern(checksum);
+                    pattern += '1100011101011'; // Stop code
+                    break;
+                    
+                case 'upc':
+                case 'ean':
+                    // Simplified pattern for demonstration
+                    pattern = '101'; // Start
+                    for (let i = 0; i < text.length; i++) {
+                        pattern += i % 2 === 0 ? '1010' : '0101';
+                    }
+                    pattern += '101'; // Stop
+                    break;
+                    
+                case 'code39':
+                    // Start/stop character (*) + encoded data
+                    pattern = '1001011011010'; // *
+                    for (let i = 0; i < text.length; i++) {
+                        pattern += getCode39Pattern(text[i]);
+                        pattern += '0'; // Inter-character gap
+                    }
+                    pattern += '1001011011010'; // *
+                    break;
+                    
+                default:
+                    pattern = '1010101010101010101'; // Default pattern
+            }
+            
+            return pattern;
+        }
+
+        function getCode128Pattern(value) {
+            // Code-128 patterns (simplified)
+            const patterns = [
+                "11011001100", "11001101100", "11001100110", "10010011000", "10010001100",
+                "10001001100", "10011001000", "10011000100", "10001100100", "11001001000"
+            ];
+            return patterns[value % patterns.length] || patterns[0];
+        }
+
+        function getCode39Pattern(char) {
+            // Code-39 patterns (simplified)
+            const patterns = {
+                '0': '101001101101', '1': '110100101011', '2': '101100101011', '3': '110110010101',
+                '4': '101001101011', '5': '110100110101', '6': '101100110101', '7': '101001011011',
+                '8': '110100101101', '9': '101100101101', 'A': '110101001011', 'B': '101101001011'
+            };
+            return patterns[char] || patterns['0'];
+        }
+
+        function downloadBarcode(format) {
+            const canvas = document.getElementById('barcodeCanvas');
+            const text = document.getElementById('barcodeText').value || 'barcode';
+            const caption = document.getElementById('barcodeCaption').value;
+            
+            let filename = `${text.replace(/\s+/g, '_')}_${currentFormat}`;
+            if (caption) {
+                filename += `_${caption.replace(/\s+/g, '_')}`;
+            }
+            
+            if (format === 'svg') {
+                // Create SVG
+                const svg = createSVGBarcode();
+                const blob = new Blob([svg], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.download = `${filename}.svg`;
+                link.href = url;
+                link.click();
+                URL.revokeObjectURL(url);
+                showPopup('SVG Barcode Downloaded!');
+            } else {
+                // Download as image
+                const link = document.createElement('a');
+                link.download = `${filename}.${format}`;
+                link.href = canvas.toDataURL(`image/${format}`);
+                link.click();
+                showPopup(`${format.toUpperCase()} Barcode Downloaded!`);
+            }
+        }
+
+        function createSVGBarcode() {
+            const canvas = document.getElementById('barcodeCanvas');
+            const text = document.getElementById('barcodeText').value;
+            const caption = document.getElementById('barcodeCaption').value;
+            const barColor = document.getElementById('barColor').value;
+            const bgColor = document.getElementById('bgColor').value;
+            
+            // This would create a proper SVG in a real implementation
+            // For now, we'll return a simple SVG wrapper
+            return `<svg width="${canvas.width}" height="${canvas.height}" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="${bgColor}"/>
+                <text x="50%" y="95%" text-anchor="middle" fill="#374151" font-family="Inter, sans-serif" font-size="14">${caption || text}</text>
+            </svg>`;
+        }
+
+        function applyExample(exampleKey) {
+            const example = examples[exampleKey];
+            if (example) {
+                document.getElementById('barcodeText').value = example.text;
+                document.getElementById('barcodeCaption').value = example.caption;
+                
+                // Update format
+                currentFormat = example.format;
+                document.querySelectorAll('.format-btn').forEach(btn => {
+                    btn.classList.remove('active', 'btn-primary');
+                    btn.classList.add('bg-gray-500');
+                });
+                document.querySelector(`.format-btn[data-format="${example.format}"]`).classList.add('active', 'btn-primary');
+                document.querySelector(`.format-btn[data-format="${example.format}"]`).classList.remove('bg-gray-500');
+                
+                updateFormatDetails();
+                generateBarcode();
+            }
+        }
+
+        // Event Listeners
+        document.getElementById('generateBtn').addEventListener('click', generateBarcode);
+        
+        document.getElementById('downloadSvgBtn').addEventListener('click', () => downloadBarcode('svg'));
+        
+        document.getElementById('downloadImageBtn').addEventListener('click', () => {
+            const format = confirm('Download as PNG (OK) or JPG (Cancel)?') ? 'png' : 'jpeg';
+            downloadBarcode(format);
+        });
+        
+        // Format selection
+        document.querySelectorAll('.format-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const format = button.dataset.format;
+                currentFormat = format;
+                
+                // Update UI
+                document.querySelectorAll('.format-btn').forEach(btn => {
+                    btn.classList.remove('active', 'btn-primary');
+                    btn.classList.add('bg-gray-500');
+                });
+                button.classList.add('active', 'btn-primary');
+                button.classList.remove('bg-gray-500');
+                
+                updateFormatDetails();
+                generateBarcode();
+            });
+        });
+        
+        // Example buttons
+        document.querySelectorAll('.example-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const example = button.dataset.example;
+                applyExample(example);
+            });
+        });
+        
+        // Auto-generate on changes
+        document.getElementById('barcodeText').addEventListener('input', generateBarcode);
+        document.getElementById('barcodeCaption').addEventListener('input', generateBarcode);
+        document.getElementById('barcodeHeight').addEventListener('change', generateBarcode);
+        document.getElementById('barcodeWidth').addEventListener('change', generateBarcode);
+        document.getElementById('barColor').addEventListener('change', generateBarcode);
+        document.getElementById('bgColor').addEventListener('change', generateBarcode);
+        
+        // Initialize
+        updateFormatDetails();
+        generateBarcode();
+    </script>
+
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+        <link rel="canonical" href="https://kasin-tv.com/base32-decoder.html">
+    <meta property="og:url" content="https://kasin-tv.com/base32-decoder.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base32 Decoder Tool | Decode Base32 Text Online | KaSin TV</title>
+  <meta name="description" content="Decode Base32 text online and convert Base32 encoded data into readable plain text instantly in your browser. Free, private and no signup required.">
+  <meta name="keywords" content="Base32 Decoder, Decode Base32, Base32 Converter, Base32 to Text, Online Decoder, Base32 Tool">
+  <meta property="og:title" content="Base32 Decoder Tool | Decode Base32 Text Online">
+  <meta property="og:description" content="Easily decode Base32 encoded strings to plain text directly in your browser. Fast, secure, and client-side.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Base32 Decoder Tool | Decode Base32 Text Online">
+  <meta name="twitter:description" content="Use this free Base32 Decoder Tool to convert Base32 encoded strings into readable text instantly.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Base32 Decoder","url":"https://kasin-tv.com/base32-decoder.html","description":"Decode Base32 data into readable text in the browser.","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+  <section class="bg-red-600 text-white py-6">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h1 class="text-3xl font-bold mb-2">Base32 Decoder Tool</h1>
+      <p class="text-base">Decode Base32 encoded strings to readable text instantly using this free online tool.</p>
+    </div>
+  </section>
+
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <section class="bg-white rounded-2xl shadow-md p-6 mb-8">
+      <label class="block font-semibold mb-2">Enter Base32 Encoded Text:</label>
+      <textarea id="inputText" class="w-full border border-gray-300 rounded-lg p-3 mb-4 h-40 focus:ring-2 focus:ring-red-500" placeholder="Paste your Base32 text here..."></textarea>
+
+      <div class="flex flex-wrap gap-3 mb-4">
+        <button id="decodeBtn" class="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700">Decode</button>
+        <button id="copyBtn" class="bg-gray-700 text-white px-5 py-2 rounded-lg hover:bg-gray-800">Copy</button>
+        <button id="downloadBtn" class="bg-gray-500 text-white px-5 py-2 rounded-lg hover:bg-gray-600">Download</button>
+        <button id="resetBtn" class="bg-gray-300 text-gray-800 px-5 py-2 rounded-lg hover:bg-gray-400">Reset</button>
+      </div>
+
+      <label class="block font-semibold mb-2">Decoded Output:</label>
+      <textarea id="outputText" class="w-full border border-gray-300 rounded-lg p-3 h-40" readonly></textarea>
+
+      <p id="copyMessage" class="text-green-600 font-semibold mt-3 hidden">Copied to clipboard!</p>
+    </section>
+
+    <section class="bg-white rounded-2xl shadow-md p-6">
+      <h2 class="text-xl font-bold mb-3">About Base32 Decoder</h2>
+      <p class="mb-2">Base32 Decoder Tool converts Base32 encoded text back into its original readable form. It processes the encoded string in your browser, ensuring privacy and speed.</p>
+      <h3 class="font-semibold mt-4 mb-1">How to use:</h3>
+      <ul class="list-disc list-inside mb-2">
+        <li>Paste the Base32 encoded text in the input box.</li>
+        <li>Click Decode to convert it to plain text.</li>
+        <li>Copy or download the result as needed.</li>
+      </ul>
+      <h3 class="font-semibold mt-4 mb-1">Why use this tool:</h3>
+      <ul class="list-disc list-inside">
+        <li>Instant decoding with no server requests.</li>
+        <li>Works offline after loading.</li>
+        <li>Secure, fast, and user-friendly.</li>
+      </ul>
+    </section>
+
+    <div class="text-center mt-10">
+      <a href="/index.html" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">Go to Homepage</a>
+    </div>
+  </main>
+
+  
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+
+  <script>
+    function base32Decode(input) {
+      const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+      let cleanInput = input.replace(/=+$/, '').toUpperCase().replace(/[^A-Z2-7]/g, '');
+      let bits = '';
+      for (let i = 0; i < cleanInput.length; i++) {
+        const val = alphabet.indexOf(cleanInput[i]);
+        if (val === -1) continue;
+        bits += val.toString(2).padStart(5, '0');
+      }
+      let output = '';
+      for (let i = 0; i + 8 <= bits.length; i += 8) {
+        const byte = bits.slice(i, i + 8);
+        output += String.fromCharCode(parseInt(byte, 2));
+      }
+      return output;
+    }
+
+    document.getElementById('decodeBtn').addEventListener('click', () => {
+      const inputText = document.getElementById('inputText').value.trim();
+      const outputText = document.getElementById('outputText');
+      if (!inputText) {
+        alert('Please enter Base32 encoded text.');
+        return;
+      }
+      try {
+        const decoded = base32Decode(inputText);
+        outputText.value = decoded || 'Invalid Base32 data.';
+      } catch (e) {
+        outputText.value = 'Error decoding input.';
+      }
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const output = document.getElementById('outputText').value;
+      if (output) {
+        navigator.clipboard.writeText(output);
+        const msg = document.getElementById('copyMessage');
+        msg.classList.remove('hidden');
+        setTimeout(() => msg.classList.add('hidden'), 1500);
+      }
+    });
+
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const text = document.getElementById('outputText').value;
+      if (!text) return;
+      const blob = new Blob([text], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'decoded.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      document.getElementById('inputText').value = '';
+      document.getElementById('outputText').value = '';
+    });
+  </script>
+</body>
+</html>

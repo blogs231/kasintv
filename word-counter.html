@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/word-counter.html">
+    <meta property="og:url" content="https://kasin-tv.com/word-counter.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Word Counter: Characters and Lines | KaSin TV</title>
+        <meta name="description" content="Free character and line counter. Supports full-width and half-width weighting, with or without spaces. Fast, local, privacy safe.">
+        <meta name="author" content="Kasin TV">
+        <meta property="og:site_name" content="Kasin TV">
+        <meta property="og:title" content="Kasin TV Word Counter — Characters, Lines, Full-width & Half-width">
+        <meta property="og:description" content="Free character and line counter. Supports full-width and half-width weighting, with or without spaces. Fast, local, privacy safe.">
+    <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Kasin TV Word Counter — Characters, Lines, Full-width & Half-width">
+        <meta name="twitter:description" content="Free character and line counter. Supports full-width and half-width weighting, with or without spaces. Fast, local, privacy safe.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://kasin-tv.com/#site",
+          "url": "https://kasin-tv.com/word-counter.html",
+          "name": "Kasin TV",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Kasin TV",
+            "url": "https://kasin-tv.com/word-counter.html"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://kasin-tv.com/word-counter.html#webpage",
+          "url": "https://kasin-tv.com/word-counter.html",
+          "name": "Word Counter Tool",
+          "description": "Free character and line counter with full-width and half-width weighting. Local processing. Privacy safe.",
+          "isPartOf": {
+            "@id": "https://kasin-tv.com/#site"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Kasin TV Word Counter",
+          "description": "A lightweight browser tool that counts characters and lines. Supports weighted counting for full-width and half-width characters.",
+          "applicationCategory": "Utilities",
+          "operatingSystem": "Web",
+          "url": "https://kasin-tv.com/word-counter.html"
+        }
+      ]
+    }
+    </script>
+
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+            <script src="https://cdn.tailwindcss.com"></script>
+            <style>
+                :root{
+                    --brand:#e02424;
+                    --muted:#6b7280;
+                    --bg:#f8fafc;
+                    --card:#ffffff;
+                }
+                html,body{height:100%}
+                body{
+                    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+                    background:var(--bg);
+                    color:#0f172a;
+                    -webkit-font-smoothing:antialiased;
+                    -moz-osx-font-smoothing:grayscale;
+                    line-height:1.4;
+                }
+                .kasin-logo{
+                    width:44px;
+                    height:44px;
+                    border-radius:8px;
+                    background:linear-gradient(135deg,#e02424,#ff6b6b);
+                    display:inline-flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:white;
+                    font-weight:700;
+                    font-size:18px;
+                }
+                .ad-slot{
+                    min-height:90px;
+                    background:#f3f4f6;
+                    border:1px dashed #e5e7eb;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#9ca3af;
+                    font-size:14px;
+                    border-radius:8px;
+                }
+                .bg-card{background:var(--card)}
+                .text-muted{color:var(--muted)}
+                .count-btn{transition:transform .12s ease,box-shadow .12s ease}
+                .count-btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(2,6,23,0.08)}
+                @media (max-width:640px){
+                    .count-btn{font-size:14px;padding:10px 12px}
+                }
+            </style>
+            <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+        <body>
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+            <section class="max-w-4xl mx-auto w-full p-4 sm:p-6">
+                <div class="bg-card p-4 rounded-xl shadow-sm flex items-center gap-4">
+                    <div class="kasin-logo" aria-hidden="true">KT</div>
+                    <div>
+                        <h1 class="text-lg sm:text-xl font-semibold">Word Counter Tool</h1>
+                        <p class="text-sm text-muted mt-1" style="color:var(--muted)">Count characters and lines. Supports full-width and half-width weighting. All processing runs in your browser. Privacy safe.</p>
+                    </div>
+                </div>
+            </section>
+
+            <main class="max-w-4xl mx-auto w-full p-4 sm:p-6">
+                <section class="bg-card p-4 sm:p-6 rounded-xl shadow-lg">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                            <form onsubmit="return false;" aria-label="Word counter form">
+                                <label for="inputText" class="block font-semibold text-sm mb-2">Enter text</label>
+                                <textarea id="inputText" aria-label="Text input for character and line counting" placeholder="Paste or type text here" class="w-full p-3 border border-gray-200 rounded-lg resize-y h-36 focus:outline-none focus:ring-2 focus:ring-opacity-50"></textarea>
+
+                                <div class="flex flex-wrap gap-3 mt-4">
+                                    <button id="countBtn" type="button" class="count-btn bg-[color:var(--brand)] text-white font-semibold py-2 px-4 rounded-lg inline-flex items-center" aria-label="Count characters and lines">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4h-2V5H5v14h7v-4h2v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5z"/><path d="M21 7h-2v10h-2v2h4V7z"/></svg>
+                                        Count
+                                    </button>
+
+                                    <button id="resetBtn" type="button" class="count-btn bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg inline-flex items-center" aria-label="Reset form">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 6V4L8 8l4 4V8a4 4 0 1 1-4 4H6a6 6 0 1 0 6-6z"/></svg>
+                                        Reset
+                                    </button>
+
+                                    <div class="ml-auto flex items-center gap-3">
+                                        <label class="text-sm text-muted" style="color:var(--muted)">Auto update</label>
+                                        <input id="autoToggle" type="checkbox" checked aria-label="Toggle live counting" class="h-4 w-4">
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="mt-6">
+                                <div class="bg-gray-50 p-3 rounded-lg border border-gray-200">
+                                    <table class="w-full text-sm" role="table" aria-label="Counting results">
+                                        <thead>
+                                            <tr class="text-left">
+                                                <th class="font-semibold py-2">Metric</th>
+                                                <th class="font-semibold py-2 text-right">Count</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-t border-gray-100">
+                                                <td class="py-2 text-muted" style="color:var(--muted)">Characters with spaces</td>
+                                                <td id="charCountWithSpaces" class="py-2 text-right font-medium">0</td>
+                                            </tr>
+                                            <tr class="border-t border-gray-100">
+                                                <td class="py-2 text-muted" style="color:var(--muted)">Characters without spaces</td>
+                                                <td id="charCountNoSpaces" class="py-2 text-right font-medium">0</td>
+                                            </tr>
+                                            <tr class="border-t border-gray-100">
+                                                <td class="py-2 text-muted" style="color:var(--muted)">Weighted count full-width=1 half-width=0.5</td>
+                                                <td id="charCountWeighted" class="py-2 text-right font-medium">0.0</td>
+                                            </tr>
+                                            <tr class="border-t border-gray-100">
+                                                <td class="py-2 text-muted" style="color:var(--muted)">Weighted no spaces full-width=1 half-width=0.5</td>
+                                                <td id="charCountWeightedNoSpaces" class="py-2 text-right font-medium">0.0</td>
+                                            </tr>
+                                            <tr class="border-t border-gray-100">
+                                                <td class="py-2 text-muted" style="color:var(--muted)">Line count</td>
+                                                <td id="lineCount" class="py-2 text-right font-medium">0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <aside class="lg:col-span-1 space-y-4">
+                           
+
+                            <div class="p-4 border border-gray-100 rounded-lg bg-white">
+                                <h2 class="font-semibold text-sm mb-2">How it works</h2>
+                                <p class="text-sm text-muted" style="color:var(--muted)">The tool reads text in your browser. It counts characters and lines. Full-width characters receive weight 1. Half-width characters receive weight 0.5. Spaces can be excluded from counts.</p>
+                            </div>
+
+                            <div class="p-4 border border-gray-100 rounded-lg bg-white">
+                                <h2 class="font-semibold text-sm mb-2">Pro tips</h2>
+                                <ul class="text-sm text-muted list-inside space-y-2" style="color:var(--muted)">
+                                    <li>Use weighted count for mixed CJK and Latin text.</li>
+                                    <li>Remove extra spaces before measuring content length for publishing.</li>
+                                    <li>Use line count to estimate paragraphs for scripts and captions.</li>
+                                </ul>
+                            </div>
+
+                           
+                        </aside>
+                    </div>
+                </section>
+
+                <section class="mt-6 bg-card p-4 rounded-xl shadow-sm">
+                    <h2 class="text-lg font-semibold mb-3">Use cases</h2>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                        <li class="p-3 border border-gray-100 rounded-lg">SEO meta descriptions and titles</li>
+                        <li class="p-3 border border-gray-100 rounded-lg">Social media captions and posts</li>
+                        <li class="p-3 border border-gray-100 rounded-lg">Manuscript or subtitle length checks</li>
+                        <li class="p-3 border border-gray-100 rounded-lg">Mixed language content length planning</li>
+                    </ul>
+                </section>
+
+                <section class="mt-6 bg-card p-4 rounded-xl shadow-sm">
+                    <h2 class="text-lg font-semibold mb-3">Frequently asked questions</h2>
+                    <div class="space-y-3 text-sm">
+                        <article>
+                            <h3 class="font-semibold">Where does the text go</h3>
+                            <p class="text-muted" style="color:var(--muted)">All processing runs in your browser. No text leaves your device.</p>
+                        </article>
+
+                        <article>
+                            <h3 class="font-semibold">How does weighted counting work</h3>
+                            <p class="text-muted" style="color:var(--muted)">Full-width characters count as one unit. Half-width characters count as half a unit. The tool sums weights and shows a decimal result.</p>
+                        </article>
+
+                        <article>
+                            <h3 class="font-semibold">Do line breaks count</h3>
+                            <p class="text-muted" style="color:var(--muted)">Yes. The tool counts lines using newline characters. Empty input returns zero.</p>
+                        </article>
+
+                        <article>
+                            <h3 class="font-semibold">Is this safe for sensitive text</h3>
+                            <p class="text-muted" style="color:var(--muted)">Yes. All work happens locally. Avoid pasting private data if you prefer.</p>
+                        </article>
+
+                        <article>
+                            <h3 class="font-semibold">Which characters are full-width</h3>
+                            <p class="text-muted" style="color:var(--muted)">CJK ideographs, Hiragana, Katakana, Hangul, and full-width punctuation count as full-width.</p>
+                        </article>
+                    </div>
+                </section>
+
+               
+            </main>
+
+           
+
+            <script>
+                // Improved counting script with debounce and accessibility updates
+                (function(){
+                    const input = document.getElementById('inputText');
+                    const countBtn = document.getElementById('countBtn');
+                    const resetBtn = document.getElementById('resetBtn');
+                    const autoToggle = document.getElementById('autoToggle');
+
+                    const outWithSpaces = document.getElementById('charCountWithSpaces');
+                    const outNoSpaces = document.getElementById('charCountNoSpaces');
+                    const outWeighted = document.getElementById('charCountWeighted');
+                    const outWeightedNoSpaces = document.getElementById('charCountWeightedNoSpaces');
+                    const outLines = document.getElementById('lineCount');
+
+                    // detect full-width character by Unicode ranges (use codePointAt for surrogate pairs)
+                    function isFullWidth(char){
+                        if(!char) return false;
+                        const code = char.codePointAt(0);
+                        return (
+                            (code >= 0xFF01 && code <= 0xFF60) ||
+                            (code >= 0xFFE0 && code <= 0xFFE6) ||
+                            (code >= 0x4E00 && code <= 0x9FFF) ||
+                            (code >= 0x3040 && code <= 0x309F) ||
+                            (code >= 0x30A0 && code <= 0x30FF) ||
+                            (code >= 0xAC00 && code <= 0xD7AF)
+                        );
+                    }
+
+                    function computeCounts(text){
+                        const withSpaces = Array.from(text).length; // count code points
+                        const noSpaces = Array.from(text.replace(/[\s\u3000]/g, '')).length;
+                        let weighted = 0;
+                        let weightedNoSpaces = 0;
+
+                        for(const ch of Array.from(text)){
+                            weighted += isFullWidth(ch) ? 1 : 0.5;
+                        }
+                        const noSpaceText = text.replace(/[\s\u3000]/g, '');
+                        for(const ch of Array.from(noSpaceText)){
+                            weightedNoSpaces += isFullWidth(ch) ? 1 : 0.5;
+                        }
+
+                        const lines = text === '' ? 0 : text.split(/\r\n|\r|\n/).length;
+
+                        return {
+                            withSpaces,
+                            noSpaces,
+                            weighted: Math.round(weighted*10)/10,
+                            weightedNoSpaces: Math.round(weightedNoSpaces*10)/10,
+                            lines
+                        };
+                    }
+
+                    function updateDisplay(vals){
+                        outWithSpaces.textContent = vals.withSpaces;
+                        outNoSpaces.textContent = vals.noSpaces;
+                        outWeighted.textContent = Number(vals.weighted).toFixed(1);
+                        outWeightedNoSpaces.textContent = Number(vals.weightedNoSpaces).toFixed(1);
+                        outLines.textContent = vals.lines;
+                    }
+
+                    let debounceTimer = null;
+                    function scheduleCount(){
+                        if(debounceTimer) clearTimeout(debounceTimer);
+                        debounceTimer = setTimeout(() => {
+                            const vals = computeCounts(input.value);
+                            updateDisplay(vals);
+                        }, 180);
+                    }
+
+                    // initial
+                    updateDisplay({withSpaces:0,noSpaces:0,weighted:0,weightedNoSpaces:0,lines:0});
+
+                    countBtn.addEventListener('click', () => {
+                        const vals = computeCounts(input.value);
+                        updateDisplay(vals);
+                        input.focus();
+                    });
+
+                    resetBtn.addEventListener('click', () => {
+                        input.value = '';
+                        updateDisplay({withSpaces:0,noSpaces:0,weighted:0,weightedNoSpaces:0,lines:0});
+                        input.focus();
+                    });
+
+                    input.addEventListener('input', () => {
+                        if(autoToggle.checked){
+                            scheduleCount();
+                        }
+                    });
+
+                    // keyboard shortcut: Ctrl+Enter counts
+                    input.addEventListener('keydown', (e) => {
+                        if((e.ctrlKey || e.metaKey) && e.key === 'Enter'){
+                            e.preventDefault();
+                            const vals = computeCounts(input.value);
+                            updateDisplay(vals);
+                        }
+                    });
+
+                    // accessibility: announce results to screen readers
+                    const liveRegion = document.createElement('div');
+                    liveRegion.setAttribute('aria-live','polite');
+                    liveRegion.setAttribute('aria-atomic','true');
+                    liveRegion.style.position = 'absolute';
+                    liveRegion.style.left = '-9999px';
+                    document.body.appendChild(liveRegion);
+
+                    // update live region after count
+                    function announce(){
+                        const vals = {
+                            withSpaces: outWithSpaces.textContent,
+                            noSpaces: outNoSpaces.textContent,
+                            weighted: outWeighted.textContent,
+                            weightedNoSpaces: outWeightedNoSpaces.textContent,
+                            lines: outLines.textContent
+                        };
+                        liveRegion.textContent = `Characters ${vals.withSpaces}. Characters no spaces ${vals.noSpaces}. Weighted ${vals.weighted}. Lines ${vals.lines}.`;
+                    }
+
+                    // hook announce on each explicit count and debounce final update
+                    countBtn.addEventListener('click', announce);
+                    resetBtn.addEventListener('click', announce);
+                    input.addEventListener('input', () => {
+                        if(autoToggle.checked){
+                            if(debounceTimer) clearTimeout(debounceTimer);
+                            debounceTimer = setTimeout(() => {
+                                announce();
+                            }, 220);
+                        }
+                    });
+                })();
+            </script>
+
+        
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+</body>
+        </html>

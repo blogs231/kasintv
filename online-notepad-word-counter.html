@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/online-notepad-word-counter.html">
+    <meta property="og:url" content="https://kasin-tv.com/online-notepad-word-counter.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Notepad with Word Counter | Text Editor - KaSin TV</title>
+    <meta name="description" content="Free online notepad with real-time word counter. Create, edit, save, copy, and download text notes instantly. Simple, secure, and works on all devices.">
+    <meta name="keywords" content="online notepad, word counter, text editor, free notepad, online text editor, word count tool, note taking app">
+    <meta name="author" content="KaSin TV">
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Online Notepad with Word Counter | KaSin TV">
+    <meta property="og:description" content="Free online notepad with real-time word counter. Create, edit, save, copy, and download text notes instantly.">
+    <meta property="og:site_name" content="KaSin TV">
+    <meta property="og:image" content="https://kasin-tv.com/images/notepad-word-counter-og.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online Notepad with Word Counter | KaSin TV">
+    <meta name="twitter:description" content="Free online notepad with real-time word counter. Simple, secure, and works on all devices.">
+    <meta name="twitter:image" content="https://kasin-tv.com/images/notepad-word-counter-og.jpg">
+    
+    <!-- Favicon -->
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Notepad with Word Counter",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online notepad with real-time word counter. Create, edit, save, copy, and download text notes with character and word count tracking.",
+      "url": "https://kasin-tv.com/online-notepad-word-counter.html",
+      "provider": {
+        "@type": "Organization",
+        "name": "KaSin TV",
+        "url": "https://kasin-tv.com/online-notepad-word-counter.html"
+      },
+      "featureList": [
+        "Real-time word counter",
+        "Character counter",
+        "Auto-save functionality",
+        "Copy to clipboard",
+        "Download as text file",
+        "Privacy-safe (client-side storage)",
+        "Mobile responsive"
+      ]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #dc2626;
+            --primary-hover: #b91c1c;
+            --secondary-color: #2563eb;
+            --secondary-hover: #1d4ed8;
+            --success-color: #16a34a;
+            --success-hover: #15803d;
+            --purple-color: #9333ea;
+            --purple-hover: #7e22ce;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .action-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .action-btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+        
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .copy-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: var(--success-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        
+        .copy-popup.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .section-header {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .use-case-card, .faq-card {
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .use-case-card:hover, .faq-card:hover {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transform: translateX(4px);
+        }
+        
+        .ad-placeholder {
+            background: #f3f4f6;
+            border: 2px dashed #d1d5db;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin: 2rem 0;
+        }
+        
+        #notepadText {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            line-height: 1.6;
+            transition: border-color 0.2s ease;
+            min-height: 400px;
+        }
+        
+        #notepadText:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 640px) {
+            .action-btn {
+                font-size: 0.875rem;
+                padding: 0.625rem 1rem;
+            }
+            
+            #notepadText {
+                min-height: 300px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        
+        <!-- Hero Section -->
+        <section class="text-center mb-12">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-file-alt text-red-600 text-4xl sm:text-5xl mr-4"></i>
+                <i class="fas fa-calculator text-blue-600 text-4xl sm:text-5xl"></i>
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Online Notepad with Word Counter</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">Create, edit, and manage your notes with real-time word and character counting. Free, fast, and secure — all data stays in your browser.</p>
+        </section>
+
+        <!-- Notepad Tool Card -->
+        <section class="card p-6 lg:p-8 mb-8">
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+                <div class="stat-card">
+                    <span class="stat-number" id="wordCount">0</span>
+                    <span class="stat-label">Words</span>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <span class="stat-number" id="charCount">0</span>
+                    <span class="stat-label">Characters</span>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <span class="stat-number" id="lineCount">0</span>
+                    <span class="stat-label">Lines</span>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <label for="notepadText" class="block text-sm font-semibold text-gray-800 mb-2">Your Notes</label>
+                <textarea 
+                    id="notepadText" 
+                    placeholder="Start typing or paste your text here...&#10;&#10;This notepad automatically counts words, characters, and lines as you type.&#10;Your notes are saved locally and never sent to any server."
+                    class="w-full p-4 border-2 border-gray-300 rounded-lg transition text-sm bg-white resize-y"
+                    aria-label="Notepad text area"></textarea>
+                <p class="text-xs text-gray-500 mt-2">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    Auto-saves as you type. Your data is stored locally in your browser.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap gap-3">
+                <button type="button" id="copyBtn" class="action-btn flex-1 sm:flex-none bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition flex items-center justify-center">
+                    <i class="fas fa-copy mr-2"></i>
+                    Copy Text
+                </button>
+                <button type="button" id="downloadBtn" class="action-btn flex-1 sm:flex-none bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition flex items-center justify-center">
+                    <i class="fas fa-download mr-2"></i>
+                    Download
+                </button>
+                <button type="button" id="clearBtn" class="action-btn flex-1 sm:flex-none bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-purple-700 transition flex items-center justify-center">
+                    <i class="fas fa-trash-alt mr-2"></i>
+                    Clear All
+                </button>
+            </div>
+            
+            <p id="statusMessage" class="text-sm mt-4 hidden flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                <span id="statusText"></span>
+            </p>
+        </section>
+
+        
+        <!-- Features Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">Key Features</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card p-6">
+                    <div class="feature-icon bg-red-100 text-red-600">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Real-Time Counting</h3>
+                    <p class="text-sm text-gray-600">Words, characters, and lines update instantly as you type.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="feature-icon bg-blue-100 text-blue-600">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Auto-Save</h3>
+                    <p class="text-sm text-gray-600">Your notes are automatically saved in your browser's local storage.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="feature-icon bg-green-100 text-green-600">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Privacy First</h3>
+                    <p class="text-sm text-gray-600">All data stays on your device. Nothing is sent to any server.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="feature-icon bg-purple-100 text-purple-600">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Works Anywhere</h3>
+                    <p class="text-sm text-gray-600">Fully responsive design works on desktop, tablet, and mobile.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What is Online Notepad Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">What is an Online Notepad with Word Counter?</h2>
+            <div class="card p-6 lg:p-8">
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    An online notepad with word counter is a web-based text editor that allows you to write, edit, and save notes directly in your browser while providing real-time statistics about your text. Unlike traditional notepads, it combines simple note-taking with powerful analytics.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Our tool is perfect for writers, students, bloggers, and professionals who need to track word counts for essays, articles, social media posts, or any text-based content. With automatic saving and the ability to download your work, you'll never lose your notes again.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Pro Tips Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">Pro Tips for Maximum Productivity</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="use-case-card">
+                    <div class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Use Keyboard Shortcuts</h3>
+                            <p class="text-sm text-gray-700">Press Ctrl+A (or Cmd+A on Mac) to select all text quickly, then Ctrl+C to copy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Regular Downloads</h3>
+                            <p class="text-sm text-gray-700">Download important notes as backup files to prevent accidental data loss.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Track Word Limits</h3>
+                            <p class="text-sm text-gray-700">Perfect for meeting essay requirements, tweet limits, or article specifications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Draft Anywhere</h3>
+                            <p class="text-sm text-gray-700">Use on any device without installation - perfect for quick ideas on the go.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">Common Use Cases</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Academic Writing</h3>
+                    <p class="text-sm text-gray-600">Track word counts for essays, research papers, and assignments to meet requirements.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-blog text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Content Creation</h3>
+                    <p class="text-sm text-gray-600">Draft blog posts, articles, and social media content with precise word limits.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-sticky-note text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Quick Notes</h3>
+                    <p class="text-sm text-gray-600">Jot down ideas, to-do lists, and reminders without opening heavy applications.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-pen-fancy text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Creative Writing</h3>
+                    <p class="text-sm text-gray-600">Write stories, poems, and scripts while tracking your progress and word count.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-briefcase text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Professional Docs</h3>
+                    <p class="text-sm text-gray-600">Draft emails, reports, and proposals with character and word tracking.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-language text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Language Learning</h3>
+                    <p class="text-sm text-gray-600">Practice writing in new languages and track your vocabulary growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Is my data safe and private?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Yes! All your notes are stored locally in your browser. Nothing is sent to any server, ensuring complete privacy and security.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Will my notes be saved if I close the browser?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Yes, your notes are automatically saved to your browser's local storage and will be there when you return.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        How accurate is the word counter?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Our word counter uses standard word-counting algorithms that split text by spaces, similar to Microsoft Word and Google Docs.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Can I use this on my mobile device?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Absolutely! The notepad is fully responsive and works perfectly on smartphones and tablets.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        What format are downloaded notes?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Notes are downloaded as plain text (.txt) files that can be opened in any text editor.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Is there a character or word limit?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">No! You can write as much as you want. The tool can handle large documents efficiently.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Do I need to create an account?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">No registration required! Just open the page and start typing immediately.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Can I use this tool offline?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Once loaded, the tool works offline. However, you need an initial internet connection to load the page.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Is this tool really free?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Yes! It's completely free with no limitations, subscriptions, or hidden fees.</p>
+                </div>
+            </div>
+        </section>
+
+    
+    </main>
+
+   
+
+    <!-- JavaScript -->
+    <script>
+        const STORAGE_KEY = 'kasin_notepad_content';
+        
+        function showPopup(message = 'Success!', isSuccess = true) {
+            const popup = document.createElement('div');
+            popup.className = 'copy-popup';
+            popup.style.background = isSuccess ? 'var(--success-color)' : 'var(--primary-color)';
+            popup.innerHTML = `<i class="fas fa-${isSuccess ? 'check' : 'info'}-circle mr-2"></i>${message}`;
+            document.body.appendChild(popup);
+            setTimeout(() => popup.classList.add('show'), 10);
+            setTimeout(() => {
+                popup.classList.remove('show');
+                setTimeout(() => popup.remove(), 300);
+            }, 2000);
+        }
+
+        function countWords(text) {
+            if (!text.trim()) return 0;
+            return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+        }
+
+        function countCharacters(text) {
+            return text.length;
+        }
+
+        function countLines(text) {
+            if (!text) return 0;
+            return text.split('\n').length;
+        }
+
+        function updateStats() {
+            const text = document.getElementById('notepadText').value;
+            document.getElementById('wordCount').textContent = countWords(text);
+            document.getElementById('charCount').textContent = countCharacters(text);
+            document.getElementById('lineCount').textContent = countLines(text);
+        }
+
+        function saveToLocalStorage() {
+            const text = document.getElementById('notepadText').value;
+            try {
+                localStorage.setItem(STORAGE_KEY, text);
+            } catch (e) {
+                console.error('Failed to save to local storage:', e);
+            }
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const savedText = localStorage.getItem(STORAGE_KEY);
+                // Use a null check so an intentionally-saved empty string ("") is loaded
+                if (savedText !== null) {
+                    document.getElementById('notepadText').value = savedText;
+                    updateStats();
+                }
+            } catch (e) {
+                console.error('Failed to load from local storage:', e);
+            }
+        }
+
+        function showStatus(message, isSuccess = true) {
+            const statusMessage = document.getElementById('statusMessage');
+            const statusText = document.getElementById('statusText');
+            const icon = statusMessage.querySelector('i');
+            
+            statusText.textContent = message;
+            icon.className = isSuccess ? 'fas fa-check-circle text-green-600 mr-2' : 'fas fa-exclamation-circle text-red-600 mr-2';
+            statusMessage.classList.remove('hidden');
+            
+            setTimeout(() => {
+                statusMessage.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Event Listeners
+        document.getElementById('notepadText').addEventListener('input', function() {
+            updateStats();
+            saveToLocalStorage();
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const text = document.getElementById('notepadText').value;
+            if (!text.trim()) {
+                showPopup('Nothing to copy!', false);
+                return;
+            }
+            
+            navigator.clipboard.writeText(text).then(() => {
+                showPopup('Text copied to clipboard!');
+                showStatus('Text successfully copied to clipboard');
+            }).catch(() => {
+                showPopup('Failed to copy text', false);
+                showStatus('Failed to copy text. Please try selecting manually.', false);
+            });
+        });
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const text = document.getElementById('notepadText').value;
+            if (!text.trim()) {
+                showPopup('Nothing to download!', false);
+                return;
+            }
+            
+            try {
+                const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                const timestamp = new Date().toISOString().slice(0, 10);
+                link.href = url;
+                link.download = `note-${timestamp}.txt`;
+                link.click();
+                URL.revokeObjectURL(url);
+                showPopup('Note downloaded successfully!');
+                showStatus('Note downloaded as text file');
+            } catch (e) {
+                showPopup('Download failed', false);
+                showStatus('Failed to download. Please try again.', false);
+            }
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', function() {
+            if (document.getElementById('notepadText').value.trim()) {
+                if (confirm('Are you sure you want to clear all text? This action cannot be undone.')) {
+                    document.getElementById('notepadText').value = '';
+                    updateStats();
+                    saveToLocalStorage();
+                    showPopup('Notepad cleared!');
+                    showStatus('All text has been cleared');
+                }
+            } else {
+                showPopup('Notepad is already empty', false);
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFromLocalStorage();
+            updateStats();
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + S to trigger save notification
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                saveToLocalStorage();
+                showPopup('Note auto-saved!');
+            }
+        });
+    </script>
+
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+</body>
+</html>

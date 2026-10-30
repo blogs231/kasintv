@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/url-encode-decode.html">
+    <meta property="og:url" content="https://kasin-tv.com/url-encode-decode.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Encoder and Decoder Online | KaSin TV</title>
+    <meta name="description" content="Free online URL encode and decode tool. Instantly convert text to URL-safe format or decode URL-encoded strings. Privacy-first, client-side processing.">
+    <meta name="keywords" content="url encode, url decode, percent encoding, url encoder, url decoder, encode url online, decode url online, uri encode, uri decode">
+    <meta name="author" content="Kasin TV">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="URL Encode Decode Tool — Free Online Encoder & Decoder | Kasin TV">
+    <meta property="og:description" content="Free online URL encode and decode tool. Instantly convert text to URL-safe format. Privacy-first, no data stored.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://kasin-tv.com/images/url-encode-decode-og.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="URL Encode Decode Tool — Kasin TV">
+    <meta name="twitter:description" content="Free URL encoder and decoder. Fast, secure, and works entirely in your browser.">
+    <meta name="twitter:image" content="https://kasin-tv.com/images/url-encode-decode-twitter.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "URL Encode Decode Tool",
+        "url": "https://kasin-tv.com/url-encode-decode.html",
+        "description": "Free online tool to URL encode and decode text. Privacy-focused, client-side processing with no data storage.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Kasin TV",
+            "url": "https://kasin-tv.com/url-encode-decode.html"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-teal: #0d9488;
+            --primary-teal-hover: #0f766e;
+            --success-green: #059669;
+            --success-green-hover: #047857;
+            --bg-gradient: linear-gradient(180deg, #f0fdfa, #f1f5f9);
+            --card-bg: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border-light: #e5e7eb;
+            --input-bg: #fcfdff;
+            --input-border: #d1d5db;
+            --ghost-bg: #f3f4f6;
+            --ghost-hover: #e5e7eb;
+            --section-bg: #f9fafb;
+            --error-red: #dc2626;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.25rem;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.3;
+            word-wrap: break-word;
+        }
+
+        .lead {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+        }
+
+        p {
+            margin: 0 0 0.75rem 0;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Tool Layout */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .tool-main {
+            min-width: 0;
+        }
+
+        /* Mode Toggle */
+        .mode-toggle {
+            display: flex;
+            gap: 0.625rem;
+            margin-bottom: 1.25rem;
+            justify-content: center;
+        }
+
+        .mode-btn {
+            flex: 1;
+            max-width: 200px;
+            padding: 0.75rem 1.25rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .mode-btn.active {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        .mode-btn.inactive {
+            background: var(--ghost-bg);
+            color: var(--text-primary);
+        }
+
+        .mode-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            border-radius: 8px;
+            border: 2px solid var(--input-border);
+            padding: 0.875rem;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: var(--input-bg);
+            color: var(--text-primary);
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+
+        textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        textarea[readonly] {
+            background: var(--section-bg);
+            cursor: default;
+        }
+
+        /* Error Message */
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Buttons */
+        .controls {
+            display: flex;
+            gap: 0.625rem;
+            flex-wrap: wrap;
+            margin: 0.875rem 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            border-radius: 8px;
+            padding: 0.625rem 1rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+            font-family: inherit;
+            transition: all 0.2s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn.primary {
+            background: var(--primary-teal);
+            color: #fff;
+        }
+
+        .btn.primary:hover {
+            background: var(--primary-teal-hover);
+        }
+
+        .btn.success {
+            background: var(--success-green);
+            color: #fff;
+        }
+
+        .btn.success:hover {
+            background: var(--success-green-hover);
+        }
+
+        .btn.ghost {
+            background: var(--ghost-bg);
+            color: var(--text-primary);
+        }
+
+        .btn.ghost:hover {
+            background: var(--ghost-hover);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 1rem;
+        }
+
+        .sidebar-box {
+            background: var(--section-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-box h3 {
+            font-size: 1rem;
+            margin-bottom: 0.625rem;
+        }
+
+        .sidebar-box p {
+            font-size: 0.875rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .ad-slot {
+            background: linear-gradient(135deg, #fff, var(--section-bg));
+            border: 2px dashed var(--border-light);
+            border-radius: 10px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 0.875rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .grid-item {
+            background: var(--section-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.2s;
+        }
+
+        .grid-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .grid-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .grid-item p {
+            font-size: 0.875rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Lists */
+        ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* FAQ */
+        details {
+            background: var(--section-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:after {
+            content: "+";
+            font-size: 1.25rem;
+            color: var(--primary-teal);
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+
+        details[open] summary:after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1rem 1rem;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .faq-answer p {
+            margin: 0;
+        }
+
+        /* Code Examples */
+        code {
+            background: var(--section-bg);
+            padding: 0.125rem 0.375rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+            color: var(--primary-teal);
+        }
+
+        /* Related Tools */
+        .related-tools {
+            display: flex;
+            gap: 0.625rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem 0 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.25rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-teal);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        /* Popup */
+        .popup {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--success-green);
+            color: white;
+            padding: 0.875rem 1.25rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .popup.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem 0.75rem;
+            }
+
+            .card {
+                padding: 1.25rem;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 1.25rem;
+            }
+
+            .lead {
+                font-size: 0.85rem;
+            }
+
+            h2 {
+                font-size: 1.125rem;
+            }
+
+            .header {
+                flex-direction: column;
+            }
+
+            .logo img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .mode-toggle {
+                flex-direction: column;
+            }
+
+            .mode-btn {
+                max-width: 100%;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .popup {
+                top: 1rem;
+                right: 1rem;
+                left: 1rem;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body>
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <div class="container">
+        <!-- Header -->
+        <section class="card">
+            <div class="header">
+                <div class="header-text">
+                    <h1>URL Encode / Decode Tool — Free Online Encoder & Decoder</h1>
+                    <p class="lead">Free online URL encoding and decoding tool. Instantly convert text to URL-safe format or decode percent-encoded strings. Privacy-first client-side processing. All operations happen in your browser—no data uploaded or stored.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="card">
+            <h2><i class="fas fa-info-circle"></i> What is URL Encoding?</h2>
+            <p>URL encoding (also known as percent-encoding) is a mechanism for converting characters into a format that can be safely transmitted over the internet. Special characters, spaces, and non-ASCII characters are converted into a percent sign (<code>%</code>) followed by two hexadecimal digits.</p>
+            <p>Our URL Encode/Decode Tool allows you to quickly convert text to URL-safe format or decode already-encoded URLs. The tool operates entirely in your browser using JavaScript, ensuring complete privacy—your data never leaves your device.</p>
+        </section>
+
+        <!-- Main Tool -->
+        <section class="card">
+            <div class="tool-grid">
+                <div class="tool-main">
+                    <!-- Mode Toggle -->
+                    <div class="mode-toggle">
+                        <button id="encodeBtn" class="mode-btn active">
+                            <i class="fas fa-lock"></i> Encode
+                        </button>
+                        <button id="decodeBtn" class="mode-btn inactive">
+                            <i class="fas fa-unlock"></i> Decode
+                        </button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputText" id="inputLabel">
+                            <i class="fas fa-keyboard"></i> Enter Text to Encode
+                        </label>
+                        <textarea 
+                            id="inputText" 
+                            placeholder="Type or paste your text here (e.g., 'Hello World!' becomes 'Hello%20World%21')"
+                            aria-label="Input text"
+                        ></textarea>
+                    </div>
+
+                    <div class="controls">
+                        <button id="convertBtn" class="btn primary">
+                            <i class="fas fa-exchange-alt"></i> <span id="convertLabel">Encode</span>
+                        </button>
+                        <button id="copyBtn" class="btn success">
+                            <i class="fas fa-copy"></i> Copy Result
+                        </button>
+                        <button id="resetBtn" class="btn ghost">
+                            <i class="fas fa-undo"></i> Clear All
+                        </button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resultText">
+                            <i class="fas fa-check-circle"></i> Result
+                        </label>
+                        <textarea 
+                            id="resultText" 
+                            readonly 
+                            placeholder="Converted result will appear here instantly..."
+                        ></textarea>
+                        <div id="errorMessage" class="error-message">
+                            <i class="fas fa-exclamation-triangle"></i> Error: Invalid input. Please check your text.
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    
+
+                    <div class="sidebar-box">
+                        <h3><i class="fas fa-lightbulb"></i> Quick Guide</h3>
+                        <p>Select Encode or Decode mode, enter your text, and see instant results. Click Copy to use the result.</p>
+                    </div>
+
+                    <div class="sidebar-box">
+                        <h3><i class="fas fa-shield-alt"></i> 100% Private</h3>
+                        <p>All processing happens in your browser. Your text never leaves your device.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        
+
+        <!-- Use Cases -->
+        <section class="card">
+            <h2><i class="fas fa-lightbulb"></i> Common Use Cases</h2>
+            <div class="grid grid-3">
+                <div class="grid-item">
+                    <h4><i class="fas fa-link"></i> Clean URLs</h4>
+                    <p>Encode special characters in URLs for proper link sharing.</p>
+                </div>
+                <div class="grid-item">
+                    <h4><i class="fas fa-code"></i> API Development</h4>
+                    <p>Prepare query parameters for API requests and endpoints.</p>
+                </div>
+                <div class="grid-item">
+                    <h4><i class="fas fa-database"></i> Database Queries</h4>
+                    <p>Safely encode data before including in URL strings.</p>
+                </div>
+                <div class="grid-item">
+                    <h4><i class="fas fa-globe"></i> Web Development</h4>
+                    <p>Handle URL parameters in web applications correctly.</p>
+                </div>
+                <div class="grid-item">
+                    <h4><i class="fas fa-search"></i> SEO Optimization</h4>
+                    <p>Create SEO-friendly URLs with properly encoded characters.</p>
+                </div>
+                <div class="grid-item">
+                    <h4><i class="fas fa-bug"></i> Debugging</h4>
+                    <p>Decode encoded URLs to understand their actual content.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Use -->
+        <section class="card">
+            <h2><i class="fas fa-book-open"></i> How to Use the URL Encoder/Decoder</h2>
+            <div class="grid grid-2">
+                <div>
+                    <h3>📋 Step-by-Step Guide</h3>
+                    <ul>
+                        <li><strong>Step 1:</strong> Choose Encode or Decode mode</li>
+                        <li><strong>Step 2:</strong> Type or paste your text in the input field</li>
+                        <li><strong>Step 3:</strong> Text is automatically converted in real-time</li>
+                        <li><strong>Step 4:</strong> Click "Copy Result" to copy the output</li>
+                        <li><strong>Step 5:</strong> Use "Clear All" to reset and start over</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>💡 Pro Tips</h3>
+                    <ul>
+                        <li>Use Encode mode to make text URL-safe</li>
+                        <li>Use Decode mode to read encoded URLs</li>
+                        <li>Tool handles spaces, special chars, and Unicode</li>
+                        <li>Real-time conversion as you type</li>
+                        <li>Switch between modes without losing your input</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- What Gets Encoded -->
+        <section class="card">
+            <h2><i class="fas fa-table"></i> What Characters Get Encoded?</h2>
+            <div class="grid grid-2">
+                <div>
+                    <h3>Common Encoded Characters</h3>
+                    <ul>
+                        <li><strong>Space:</strong> <code>%20</code> or <code>+</code></li>
+                        <li><strong>!</strong> (exclamation): <code>%21</code></li>
+                        <li><strong>#</strong> (hash): <code>%23</code></li>
+                        <li><strong>$</strong> (dollar): <code>%24</code></li>
+                        <li><strong>%</strong> (percent): <code>%25</code></li>
+                        <li><strong>&</strong> (ampersand): <code>%26</code></li>
+                        <li><strong>=</strong> (equals): <code>%3D</code></li>
+                        <li><strong>?</strong> (question): <code>%3F</code></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Characters That Don't Need Encoding</h3>
+                    <ul>
+                        <li>Letters: A-Z, a-z</li>
+                        <li>Numbers: 0-9</li>
+                        <li>Hyphen: <code>-</code></li>
+                        <li>Underscore: <code>_</code></li>
+                        <li>Period: <code>.</code></li>
+                        <li>Tilde: <code>~</code></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="card">
+            <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            
+            <details>
+                <summary>What is URL encoding and why is it needed?</summary>
+                <div class="faq-answer">
+                    <p>URL encoding converts special characters into a format that can be safely transmitted over the internet. URLs can only contain certain characters from the ASCII set. Characters outside this set, including spaces and special symbols, must be encoded using percent-encoding (e.g., space becomes <code>%20</code>).</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Is my data uploaded to any server?</summary>
+                <div class="faq-answer">
+                    <p>No, absolutely not. All encoding and decoding happens entirely in your web browser using client-side JavaScript. Your text never leaves your device, ensuring complete privacy and security.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>What's the difference between URL encoding and HTML encoding?</summary>
+                <div class="faq-answer">
+                    <p>URL encoding (percent-encoding) is used to encode characters in URLs, while HTML encoding is used to display special characters in HTML documents. URL encoding uses <code>%20</code> for spaces, while HTML encoding uses <code>&amp;nbsp;</code>. This tool specifically handles URL encoding.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Can I decode already-encoded URLs?</summary>
+                <div class="faq-answer">
+                    <p>Yes! Simply switch to Decode mode, paste your encoded URL or text, and the tool will instantly decode it to human-readable format. This is useful for understanding what encoded URLs actually contain.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Does the tool handle Unicode characters?</summary>
+                <div class="faq-answer">
+                    <p>Yes! The tool correctly handles Unicode characters including emojis, accented letters, and characters from non-Latin alphabets. They are encoded using UTF-8 encoding standards.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>What happens if I try to decode invalid text?</summary>
+                <div class="faq-answer">
+                    <p>If you try to decode text that isn't properly URL-encoded, the tool will display an error message. This typically happens when the encoded text is malformed or corrupted.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Can I use this for encoding query parameters?</summary>
+                <div class="faq-answer">
+<p>Yes! This tool is perfect for encoding query parameters in URLs. For example, if you need to pass <code>name=John Doe</code> in a URL, you can encode it to <code>name=John%20Doe</code> to ensure it works correctly.</p>
+</div>
+</details>
+        <details>
+            <summary>Is there a character limit for encoding/decoding?</summary>
+            <div class="faq-answer">
+                <p>While there's no strict limit, very large texts (over 100,000 characters) may slow down your browser. For optimal performance, we recommend working with texts under 50,000 characters.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Is this tool free to use?</summary>
+            <div class="faq-answer">
+                <p>Yes, the URL Encode/Decode Tool is completely free with no hidden fees, premium features, or usage limits. No registration or account required.</p>
+            </div>
+        </details>
+    </section>
+
+    <!-- Technical Info -->
+    <section class="card">
+        <h2><i class="fas fa-cogs"></i> Technical Information</h2>
+        <div class="grid grid-2">
+            <div>
+                <h3>How URL Encoding Works</h3>
+                <p>URL encoding uses the <code>encodeURIComponent()</code> JavaScript function, which converts characters to UTF-8 encoding and then represents each byte as a percent sign followed by two hexadecimal digits.</p>
+                <p>For example, the space character (ASCII 32) is encoded as <code>%20</code>, and the exclamation mark is encoded as <code>%21</code>.</p>
+            </div>
+            <div>
+                <h3>Standards Compliance</h3>
+                <p>This tool follows RFC 3986 standards for URL encoding. It uses UTF-8 character encoding, which is the standard for modern web applications.</p>
+                <p>The tool is compatible with all modern browsers including Chrome, Firefox, Safari, Edge, and Opera.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Examples -->
+    <section class="card">
+        <h2><i class="fas fa-code"></i> Encoding Examples</h2>
+        <div class="grid grid-2">
+            <div class="grid-item">
+                <h4>Example 1: Basic Text</h4>
+                <p><strong>Original:</strong> Hello World!</p>
+                <p><strong>Encoded:</strong> <code>Hello%20World%21</code></p>
+            </div>
+            <div class="grid-item">
+                <h4>Example 2: Email Address</h4>
+                <p><strong>Original:</strong> user@example.com</p>
+                <p><strong>Encoded:</strong> <code>user%40example.com</code></p>
+            </div>
+            <div class="grid-item">
+                <h4>Example 3: Special Characters</h4>
+                <p><strong>Original:</strong> 100% success!</p>
+                <p><strong>Encoded:</strong> <code>100%25%20success%21</code></p>
+            </div>
+            <div class="grid-item">
+                <h4>Example 4: Query String</h4>
+                <p><strong>Original:</strong> name=John&age=30</p>
+                <p><strong>Encoded:</strong> <code>name%3DJohn%26age%3D30</code></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="card">
+        <h2><i class="fas fa-tools"></i> Related Text Tools</h2>
+        <p style="text-align:center;margin-bottom:1rem">Explore more free text tools from Kasin TV</p>
+        <div class="related-tools">
+            <a href="/base64-encoder-decoder.html" class="btn ghost">
+                <i class="fas fa-file-code"></i> Base64 Encoder
+            </a>
+            <a href="/html-encode-decode.html" class="btn ghost">
+                <i class="fas fa-code"></i> HTML Encoder
+            </a>
+            <a href="/json-formatter-validator.html" class="btn ghost">
+                <i class="fas fa-brackets-curly"></i> JSON Formatter
+            </a>
+            <a href="/case-converter.html" class="btn ghost">
+                <i class="fas fa-font"></i> Case Converter
+            </a>
+            <a href="/word-counter.html" class="btn ghost">
+                <i class="fas fa-calculator"></i> Word Counter
+            </a>
+            <a href="/reverse-text.html" class="btn ghost">
+                <i class="fas fa-exchange-alt"></i> Reverse Text
+            </a>
+        </div>
+    </section>
+
+    <!-- Why Choose -->
+    <section class="card">
+        <h2><i class="fas fa-star"></i> Why Choose Our URL Encoder/Decoder?</h2>
+        <div class="grid grid-3">
+            <div class="grid-item">
+                <h4><i class="fas fa-lock"></i> 100% Private</h4>
+                <p>All processing local in your browser. No data transmitted or stored.</p>
+            </div>
+            <div class="grid-item">
+                <h4><i class="fas fa-bolt"></i> Real-Time Results</h4>
+                <p>Instant encoding/decoding with no delays. See results as you type.</p>
+            </div>
+            <div class="grid-item">
+                <h4><i class="fas fa-mobile-alt"></i> Mobile Friendly</h4>
+                <p>Works perfectly on desktop, tablet, and mobile devices.</p>
+            </div>
+            <div class="grid-item">
+                <h4><i class="fas fa-check-circle"></i> Standards Compliant</h4>
+                <p>Follows RFC 3986 standards for URL encoding.</p>
+            </div>
+            <div class="grid-item">
+                <h4><i class="fas fa-dollar-sign"></i> Free Forever</h4>
+                <p>No registration, payments, or limits. Full functionality at no cost.</p>
+            </div>
+            <div class="grid-item">
+                <h4><i class="fas fa-universal-access"></i> Accessible</h4>
+                <p>Built following WCAG guidelines for everyone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="card">
+        <h2><i class="fas fa-info-circle"></i> About Kasin TV</h2>
+        <p>Kasin TV is dedicated to creating high-quality, free web tools that make everyday tasks easier. Our suite of text manipulation utilities, converters, and generators are designed with privacy, simplicity, and user experience in mind.</p>
+        <p>We believe in the open web and creating tools that respect your privacy. All our tools use client-side processing whenever possible, ensuring your data never leaves your device. No tracking, no data collection, no compromises.</p>
+        <p>Have suggestions for new tools or improvements? We'd love to hear from you. <a href="/contact-us.html" style="color:var(--primary-teal);font-weight:600">Get in touch</a> with our team.</p>
+    </section>
+
+    <!-- Footer -->
+    
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+</div>
+
+<script>
+    // Current mode
+    let mode = 'encode';
+
+    // Popup notification
+    function showPopup(msg) {
+        const popup = document.createElement('div');
+        popup.className = 'popup';
+        popup.innerHTML = `<i class="fas fa-check-circle"></i><span>${msg}</span>`;
+        document.body.appendChild(popup);
+        setTimeout(() => popup.classList.add('show'), 10);
+        setTimeout(() => {
+            popup.classList.remove('show');
+            setTimeout(() => popup.remove(), 300);
+        }, 3000);
+    }
+
+    // Toggle between encode and decode mode
+    function toggleMode(newMode) {
+        mode = newMode;
+        const encodeBtn = document.getElementById('encodeBtn');
+        const decodeBtn = document.getElementById('decodeBtn');
+        const inputLabel = document.getElementById('inputLabel');
+        const convertLabel = document.getElementById('convertLabel');
+        const inputText = document.getElementById('inputText');
+        const errorMessage = document.getElementById('errorMessage');
+
+        if (mode === 'encode') {
+            encodeBtn.className = 'mode-btn active';
+            decodeBtn.className = 'mode-btn inactive';
+            inputLabel.innerHTML = '<i class="fas fa-keyboard"></i> Enter Text to Encode';
+            inputText.placeholder = "Type or paste your text here (e.g., 'Hello World!' becomes 'Hello%20World%21')";
+            convertLabel.textContent = 'Encode';
+        } else {
+            encodeBtn.className = 'mode-btn inactive';
+            decodeBtn.className = 'mode-btn active';
+            inputLabel.innerHTML = '<i class="fas fa-keyboard"></i> Enter URL-Encoded Text to Decode';
+            inputText.placeholder = "Paste encoded text to decode (e.g., 'Hello%20World%21' becomes 'Hello World!')";
+            convertLabel.textContent = 'Decode';
+        }
+
+        errorMessage.classList.remove('show');
+        convertText();
+    }
+
+    // Convert text based on current mode
+    function convertText() {
+        const input = document.getElementById('inputText').value;
+        const resultText = document.getElementById('resultText');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        errorMessage.classList.remove('show');
+
+        if (!input.trim()) {
+            resultText.value = '';
+            return;
+        }
+
+        try {
+            if (mode === 'encode') {
+                resultText.value = encodeURIComponent(input);
+            } else {
+                resultText.value = decodeURIComponent(input);
+            }
+        } catch (e) {
+            errorMessage.classList.add('show');
+            resultText.value = '';
+        }
+    }
+
+    // Event listeners
+    document.getElementById('encodeBtn').addEventListener('click', () => toggleMode('encode'));
+    document.getElementById('decodeBtn').addEventListener('click', () => toggleMode('decode'));
+
+    document.getElementById('convertBtn').addEventListener('click', () => {
+        convertText();
+        const input = document.getElementById('inputText').value;
+        if (input) {
+            showPopup(`Text ${mode}d successfully!`);
+        } else {
+            showPopup('Please enter some text first');
+        }
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', () => {
+        const result = document.getElementById('resultText').value;
+        if (result) {
+            navigator.clipboard.writeText(result)
+                .then(() => showPopup('Copied to clipboard!'))
+                .catch(() => showPopup('Failed to copy'));
+        } else {
+            showPopup('No text to copy');
+        }
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        document.getElementById('inputText').value = '';
+        document.getElementById('resultText').value = '';
+        document.getElementById('errorMessage').classList.remove('show');
+        showPopup('Text cleared!');
+        document.getElementById('inputText').focus();
+    });
+
+    // Real-time conversion
+    document.getElementById('inputText').addEventListener('input', convertText);
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+            e.preventDefault();
+            document.getElementById('convertBtn').click();
+        }
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+            e.preventDefault();
+            document.getElementById('copyBtn').click();
+        }
+    });
+
+    // Auto-focus
+    window.addEventListener('load', () => {
+        document.getElementById('inputText').focus();
+    });
+
+    // Initialize
+    toggleMode('encode');
+</script>
+</body>
+</html>

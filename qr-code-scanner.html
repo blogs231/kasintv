@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/qr-code-scanner.html">
+    <meta property="og:url" content="https://kasin-tv.com/qr-code-scanner.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner | Scan & Generate QR Codes | KaSin TV</title>
+    <meta name="description" content="Scan QR codes using your camera or an uploaded image, then read the encoded content instantly. Free online QR scanner with no registration.">
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:title" content="QR Code Scanner | Scan & Generate QR Codes | KaSin TV">
+    <meta property="og:description" content="Scan QR codes with your camera and generate custom QR codes for free.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://kasin-tv.com/images/qr-scanner-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QR Code Scanner",
+      "description": "Free online QR code scanner and generator tool",
+      "url": "https://kasin-tv.com/qr-code-scanner.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "permissions": "camera",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "KaSin TV",
+        "url": "https://kasin-tv.com/qr-code-scanner.html"
+      }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #2ecc71;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f9f9f9;
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav a:hover {color: var(--secondary-color);}
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            width: 25px;
+            height: 18px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background: var(--primary-color);
+                width: 100%;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                padding: 1rem 0;
+                text-align: center;
+            }
+            nav.active {display: flex;}
+            .menu-toggle {display: flex;}
+        }
+
+        main {
+            margin: 2rem 0;
+        }
+
+        .tool-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tool-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .scanner-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .scanner-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scanner-section, .generator-section {
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+        }
+
+        .scanner-preview {
+            width: 100%;
+            height: 300px;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            border: 2px dashed #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scanner-preview video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scanner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .scanner-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+        }
+
+        .scanner-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .scanner-controls {
+                flex-direction: column;
+            }
+        }
+
+        .btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        .btn-success {
+            background: var(--success-color);
+        }
+
+        .btn-success:hover {
+            background: #27ae60;
+        }
+
+        .btn-danger {
+            background: var(--accent-color);
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        .scanner-results {
+            margin-top: 1.5rem;
+        }
+
+        .result-item {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        .result-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .result-value {
+            word-break: break-all;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+        }
+
+        .file-upload {
+            margin-bottom: 1.5rem;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 1rem;
+            border: 2px dashed #ddd;
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--secondary-color);
+            background: #f8f9fa;
+        }
+
+        .file-upload-input {
+            display: none;
+        }
+
+        .generator-preview {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 1rem;
+        }
+
+        .generator-preview canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {display: block; margin-bottom: 0.5rem; font-weight: 500;}
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .highlight {
+            margin-top: 1rem;
+            background: #fff8e1;
+            border-left: 4px solid #f1c40f;
+            padding: 1rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        /* Content Section Styles */
+        .content-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tip-card, .use-case-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+        }
+
+        .tip-card h3, .use-case-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: #666;
+            display: none;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .tool-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {color: var(--secondary-color);}
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        .permission-note {
+            background: #e8f4fd;
+            border-left: 4px solid var(--secondary-color);
+            padding: 1rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .scan-history {
+            margin-top: 1.5rem;
+        }
+
+        .history-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .history-items {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background: white;
+        }
+
+        .history-item {
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-content {
+            flex: 1;
+            margin-right: 1rem;
+            word-break: break-all;
+        }
+
+        .history-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .icon-btn:hover {
+            color: #2980b9;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body>
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <main class="container">
+        <section class="tool-section">
+            <div class="tool-header">
+                <h1>QR Code Scanner & Generator</h1>
+                <p>Scan QR codes with your camera or upload images, and create custom QR codes for URLs, text, contacts, and more.</p>
+            </div>
+
+            <div class="scanner-container">
+                <div class="scanner-section">
+                    <h2 style="color:var(--primary-color);margin-bottom:1rem;">QR Code Scanner</h2>
+                    
+                    <div class="permission-note">
+                        <strong>Note:</strong> This tool requires camera access to scan QR codes. Your privacy is respected - all processing happens in your browser.
+                    </div>
+                    
+                    <div class="scanner-preview" id="scanner-preview">
+                        <div class="scanner-overlay" id="scanner-overlay">
+                            <i style="font-size: 3rem; margin-bottom: 1rem;">📷</i>
+                            <p>Camera access required for scanning</p>
+                            <p>Click "Start Scanner" to begin</p>
+                        </div>
+                        <div class="scanner-frame" id="scanner-frame"></div>
+                        <video id="scanner-video" muted playsinline></video>
+                    </div>
+                    
+                    <div class="scanner-controls">
+                        <button id="start-scanner" class="btn">
+                            <i>▶️</i> Start Scanner
+                        </button>
+                        <button id="stop-scanner" class="btn btn-danger" disabled>
+                            <i>⏹️</i> Stop Scanner
+                        </button>
+                        <button id="toggle-torch" class="btn" disabled>
+                            <i>💡</i> Toggle Torch
+                        </button>
+                    </div>
+                    
+                    <div class="file-upload">
+                        <label for="file-upload-input" class="file-upload-label">
+                            <i style="font-size: 2rem; margin-bottom: 0.5rem; display: block;">📁</i>
+                            <strong>Or upload QR code image</strong>
+                            <p>Click to select an image file</p>
+                        </label>
+                        <input type="file" id="file-upload-input" accept="image/*" class="file-upload-input">
+                    </div>
+                    
+                    <div class="scanner-results">
+                        <h3 style="color:var(--primary-color);margin-bottom:1rem;">Scan Results</h3>
+                        <div class="result-item">
+                            <div class="result-label">Last Scanned Content</div>
+                            <div class="result-value" id="scan-result">No QR code scanned yet</div>
+                        </div>
+                        
+                        <div class="scan-history">
+                            <div class="history-title">Scan History</div>
+                            <div class="history-items" id="scan-history">
+                                <!-- Scan history will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="generator-section">
+                    <h2 style="color:var(--primary-color);margin-bottom:1rem;">QR Code Generator</h2>
+                    
+                    <div class="generator-preview" id="generator-preview">
+                        <div style="text-align: center; color: #666;">
+                            <i style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">🔳</i>
+                            QR Code Preview
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qr-content">QR Code Content</label>
+                        <textarea id="qr-content" placeholder="Enter text, URL, or other content for your QR code">https://kasin-tv.com</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qr-type">Content Type</label>
+                        <select id="qr-type">
+                            <option value="url">Website URL</option>
+                            <option value="text">Plain Text</option>
+                            <option value="email">Email Address</option>
+                            <option value="phone">Phone Number</option>
+                            <option value="sms">SMS Message</option>
+                            <option value="wifi">WiFi Network</option>
+                            <option value="vcard">Contact Card (vCard)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qr-size">QR Code Size</label>
+                        <select id="qr-size">
+                            <option value="128">128x128 (Small)</option>
+                            <option value="256" selected>256x256 (Medium)</option>
+                            <option value="512">512x512 (Large)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qr-color">QR Code Color</label>
+                        <input type="color" id="qr-color" value="#000000">
+                    </div>
+                    
+                    <button id="generate-qr" class="btn btn-block btn-success">
+                        <i>⚡</i> Generate QR Code
+                    </button>
+                    <button id="download-qr" class="btn btn-block" disabled>
+                        <i>💾</i> Download QR Code
+                    </button>
+                    
+                    <div class="highlight">
+                        <strong>Tip:</strong> QR codes can store various types of information including URLs, contact details, WiFi credentials, and plain text.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="content-section">
+            <h2 class="section-title">How QR Code Scanner Works</h2>
+            <p>Our QR code scanner and generator provides a complete solution for working with QR codes. Here's how to use it effectively:</p>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Scanning QR Codes</h3>
+                    <p>To scan QR codes:</p>
+                    <ol>
+                        <li>Click "Start Scanner" to activate your camera</li>
+                        <li>Point your camera at a QR code</li>
+                        <li>The scanner will automatically detect and decode the QR code</li>
+                        <li>View the results in the scan results section</li>
+                        <li>Use the torch button in low-light conditions</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h3>Generating QR Codes</h3>
+                    <p>To create custom QR codes:</p>
+                    <ol>
+                        <li>Enter the content you want to encode</li>
+                        <li>Select the appropriate content type</li>
+                        <li>Customize size and color if desired</li>
+                        <li>Click "Generate QR Code" to create it</li>
+                        <li>Download the QR code as an image file</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <p>All processing happens locally in your browser - your data never leaves your device, ensuring complete privacy and security.</p>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">QR Code Technology Explained</h2>
+            
+            <div class="grid-2">
+                <div class="tip-card">
+                    <h3>What are QR Codes?</h3>
+                    <p>QR (Quick Response) codes are two-dimensional barcodes that can store various types of information. They were invented in 1994 by Denso Wave, a subsidiary of Toyota, to track vehicles during manufacturing. Unlike traditional barcodes, QR codes can be read from any direction and store much more data.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>QR Code Structure</h3>
+                    <p>QR codes consist of:
+                    <ul>
+                        <li><strong>Position markers:</strong> Three squares that help scanners locate and orient the code</li>
+                        <li><strong>Alignment patterns:</strong> Smaller squares that ensure correct reading even when distorted</li>
+                        <li><strong>Timing patterns:</strong> Lines that help determine the size of the data matrix</li>
+                        <li><strong>Data area:</strong> The main area containing the encoded information</li>
+                    </ul>
+                    </p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Error Correction</h3>
+                    <p>QR codes include error correction data, allowing them to be read even when partially damaged or obscured. There are four error correction levels:
+                    <ul>
+                        <li><strong>L (Low):</strong> 7% damage recovery</li>
+                        <li><strong>M (Medium):</strong> 15% damage recovery</li>
+                        <li><strong>Q (Quartile):</strong> 25% damage recovery</li>
+                        <li><strong>H (High):</strong> 30% damage recovery</li>
+                    </ul>
+                    Higher error correction means less data capacity but better durability.
+                    </p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Data Capacity</h3>
+                    <p>QR codes can store different amounts of data depending on the type:
+                    <ul>
+                        <li>Numeric only: up to 7,089 characters</li>
+                        <li>Alphanumeric: up to 4,296 characters</li>
+                        <li>Binary/byte: up to 2,953 bytes</li>
+                        <li>Kanji/Kana: up to 1,817 characters</li>
+                    </ul>
+                    The actual capacity depends on the QR code version and error correction level.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">QR Code Use Cases</h2>
+            
+            <div class="grid-2">
+                <div class="use-case-card">
+                    <h3>Business & Marketing</h3>
+                    <p>Create QR codes for product packaging, business cards, and advertisements to direct customers to websites, promotions, or contact information.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Digital Payments</h3>
+                    <p>Generate payment QR codes for easy transactions. Many banking and payment apps use QR codes for secure money transfers.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Authentication & Security</h3>
+                    <p>Use QR codes for two-factor authentication, event tickets, and access control systems for enhanced security.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Education & Information</h3>
+                    <p>Place QR codes in textbooks, museums, or public spaces to provide additional information, videos, or interactive content.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Contactless Services</h3>
+                    <p>Implement QR codes for restaurant menus, hotel check-ins, and public transportation to enable contactless interactions.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Personal Use</h3>
+                    <p>Create QR codes for your WiFi network, personal contact information, or to share links with friends and family easily.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Is it safe to scan QR codes from unknown sources?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While QR codes themselves are not dangerous, they can contain malicious links. Always exercise caution when scanning QR codes from unknown sources. Our scanner shows you the content before you act on it, allowing you to verify it's safe. Avoid scanning QR codes in suspicious locations and never provide personal information unless you're certain of the source.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What types of content can QR codes store?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>QR codes can store various types of information including:
+                        <ul>
+                            <li>Website URLs</li>
+                            <li>Plain text</li>
+                            <li>Contact information (vCard format)</li>
+                            <li>Email addresses</li>
+                            <li>Phone numbers</li>
+                            <li>SMS messages</li>
+                            <li>WiFi network credentials</li>
+                            <li>Geographic coordinates</li>
+                            <li>Calendar events</li>
+                            <li>Cryptocurrency addresses</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Why won't my camera scan a QR code?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Several factors can prevent QR code scanning:
+                        <ul>
+                            <li><strong>Poor lighting:</strong> Ensure adequate light on the QR code</li>
+                            <li><strong>Camera focus:</strong> Make sure the QR code is in focus</li>
+                            <li><strong>Distance:</strong> Position the camera at an appropriate distance</li>
+                            <li><strong>Angle:</strong> Hold the camera straight relative to the QR code</li>
+                            <li><strong>Damage:</strong> The QR code might be damaged or obscured</li>
+                            <li><strong>Size:</strong> The QR code might be too small for your camera to resolve</li>
+                            <li><strong>Browser permissions:</strong> Ensure you've granted camera access</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can QR codes be customized with colors and logos?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, QR codes can be customized in various ways while remaining scannable:
+                        <ul>
+                            <li><strong>Colors:</strong> You can change the foreground color (as long as there's sufficient contrast with the background)</li>
+                            <li><strong>Logos:</strong> You can add a logo in the center, but ensure it doesn't cover more than 30% of the code</li>
+                            <li><strong>Shapes:</strong> The individual modules can be rounded or styled, but the overall structure must be preserved</li>
+                            <li><strong>Backgrounds:</strong> You can use gradient or image backgrounds with sufficient contrast</li>
+                        </ul>
+                        Always test customized QR codes to ensure they still scan properly.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How secure are QR codes?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>QR codes themselves don't provide security - they simply encode information. The security depends on:
+                        <ul>
+                            <li><strong>Content:</strong> Malicious QR codes can direct to phishing sites or download malware</li>
+                            <li><strong>Encryption:</strong> Standard QR codes don't encrypt data, so anyone can read them</li>
+                            <li><strong>Verification:</strong> Always verify the content before acting on it</li>
+                        </ul>
+                        For sensitive applications, consider using secure QR code variants that include encryption or digital signatures.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What's the difference between QR codes and other barcodes?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Key differences include:
+                        <ul>
+                            <li><strong>Data capacity:</strong> QR codes can store much more data than traditional barcodes</li>
+                            <li><strong>Orientation:</strong> QR codes can be read from any angle, while barcodes require specific orientation</li>
+                            <li><strong>Error correction:</strong> QR codes include error correction, allowing them to be read even when damaged</li>
+                            <li><strong>Data types:</strong> QR codes can store various data types, while barcodes typically store only numbers</li>
+                            <li><strong>Scanning distance:</strong> QR codes can be scanned from farther distances than traditional barcodes</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I create a QR code that expires?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>QR codes themselves don't have expiration dates since they're static images. However, you can create QR codes that point to dynamic content with expiration:
+                        <ul>
+                            <li><strong>URL shorteners:</strong> Use services that offer expiring shortened URLs</li>
+                            <li><strong>Dynamic QR codes:</strong> Some paid services offer QR codes that can be edited or disabled after creation</li>
+                            <li><strong>Custom solutions:</strong> Create a QR code that points to your own website with expiration logic</li>
+                        </ul>
+                        For most use cases, standard static QR codes are sufficient and completely free to create.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Related Tools</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Barcode Scanner</h3>
+                    <p>Scan traditional barcodes and get product information</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Image Converter</h3>
+                    <p>Convert between different image formats easily</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>URL Shortener</h3>
+                    <p>Create short URLs for sharing and QR codes</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Color Picker</h3>
+                    <p>Select and convert colors for your designs</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+
+    <!-- QR Code generation library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    
+    <script>
+        // Mobile Menu
+        // QR Code Scanner Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const scannerPreview = document.getElementById('scanner-preview');
+            const scannerOverlay = document.getElementById('scanner-overlay');
+            const scannerVideo = document.getElementById('scanner-video');
+            const scannerFrame = document.getElementById('scanner-frame');
+            const startScannerBtn = document.getElementById('start-scanner');
+            const stopScannerBtn = document.getElementById('stop-scanner');
+            const toggleTorchBtn = document.getElementById('toggle-torch');
+            const fileUploadInput = document.getElementById('file-upload-input');
+            const scanResult = document.getElementById('scan-result');
+            const scanHistory = document.getElementById('scan-history');
+            
+            // Generator elements
+            const generatorPreview = document.getElementById('generator-preview');
+            const qrContent = document.getElementById('qr-content');
+            const qrType = document.getElementById('qr-type');
+            const qrSize = document.getElementById('qr-size');
+            const qrColor = document.getElementById('qr-color');
+            const generateQrBtn = document.getElementById('generate-qr');
+            const downloadQrBtn = document.getElementById('download-qr');
+            
+            // Scanner state
+            let stream = null;
+            let torchEnabled = false;
+            let scanHistoryData = [];
+            
+            // Initialize
+            updateScanHistoryDisplay();
+            
+            // Start scanner
+            startScannerBtn.addEventListener('click', async function() {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ 
+                        video: { 
+                            facingMode: 'environment',
+                            width: { ideal: 1280 },
+                            height: { ideal: 720 }
+                        } 
+                    });
+                    
+                    scannerVideo.srcObject = stream;
+                    scannerOverlay.style.display = 'none';
+                    scannerFrame.style.display = 'block';
+                    
+                    startScannerBtn.disabled = true;
+                    stopScannerBtn.disabled = false;
+                    toggleTorchBtn.disabled = false;
+                    
+                    // Start scanning loop
+                    scanQRCode();
+                    
+                } catch (error) {
+                    console.error('Error accessing camera:', error);
+                    alert('Unable to access camera. Please ensure you have granted camera permissions and try again.');
+                }
+            });
+            
+            // Stop scanner
+            stopScannerBtn.addEventListener('click', function() {
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                    stream = null;
+                }
+                
+                scannerVideo.srcObject = null;
+                scannerOverlay.style.display = 'flex';
+                scannerFrame.style.display = 'none';
+                
+                startScannerBtn.disabled = false;
+                stopScannerBtn.disabled = true;
+                toggleTorchBtn.disabled = true;
+                torchEnabled = false;
+                toggleTorchBtn.innerHTML = '<i>💡</i> Toggle Torch';
+            });
+            
+            // Toggle torch
+            toggleTorchBtn.addEventListener('click', function() {
+                if (!stream) return;
+                
+                const track = stream.getVideoTracks()[0];
+                if (track && 'torch' in track.getSettings()) {
+                    torchEnabled = !torchEnabled;
+                    track.applyConstraints({
+                        advanced: [{ torch: torchEnabled }]
+                    });
+                    toggleTorchBtn.innerHTML = torchEnabled ? 
+                        '<i>🔦</i> Torch On' : '<i>💡</i> Torch Off';
+                } else {
+                    alert('Torch is not supported by your device or browser.');
+                }
+            });
+            
+            // File upload for QR code scanning
+            fileUploadInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    // In a real implementation, you would use a QR code decoding library here
+                    // For this demo, we'll simulate scanning
+                    setTimeout(() => {
+                        const simulatedResult = "https://example.com/scanned-from-image";
+                        handleScanResult(simulatedResult, 'file');
+                    }, 1000);
+                };
+                reader.readAsDataURL(file);
+            });
+            
+            // Generate QR code
+            generateQrBtn.addEventListener('click', function() {
+                const content = qrContent.value.trim();
+                if (!content) {
+                    alert('Please enter content for the QR code');
+                    return;
+                }
+                
+                const size = parseInt(qrSize.value);
+                const color = qrColor.value;
+                
+                // Clear previous QR code
+                generatorPreview.innerHTML = '';
+                
+                // Generate QR code
+                QRCode.toCanvas(generatorPreview, content, {
+                    width: size,
+                    height: size,
+                    color: {
+                        dark: color,
+                        light: '#FFFFFF'
+                    }
+                }, function(error) {
+                    if (error) {
+                        console.error('Error generating QR code:', error);
+                        alert('Error generating QR code. Please try again.');
+                        return;
+                    }
+                    
+                    downloadQrBtn.disabled = false;
+                });
+            });
+            
+            // Download QR code
+            downloadQrBtn.addEventListener('click', function() {
+                const canvas = generatorPreview.querySelector('canvas');
+                if (!canvas) {
+                    alert('Please generate a QR code first');
+                    return;
+                }
+                
+                const link = document.createElement('a');
+                link.download = 'qrcode.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+            
+            // QR content type change
+            qrType.addEventListener('change', function() {
+                const type = this.value;
+                const placeholder = getPlaceholderForType(type);
+                qrContent.placeholder = placeholder;
+                
+                // Set example content based on type
+                if (qrContent.value === '' || qrContent.value === qrContent.placeholder) {
+                    qrContent.value = getExampleContentForType(type);
+                }
+            });
+            
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isVisible = answer.style.display === 'block';
+                    
+                    // Close all answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.display = 'none';
+                    });
+                    
+                    // Reset all icons
+                    document.querySelectorAll('.faq-question span').forEach(icon => {
+                        icon.textContent = '+';
+                    });
+                    
+                    // Toggle current answer
+                    if (!isVisible) {
+                        answer.style.display = 'block';
+                        this.querySelector('span').textContent = '−';
+                    }
+                });
+            });
+            
+            // Helper functions
+            function scanQRCode() {
+                if (!stream) return;
+                
+                // In a real implementation, you would use a QR code decoding library here
+                // For this demo, we'll simulate occasional QR code detection
+                if (Math.random() < 0.1) { // 10% chance per frame to simulate detection
+                    const simulatedResults = [
+                        "https://kasin-tv.com",
+                        "Welcome to KaSin TV QR Scanner",
+                        "mailto:info@kasin-tv.com",
+                        "tel:+1234567890",
+                        "WIFI:S:MyNetwork;T:WPA;P:MyPassword;;"
+                    ];
+                    const randomResult = simulatedResults[Math.floor(Math.random() * simulatedResults.length)];
+                    handleScanResult(randomResult, 'camera');
+                }
+                
+                // Continue scanning
+                requestAnimationFrame(scanQRCode);
+            }
+            
+            function handleScanResult(result, source) {
+                scanResult.textContent = result;
+                
+                // Add to history
+                scanHistoryData.unshift({
+                    content: result,
+                    source: source,
+                    timestamp: new Date().toLocaleString()
+                });
+                
+                // Limit history size
+                if (scanHistoryData.length > 10) {
+                    scanHistoryData.pop();
+                }
+                
+                updateScanHistoryDisplay();
+                
+                // Visual feedback
+                scannerFrame.style.borderColor = 'var(--success-color)';
+                setTimeout(() => {
+                    scannerFrame.style.borderColor = 'var(--secondary-color)';
+                }, 500);
+            }
+            
+            function updateScanHistoryDisplay() {
+                scanHistory.innerHTML = '';
+                
+                if (scanHistoryData.length === 0) {
+                    scanHistory.innerHTML = '<div class="history-item" style="justify-content: center; color: #666;">No scan history yet</div>';
+                    return;
+                }
+                
+                scanHistoryData.forEach((item, index) => {
+                    const historyItem = document.createElement('div');
+                    historyItem.className = 'history-item';
+                    
+                    historyItem.innerHTML = `
+                        <div class="history-content">
+                            <div style="font-size: 0.8rem; color: #666; margin-bottom: 0.25rem;">
+                                ${item.timestamp} • ${item.source}
+                            </div>
+                            <div>${item.content}</div>
+                        </div>
+                        <div class="history-actions">
+                            <button class="icon-btn copy-btn" title="Copy">
+                                📋
+                            </button>
+                            <button class="icon-btn delete-btn" title="Delete">
+                                🗑️
+                            </button>
+                        </div>
+                    `;
+                    
+                    // Copy functionality
+                    const copyBtn = historyItem.querySelector('.copy-btn');
+                    copyBtn.addEventListener('click', function() {
+                        navigator.clipboard.writeText(item.content).then(() => {
+                            const originalText = copyBtn.innerHTML;
+                            copyBtn.innerHTML = '✅';
+                            setTimeout(() => {
+                                copyBtn.innerHTML = originalText;
+                            }, 1500);
+                        });
+                    });
+                    
+                    // Delete functionality
+                    const deleteBtn = historyItem.querySelector('.delete-btn');
+                    deleteBtn.addEventListener('click', function() {
+                        scanHistoryData.splice(index, 1);
+                        updateScanHistoryDisplay();
+                    });
+                    
+                    scanHistory.appendChild(historyItem);
+                });
+            }
+            
+            function getPlaceholderForType(type) {
+                switch(type) {
+                    case 'url': return 'Enter website URL (e.g., https://example.com)';
+                    case 'text': return 'Enter text content';
+                    case 'email': return 'Enter email address (e.g., user@example.com)';
+                    case 'phone': return 'Enter phone number (e.g., +1234567890)';
+                    case 'sms': return 'Enter phone number and message (e.g., +1234567890:Hello)';
+                    case 'wifi': return 'Enter WiFi details (e.g., SSID:Password:SecurityType)';
+                    case 'vcard': return 'Enter contact information';
+                    default: return 'Enter content for QR code';
+                }
+            }
+            
+            function getExampleContentForType(type) {
+                switch(type) {
+                    case 'url': return 'https://kasin-tv.com';
+                    case 'text': return 'Welcome to KaSin TV QR Code Generator';
+                    case 'email': return 'info@kasin-tv.com';
+                    case 'phone': return '+1234567890';
+                    case 'sms': return '+1234567890:Hello from KaSin TV';
+                    case 'wifi': return 'MyNetwork:MyPassword:WPA';
+                    case 'vcard': return 'BEGIN:VCARD\nVERSION:3.0\nFN:John Doe\nORG:KaSin TV\nTEL:+1234567890\nEMAIL:john@kasin-tv.com\nEND:VCARD';
+                    default: return 'https://kasin-tv.com';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

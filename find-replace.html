@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find and Replace Text Tool - Free Online Editor | KaSin TV</title>
+  <meta name="description" content="Find and replace text online for free with KaSin TV. Supports case-sensitive search, whole-word matching, regex mode, live stats and copy output.">
+  <meta name="keywords" content="find and replace text, replace text online, text editor, regex replace, bulk text replace">
+  <meta name="author" content="KaSin TV">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://kasin-tv.com/find-replace.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KaSin TV">
+  <meta property="og:title" content="Find and Replace Text Tool - Free Online Editor">
+  <meta property="og:description" content="Search and replace text with case-sensitive, whole-word and regex options.">
+  <meta property="og:url" content="https://kasin-tv.com/find-replace.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/tool-pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Find and Replace Text Tool - KaSin TV",
+    "url": "https://kasin-tv.com/find-replace.html",
+    "description": "Free online find and replace tool for text editing.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+    "publisher": {"@type": "Organization", "name": "KaSin TV", "url": "https://kasin-tv.com/"}
+  }
+  </script>
+</head>
+<body data-premium-tool="find-replace">
+  <!-- START SITE GLOBAL HEADER -->
+  <header class="site-global-header"><div><a href="/"><img src="/favicon.ico" alt="KaSin TV logo"><span><span>KaSin TV</span><span>Free online tools</span></span></a><nav class="site-nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/all-tools.html">All Tools</a><a href="/password-generator.html">Password</a><a href="/qr-code-generator.html">QR Code</a><a href="/nepal-salary-tax-calculator.html">Nepal Tax</a><a href="/about-us.html">About</a><a href="/contact-us.html">Contact</a></nav></div></header>
+  <!-- END SITE GLOBAL HEADER -->
+
+  <main class="modern-tool-page">
+    <nav class="tool-breadcrumb" aria-label="Breadcrumb"><a href="/">kasin-tv.com</a><span>›</span><a href="/all-tools.html">All Tools</a><span>›</span><span>Find and Replace</span></nav>
+    <section class="modern-hero">
+      <div class="modern-hero-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      <h1>Find and Replace Text</h1>
+      <p>Paste text, choose what to find, enter replacement text and get an instant cleaned result. Use plain text, whole-word matching or regex mode.</p>
+      <div class="modern-hero-pills"><span>Live preview</span><span>Regex option</span><span>Copy result</span></div>
+    </section>
+
+    <section class="modern-shell">
+      <div class="modern-card">
+        <h2>Text and options</h2>
+        <div class="modern-form-grid">
+          <div class="modern-field full"><label for="sourceText">Original text</label><textarea id="sourceText" placeholder="Paste your text here">KaSin TV tools are fast. KaSin TV tools are free.</textarea></div>
+          <div class="modern-field"><label for="findText">Find</label><input id="findText" type="text" value="tools"></div>
+          <div class="modern-field"><label for="replaceText">Replace with</label><input id="replaceText" type="text" value="utilities"></div>
+          <div class="modern-field full">
+            <div class="modern-check-grid">
+              <label class="modern-check"><input id="caseSensitive" type="checkbox"><span>Case sensitive</span></label>
+              <label class="modern-check"><input id="wholeWord" type="checkbox"><span>Whole word</span></label>
+              <label class="modern-check"><input id="regexMode" type="checkbox"><span>Regex mode</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="modern-actions">
+          <button id="replaceNow" class="modern-button"><i class="fa-solid fa-rotate"></i> Replace now</button>
+          <button id="copyResult" class="modern-button secondary"><i class="fa-regular fa-copy"></i> Copy result</button>
+          <button id="clearFind" class="modern-button ghost"><i class="fa-solid fa-eraser"></i> Clear</button>
+        </div>
+        <p id="toolStatus" class="modern-alert" role="status"></p>
+      </div>
+
+      <aside class="modern-card modern-result">
+        <h2>Updated text</h2>
+        <div class="modern-field"><textarea id="resultText" readonly></textarea></div>
+        <div class="modern-stat-grid">
+          <div class="modern-stat"><strong id="matchCount">0</strong><span>Matches</span></div>
+          <div class="modern-stat"><strong id="replaceCount">0</strong><span>Replacements</span></div>
+          <div class="modern-stat"><strong id="charCount">0</strong><span>Characters</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="modern-guide-grid">
+      <article class="modern-mini-card"><h3>Plain text mode</h3><p>Use default mode for normal words or phrases. Special regex characters are treated as normal text.</p></article>
+      <article class="modern-mini-card"><h3>Regex mode</h3><p>Enable regex mode only when you want pattern matching. Invalid patterns are detected before replacing.</p></article>
+      <article class="modern-mini-card"><h3>Related tools</h3><p><a href="/duplicate-line-remover.html">Duplicate Line Remover</a> and <a href="/case-converter.html">Case Converter</a> are available.</p></article>
+    </section>
+  </main>
+
+  <!-- START SITE GLOBAL FOOTER -->
+  <footer class="site-global-footer"><div class="footer-content"><div><p>KaSin TV</p><p>Fast, private and free browser-based utilities at kasin-tv.com.</p></div><div><p>Tools</p><ul><li><a href="/all-tools.html">Browse All Tools</a></li></ul></div><div><p>Information</p><ul><li><a href="/about-us.html">About</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/contact-us.html">Contact</a></li></ul></div></div><div>© 2026 KaSin TV · kasin-tv.com</div></footer>
+  <!-- END SITE GLOBAL FOOTER -->
+
+  <script src="/premium-tool-pages.js" defer></script>
+</body>
+</html>

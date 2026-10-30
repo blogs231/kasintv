@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/vat-calculator.html">
+    <meta property="og:url" content="https://kasin-tv.com/vat-calculator.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free VAT Calculator | Nepali Rupees (₨) | KaSin TV</title>
+    <meta name="description" content="Free VAT calculator to compute Value Added Tax amounts in Nepali Rupees. Calculate net, gross, and VAT easily.">
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:title" content="Free VAT Calculator | Nepali Rupees (₨) | KaSin TV">
+    <meta property="og:description" content="Calculate VAT amounts easily in Nepali Rupees with our free online calculator.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "VAT Calculator",
+      "description": "Free online VAT calculator to compute Value Added Tax amounts in Nepali Rupees",
+      "url": "https://kasin-tv.com/vat-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "permissions": "none",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "KaSin TV",
+        "url": "https://kasin-tv.com/vat-calculator.html"
+      }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f9f9f9;
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover {color: var(--secondary-color);}
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            width: 25px;
+            height: 18px;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background: var(--primary-color);
+                width: 100%;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                padding: 1rem 0;
+                text-align: center;
+            }
+            nav.active {display: flex;}
+            .menu-toggle {display: flex;}
+        }
+
+        main {
+            margin: 2rem 0;
+        }
+
+        .tool-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tool-header h1 {
+            color: var(--primary-color);
+        }
+
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-section, .results-section {
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+        }
+
+        label {display: block; margin-bottom: 0.5rem; font-weight: 500;}
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .btn:hover {background: #2980b9;}
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding: 0.75rem 0;
+        }
+
+        .result-value {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .highlight {
+            margin-top: 1rem;
+            background: #fff8e1;
+            border-left: 4px solid #f1c40f;
+            padding: 1rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        /* Content Section Styles */
+        .content-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tip-card, .use-case-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+        }
+
+        .tip-card h3, .use-case-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: #666;
+            display: none;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .tool-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {color: var(--secondary-color);}
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body>
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <main class="container">
+        <section class="tool-section">
+            <div class="tool-header">
+                <h1>VAT Calculator (₨ - Nepali Rupees)</h1>
+                <p>Calculate VAT, Net, and Gross amounts easily in Nepali Rupees.</p>
+            </div>
+
+            <div class="calculator-container">
+                <div class="input-section">
+                    <label for="amount">Amount (₨)</label>
+                    <input type="number" id="amount" placeholder="Enter amount" step="0.01" min="0">
+
+                    <label for="vat-rate" style="margin-top:1rem;">VAT Rate (%)</label>
+                    <select id="vat-rate">
+                        <option value="13" selected>13% (Standard Rate in Nepal)</option>
+                        <option value="10">10%</option>
+                        <option value="5">5%</option>
+                        <option value="0">0%</option>
+                        <option value="custom">Custom Rate</option>
+                    </select>
+
+                    <div id="custom-rate-container" style="display:none; margin-top:1rem;">
+                        <label for="custom-rate">Custom VAT Rate (%)</label>
+                        <input type="number" id="custom-rate" step="0.1" min="0" max="100">
+                    </div>
+
+                    <div style="margin-top:1rem;">
+                        <label>Calculation Type:</label>
+                        <div><input type="radio" name="calculation-type" value="add" checked> Add VAT</div>
+                        <div><input type="radio" name="calculation-type" value="remove"> Remove VAT</div>
+                    </div>
+
+                    <button id="calculate-btn" class="btn">Calculate</button>
+                    <button id="reset-btn" class="btn" style="background:#95a5a6;">Reset</button>
+                </div>
+
+                <div class="results-section">
+                    <h2 style="color:var(--primary-color);margin-bottom:1rem;">Results</h2>
+                    <div class="result-item"><span>Net Price:</span><span id="net-price">-</span></div>
+                    <div class="result-item"><span>VAT Amount:</span><span id="vat-amount">-</span></div>
+                    <div class="result-item"><span>Gross Price:</span><span id="gross-price">-</span></div>
+                    <div class="result-item"><span>VAT Rate:</span><span id="display-vat-rate">-</span></div>
+
+                    <div class="highlight"><strong>Note:</strong> Calculations are in Nepali Rupees (₨) for informational purposes only.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="content-section">
+            <h2 class="section-title">How VAT Calculator Works</h2>
+            <p>Our VAT calculator is a simple yet powerful tool that helps you quickly determine Value Added Tax amounts in Nepali Rupees. Here's how it works:</p>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Adding VAT to Net Price</h3>
+                    <p>When you want to calculate the total price including VAT from a net price:</p>
+                    <ol>
+                        <li>Enter the net price (price without VAT)</li>
+                        <li>Select the appropriate VAT rate</li>
+                        <li>Choose "Add VAT to Net Price"</li>
+                        <li>Click Calculate to see the VAT amount and gross price</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h3>Removing VAT from Gross Price</h3>
+                    <p>When you have a gross price and want to find out the VAT amount and net price:</p>
+                    <ol>
+                        <li>Enter the gross price (price including VAT)</li>
+                        <li>Select the appropriate VAT rate</li>
+                        <li>Choose "Remove VAT from Gross Price"</li>
+                        <li>Click Calculate to see the VAT amount and net price</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <p>The calculator uses the formula: <strong>VAT Amount = Price × (VAT Rate / 100)</strong> and automatically handles both calculation directions based on your selection.</p>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">VAT in Nepal - Important Information</h2>
+            
+            <div class="grid-2">
+                <div class="tip-card">
+                    <h3>Standard VAT Rate</h3>
+                    <p>The standard VAT rate in Nepal is 13% as per the current tax laws. This applies to most goods and services unless specifically exempted or subject to a different rate.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>VAT Registration</h3>
+                    <p>Businesses with annual turnover exceeding NPR 20 lakh (2 million) must register for VAT in Nepal. Registration can be done through the Inland Revenue Department.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>VAT Exemptions</h3>
+                    <p>Some goods and services are exempt from VAT in Nepal, including basic food items, educational services, healthcare services, and agricultural products.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Filing VAT Returns</h3>
+                    <p>Registered businesses must file VAT returns on a monthly basis by the 25th of the following month. Late filing may result in penalties.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">VAT Calculator Use Cases</h2>
+            
+            <div class="grid-2">
+                <div class="use-case-card">
+                    <h3>Small Business Owners</h3>
+                    <p>Quickly calculate VAT to add to your product prices or determine how much VAT you've paid on business expenses in Nepali Rupees.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Freelancers & Contractors</h3>
+                    <p>Easily calculate VAT to include in your invoices or determine the net amount from payments received from clients in Nepal.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Online Sellers</h3>
+                    <p>Determine the correct VAT amount for products sold in Nepal with the standard 13% rate or other applicable rates.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Accountants & Bookkeepers</h3>
+                    <p>Quickly verify VAT calculations during financial reviews or when preparing tax returns for clients in Nepal.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Consumers</h3>
+                    <p>Understand how much VAT you're paying on purchases in Nepal or calculate the pre-VAT price of items.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Students & Educators</h3>
+                    <p>Learn about VAT calculations for economics, business, or accounting courses with Nepali context and currency.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What is VAT in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VAT (Value Added Tax) in Nepal is a consumption tax levied on the supply of goods and services at each stage of production and distribution. The current standard VAT rate in Nepal is 13%.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Who needs to register for VAT in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Businesses with an annual turnover exceeding NPR 20 lakh (2 million) are required to register for VAT in Nepal. Businesses below this threshold can voluntarily register.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What is the difference between net price and gross price?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Net price is the price before VAT is added. Gross price is the final price that includes VAT. For example, if an item costs NPR 1000 net and VAT is 13%, the gross price would be NPR 1130.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How often do I need to file VAT returns in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>VAT-registered businesses in Nepal must file returns on a monthly basis, by the 25th day of the following month. For example, the VAT return for January must be filed by February 25th.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Are there penalties for late VAT filing in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, there are penalties for late filing of VAT returns in Nepal. The penalty is typically a fixed amount plus interest on any outstanding VAT payments. It's important to file returns on time to avoid these penalties.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I claim VAT refunds in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, if the VAT you have paid on business purchases (input tax) exceeds the VAT you have collected on sales (output tax) in a given period, you can claim a refund from the Inland Revenue Department.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What items are exempt from VAT in Nepal?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Some items exempt from VAT in Nepal include: basic food grains, educational services, healthcare services, agricultural products (unprocessed), books and newspapers, and public transportation services.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Related Financial Tools</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Income Tax Calculator</h3>
+                    <p>Calculate your personal income tax in Nepal</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Business Tax Calculator</h3>
+                    <p>Estimate business tax liability for companies in Nepal</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Currency Converter</h3>
+                    <p>Convert between Nepali Rupees and other currencies</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Loan Calculator</h3>
+                    <p>Calculate loan payments and interest in NPR</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+
+    <script>
+        // Mobile Menu
+        // VAT Calculator Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const amountInput = document.getElementById('amount');
+            const vatRateSelect = document.getElementById('vat-rate');
+            const customRateContainer = document.getElementById('custom-rate-container');
+            const customRateInput = document.getElementById('custom-rate');
+            const netPrice = document.getElementById('net-price');
+            const vatAmount = document.getElementById('vat-amount');
+            const grossPrice = document.getElementById('gross-price');
+            const displayRate = document.getElementById('display-vat-rate');
+
+            vatRateSelect.addEventListener('change', () => {
+                customRateContainer.style.display = vatRateSelect.value === 'custom' ? 'block' : 'none';
+            });
+
+            document.getElementById('calculate-btn').addEventListener('click', calculateVAT);
+            document.getElementById('reset-btn').addEventListener('click', resetForm);
+
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isVisible = answer.style.display === 'block';
+                    
+                    // Close all answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.display = 'none';
+                    });
+                    
+                    // Reset all icons
+                    document.querySelectorAll('.faq-question span').forEach(icon => {
+                        icon.textContent = '+';
+                    });
+                    
+                    // Toggle current answer
+                    if (!isVisible) {
+                        answer.style.display = 'block';
+                        this.querySelector('span').textContent = '−';
+                    }
+                });
+            });
+
+            function calculateVAT() {
+                const amount = parseFloat(amountInput.value);
+                if (isNaN(amount) || amount <= 0) return alert('Please enter a valid amount');
+
+                let vatRate = vatRateSelect.value === 'custom'
+                    ? parseFloat(customRateInput.value)
+                    : parseFloat(vatRateSelect.value);
+
+                if (isNaN(vatRate) || vatRate < 0 || vatRate > 100)
+                    return alert('Enter a valid VAT rate between 0 and 100');
+
+                const calcType = document.querySelector('input[name="calculation-type"]:checked').value;
+                let net, vat, gross;
+
+                if (calcType === 'add') {
+                    net = amount;
+                    vat = net * vatRate / 100;
+                    gross = net + vat;
+                } else {
+                    gross = amount;
+                    net = gross / (1 + vatRate / 100);
+                    vat = gross - net;
+                }
+
+                netPrice.textContent = formatCurrency(net);
+                vatAmount.textContent = formatCurrency(vat);
+                grossPrice.textContent = formatCurrency(gross);
+                displayRate.textContent = vatRate + '%';
+            }
+
+            function resetForm() {
+                amountInput.value = '';
+                vatRateSelect.value = '13';
+                customRateContainer.style.display = 'none';
+                customRateInput.value = '';
+                document.querySelector('input[name="calculation-type"][value="add"]').checked = true;
+                [netPrice, vatAmount, grossPrice, displayRate].forEach(e => e.textContent = '-');
+            }
+
+            // 💰 Show results in Nepali Rupees (₨)
+            function formatCurrency(amount) {
+                return '₨' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            }
+        });
+    </script>
+</body>
+</html>

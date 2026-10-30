@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/barcode-scanner.html">
+    <meta property="og:url" content="https://kasin-tv.com/barcode-scanner.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Scanner Online - Free Web-Based Barcode Reader | KaSin TV</title>
+    <meta name="description" content="Free online barcode scanner. Scan barcodes using your camera or upload images. Supports Code-128, UPC, EAN, and more. Works on all devices.">
+    <meta property="og:title" content="Online Barcode Scanner | KaSin TV">
+    <meta property="og:description" content="Scan common barcode formats with your camera or an uploaded image directly in your browser.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Online Barcode Scanner | KaSin TV">
+    <meta name="twitter:description" content="Read barcodes from a camera or uploaded image online.">
+    <meta name="keywords" content="barcode scanner, online barcode reader, free barcode scanner, scan barcode from image, barcode decoder, barcode camera scanner">
+    <meta name="author" content="KaSin TV Tools Team">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Barcode Scanner Online - KaSin TV",
+        "description": "Free online barcode scanner to read barcodes using camera or uploaded images",
+        "url": "https://kasin-tv.com/barcode-scanner.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "KaSin TV",
+            "url": "https://kasin-tv.com/barcode-scanner.html"
+        }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #dc2626;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(16, 185, 129, 0.3);
+        }
+        
+        .scanner-container {
+            background: white;
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .scanner-container.active {
+            border-color: var(--primary-color);
+        }
+        
+        .section-header {
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .copy-popup {
+            animation: popup 2s ease-in-out;
+        }
+        
+        @keyframes popup {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+        
+        .tool-tip {
+            position: relative;
+            cursor: help;
+        }
+        
+        .tool-tip:hover::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+        
+        .mode-btn.active {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+            transform: scale(1.05);
+        }
+        
+        #scannerView {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        #scannerView video {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .scan-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border: 2px solid rgba(37, 99, 235, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scan-line {
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: var(--primary-color);
+            top: 50%;
+            animation: scan 2s infinite linear;
+        }
+        
+        @keyframes scan {
+            0% { top: 10%; }
+            50% { top: 90%; }
+            100% { top: 10%; }
+        }
+        
+        @media (max-width: 768px) {
+            .tool-card {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .btn-mobile {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body class="min-h-screen py-8">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Header -->
+        <section class="text-center mb-12">
+            <div class="flex items-center justify-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl flex items-center justify-center mr-4">
+                    <i class="fas fa-barcode text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Barcode Scanner Online</h1>
+                    <p class="text-blue-600 font-medium">KaSin TV Free Tools</p>
+                </div>
+            </div>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Scan barcodes instantly using your camera or upload images. 
+                Supports Code-128, UPC, EAN, and more. Free and no registration required.
+            </p>
+        </section>
+
+        <!-- Main Tool Section -->
+        <main class="tool-card p-6 md:p-8 mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Scanner Section -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 section-header">Scan Barcode</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Mode Selection -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <button 
+                                id="scanBtn" 
+                                class="mode-btn btn-primary text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 active"
+                            >
+                                <i class="fas fa-camera mr-2"></i>
+                                Camera Scan
+                            </button>
+                            <button 
+                                id="uploadBtn" 
+                                class="mode-btn bg-gray-500 text-white font-semibold py-4 px-6 rounded-xl hover:bg-gray-600 transition-all duration-300"
+                            >
+                                <i class="fas fa-upload mr-2"></i>
+                                Upload Image
+                            </button>
+                        </div>
+
+                        <!-- Scanner Container -->
+                        <div id="scannerContainer" class="scanner-container active">
+                            <div id="scannerView" class="hidden">
+                                <div class="scan-overlay">
+                                    <div class="scan-line"></div>
+                                </div>
+                                <video id="video" autoplay playsinline></video>
+                            </div>
+                            <div id="scannerPlaceholder" class="text-center">
+                                <div class="text-gray-400 mb-4">
+                                    <i class="fas fa-camera text-6xl"></i>
+                                </div>
+                                <p class="text-gray-500 text-sm">Camera is initializing...</p>
+                                <p class="text-gray-400 text-xs mt-2">Allow camera access when prompted</p>
+                            </div>
+                            <canvas id="canvas" class="hidden"></canvas>
+                        </div>
+
+                        <!-- Upload Input -->
+                        <input type="file" id="imageInput" accept="image/*" class="hidden">
+
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button 
+                                id="copyBtn" 
+                                class="btn-secondary text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-copy mr-2"></i>
+                                Copy Result
+                            </button>
+                            <button 
+                                id="resetBtn" 
+                                class="bg-gray-500 text-white font-semibold py-4 px-6 rounded-xl hover:bg-gray-600 transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-redo mr-2"></i>
+                                Reset Scanner
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 section-header">Scan Results</h2>
+                    
+                    <!-- Result Display -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">
+                                Decoded Barcode
+                                <span class="tool-tip text-blue-500 ml-1" data-tip="The content extracted from the scanned barcode">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                            </label>
+                            <textarea 
+                                id="resultText" 
+                                readonly 
+                                class="w-full p-4 border-2 border-gray-200 rounded-xl bg-gray-50 text-sm resize-none h-40"
+                                placeholder="Scan a barcode or upload an image to see the decoded content here..."
+                            ></textarea>
+                        </div>
+
+                        <!-- Barcode Details -->
+                        <div id="barcodeDetails" class="hidden bg-blue-50 border border-blue-200 rounded-xl p-6">
+                            <h3 class="font-bold text-blue-900 mb-3 flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Barcode Information
+                            </h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-blue-800 font-medium">Format:</span>
+                                    <span id="barcodeFormat" class="text-blue-900">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-blue-800 font-medium">Type:</span>
+                                    <span id="barcodeType" class="text-blue-900">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-blue-800 font-medium">Length:</span>
+                                    <span id="barcodeLength" class="text-blue-900">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div id="quickActions" class="hidden">
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">Quick Actions</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <button id="searchProductBtn" class="bg-blue-500 text-white py-2 px-4 rounded-lg text-sm hover:bg-blue-600 transition">
+                                    <i class="fas fa-search mr-2"></i>
+                                    Search Product
+                                </button>
+                                <button id="copyTextBtn" class="bg-green-500 text-white py-2 px-4 rounded-lg text-sm hover:bg-green-600 transition">
+                                    <i class="fas fa-copy mr-2"></i>
+                                    Copy Text
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Scan Info -->
+                        <div class="bg-green-50 border border-green-200 rounded-xl p-6">
+                            <h3 class="font-bold text-green-900 mb-3 flex items-center">
+                                <i class="fas fa-lightbulb mr-2"></i>
+                                Scanning Tips
+                            </h3>
+                            <ul class="text-green-800 text-sm space-y-2">
+                                <li>• Ensure good lighting and clear barcode image</li>
+                                <li>• Hold steady and center the barcode in frame</li>
+                                <li>• Use high-quality images for uploads</li>
+                                <li>• Supported formats: Code-128, UPC, EAN, Code-39</li>
+                            </ul>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div id="errorMessage" class="hidden p-4 bg-red-50 border border-red-200 rounded-xl">
+                            <p class="text-red-700 font-medium text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- How It Works Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-camera text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">1. Choose Input Method</h3>
+                    <p class="text-gray-600 text-sm">Use your device camera for real-time scanning or upload an existing image containing a barcode</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">2. Scan & Decode</h3>
+                    <p class="text-gray-600 text-sm">Our advanced algorithm reads and decodes the barcode content with high accuracy</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clipboard text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">3. Use Results</h3>
+                    <p class="text-gray-600 text-sm">Copy the decoded text, search for product information, or save the data for later use</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Common Use Cases</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shopping-cart text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Price Comparison</h3>
+                    <p class="text-gray-600 text-sm">Scan product barcodes to compare prices across different retailers and online stores</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-boxes text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Inventory Management</h3>
+                    <p class="text-gray-600 text-sm">Quickly scan items for stocktaking, inventory audits, and warehouse management</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-book text-purple-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Library Systems</h3>
+                    <p class="text-gray-600 text-sm">Scan book and media barcodes for library cataloging and checkout systems</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-pallet text-orange-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Shipping & Logistics</h3>
+                    <p class="text-gray-600 text-sm">Track packages and shipments by scanning shipping labels and tracking barcodes</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-id-card text-red-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Asset Tracking</h3>
+                    <p class="text-gray-600 text-sm">Scan asset tags to track equipment, tools, and company property</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-ticket-alt text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Event Management</h3>
+                    <p class="text-gray-600 text-sm">Scan tickets and passes for event registration and access control</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supported Formats Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Supported Barcode Formats</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white border border-blue-200 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Code-128</h3>
+                    <p class="text-gray-600 text-sm">High-density linear barcode for shipping and packaging</p>
+                </div>
+                <div class="bg-white border border-green-200 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">UPC</h3>
+                    <p class="text-gray-600 text-sm">Universal Product Code for retail products in North America</p>
+                </div>
+                <div class="bg-white border border-purple-200 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">EAN</h3>
+                    <p class="text-gray-600 text-sm">European Article Number for international retail products</p>
+                </div>
+                <div class="bg-white border border-orange-200 rounded-xl p-6 text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-barcode text-orange-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Code-39</h3>
+                    <p class="text-gray-600 text-sm">Alpha-numeric barcode for industrial and non-retail use</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Do I need to install any software to use this barcode scanner?</h3>
+                    <p class="text-gray-600">No, our barcode scanner works entirely in your web browser. There's no need to download or install any additional software. Just allow camera access when prompted for real-time scanning.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What types of barcodes can this scanner read?</h3>
+                    <p class="text-gray-600">Our scanner can read most common linear barcode formats including Code-128, UPC-A, UPC-E, EAN-8, EAN-13, and Code-39. We're continuously working to add support for more barcode types.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Why can't my camera read the barcode?</h3>
+                    <p class="text-gray-600">Common issues include: insufficient lighting, camera too far from barcode, barcode damage, poor image quality, or browser permission issues. Ensure good lighting, hold steady 6-12 inches away, and check that you've allowed camera access.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Is my data secure when using this barcode scanner?</h3>
+                    <p class="text-gray-600">Yes, all scanning and processing happens locally in your browser. We don't store your images, camera feed, or decoded content on our servers. Your data remains completely private and secure.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What image formats are supported for upload?</h3>
+                    <p class="text-gray-600">We support all common image formats including JPG, JPEG, PNG, WebP, and GIF. For best results, use high-quality images with clear, undistorted barcodes.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Can I scan barcodes from screenshots or printed materials?</h3>
+                    <p class="text-gray-600">Yes, you can scan barcodes from both digital screenshots and printed materials. For screenshots, use the upload feature. For printed materials, use the camera scanning feature.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Does this work on mobile devices?</h3>
+                    <p class="text-gray-600">Yes, our barcode scanner is fully optimized for mobile devices. It works on smartphones and tablets across all major browsers including Chrome, Safari, Firefox, and Edge.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">More Free Tools</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="/qr-code-generator.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-500 block text-center">
+                    <i class="fas fa-qrcode text-blue-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">QR Code Generator</h3>
+                </a>
+                <a href="/qr-code-scanner.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-green-500 block text-center">
+                    <i class="fas fa-camera text-green-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">QR Code Scanner</h3>
+                </a>
+                <a href="/barcode-generator.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-purple-500 block text-center">
+                    <i class="fas fa-barcode text-purple-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">Barcode Generator</h3>
+                </a>
+                <a href="/label-maker.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-orange-500 block text-center">
+                    <i class="fas fa-file-alt text-orange-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">Label Maker</h3>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Copy Popup -->
+    <div id="copyPopup" class="copy-popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg font-semibold hidden">
+        Copied to Clipboard!
+    </div>
+
+    <script>
+        let stream = null;
+        let scanInterval = null;
+        let currentMode = 'camera';
+
+        function showPopup(message) {
+            const popup = document.getElementById('copyPopup');
+            popup.textContent = message;
+            popup.classList.remove('hidden');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 2000);
+        }
+
+        function toggleMode(newMode) {
+            currentMode = newMode;
+            const scanBtn = document.getElementById('scanBtn');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const scannerView = document.getElementById('scannerView');
+            const scannerPlaceholder = document.getElementById('scannerPlaceholder');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Update button states
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.classList.remove('active', 'btn-primary');
+                btn.classList.add('bg-gray-500');
+            });
+
+            if (newMode === 'camera') {
+                scanBtn.classList.add('active', 'btn-primary');
+                scanBtn.classList.remove('bg-gray-500');
+                scannerView.classList.remove('hidden');
+                scannerPlaceholder.classList.add('hidden');
+                startCamera();
+            } else {
+                uploadBtn.classList.add('active', 'btn-primary');
+                uploadBtn.classList.remove('bg-gray-500');
+                scannerView.classList.add('hidden');
+                scannerPlaceholder.innerHTML = `
+                    <div class="text-center">
+                        <div class="text-gray-400 mb-4">
+                            <i class="fas fa-upload text-6xl"></i>
+                        </div>
+                        <p class="text-gray-500 text-sm">Click upload button or drag image here</p>
+                        <p class="text-gray-400 text-xs mt-2">Supported formats: JPG, PNG, WebP, GIF</p>
+                    </div>
+                `;
+                scannerPlaceholder.classList.remove('hidden');
+                stopCamera();
+            }
+
+            document.getElementById('resultText').value = '';
+            errorMessage.classList.add('hidden');
+            hideBarcodeDetails();
+            hideQuickActions();
+        }
+
+        async function startCamera() {
+            const video = document.getElementById('video');
+            const errorMessage = document.getElementById('errorMessage');
+
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        facingMode: 'environment',
+                        width: { ideal: 1280 },
+                        height: { ideal: 720 }
+                    } 
+                });
+                
+                video.srcObject = stream;
+                
+                video.onloadedmetadata = () => {
+                    video.play();
+                    startScanning();
+                };
+
+            } catch (e) {
+                console.error('Camera error:', e);
+                document.getElementById('scannerPlaceholder').innerHTML = `
+                    <div class="text-center">
+                        <div class="text-red-400 mb-4">
+                            <i class="fas fa-exclamation-triangle text-6xl"></i>
+                        </div>
+                        <p class="text-red-500 text-sm">Camera access denied or unavailable</p>
+                        <p class="text-gray-400 text-xs mt-2">Please allow camera access or use upload mode</p>
+                    </div>
+                `;
+                document.getElementById('scannerPlaceholder').classList.remove('hidden');
+                document.getElementById('scannerView').classList.add('hidden');
+            }
+        }
+
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+            }
+            if (scanInterval) {
+                clearInterval(scanInterval);
+                scanInterval = null;
+            }
+        }
+
+        function startScanning() {
+            scanInterval = setInterval(scanBarcode, 500);
+        }
+
+        function scanBarcode() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const resultText = document.getElementById('resultText');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (!video.videoWidth || !video.videoHeight) return;
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            // Try Quagga first for barcodes
+            try {
+                Quagga.decodeSingle({
+                    decoder: {
+                        readers: ['code_128_reader', 'ean_reader', 'upc_reader', 'code_39_reader']
+                    },
+                    locate: true,
+                    src: canvas.toDataURL()
+                }, function(result) {
+                    if (result && result.codeResult) {
+                        handleScanResult(result.codeResult.code, result.codeResult.format);
+                    } else {
+                        // Fallback to jsQR for QR codes if no barcode found
+                        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                        const code = jsQR(imageData.data, imageData.width, imageData.height);
+                        if (code) {
+                            handleScanResult(code.data, 'QR Code');
+                        }
+                    }
+                });
+            } catch (e) {
+                console.error('Barcode scanning error:', e);
+            }
+        }
+
+        function handleScanResult(data, format) {
+            const resultText = document.getElementById('resultText');
+            const errorMessage = document.getElementById('errorMessage');
+            const scannerContainer = document.getElementById('scannerContainer');
+
+            if (data) {
+                resultText.value = data;
+                errorMessage.classList.add('hidden');
+                showBarcodeDetails(data, format);
+                showQuickActions(data, format);
+                
+                // Add visual feedback
+                scannerContainer.style.borderColor = '#10b981';
+                setTimeout(() => {
+                    if (currentMode === 'camera') {
+                        scannerContainer.style.borderColor = '#2563eb';
+                    } else {
+                        scannerContainer.style.borderColor = '#e5e7eb';
+                    }
+                }, 1000);
+
+                // Stop scanning if in camera mode to prevent multiple reads
+                if (currentMode === 'camera') {
+                    stopCamera();
+                }
+            }
+        }
+
+        function readBarcodeFromImage(file) {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const resultText = document.getElementById('resultText');
+            const errorMessage = document.getElementById('errorMessage');
+            const scannerContainer = document.getElementById('scannerContainer');
+            const scannerPlaceholder = document.getElementById('scannerPlaceholder');
+
+            errorMessage.classList.add('hidden');
+
+            const img = new Image();
+            img.onload = () => {
+                // Display the uploaded image
+                scannerPlaceholder.innerHTML = '';
+                const displayImg = document.createElement('img');
+                displayImg.src = img.src;
+                displayImg.classList.add('rounded-lg', 'w-full', 'h-auto', 'max-h-64', 'object-contain');
+                scannerPlaceholder.appendChild(displayImg);
+
+                // Process the image with Quagga
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                
+                Quagga.decodeSingle({
+                    decoder: {
+                        readers: ['code_128_reader', 'ean_reader', 'upc_reader', 'code_39_reader']
+                    },
+                    locate: true,
+                    src: img.src
+                }, function(result) {
+                    if (result && result.codeResult) {
+                        handleScanResult(result.codeResult.code, result.codeResult.format);
+                        scannerContainer.style.borderColor = '#10b981';
+                    } else {
+                        // Try jsQR as fallback
+                        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                        const code = jsQR(imageData.data, imageData.width, imageData.height);
+                        if (code) {
+                            handleScanResult(code.data, 'QR Code');
+                            scannerContainer.style.borderColor = '#10b981';
+                        } else {
+                            errorMessage.querySelector('p').textContent = 'No barcode found in the image. Please try another image.';
+                            errorMessage.classList.remove('hidden');
+                            resultText.value = '';
+                            hideBarcodeDetails();
+                            hideQuickActions();
+                        }
+                    }
+                });
+            };
+            img.onerror = () => {
+                errorMessage.querySelector('p').textContent = 'Error loading image. Please try another file.';
+                errorMessage.classList.remove('hidden');
+            };
+            img.src = URL.createObjectURL(file);
+        }
+
+        function showBarcodeDetails(data, format) {
+            const barcodeDetails = document.getElementById('barcodeDetails');
+            const barcodeFormat = document.getElementById('barcodeFormat');
+            const barcodeType = document.getElementById('barcodeType');
+            const barcodeLength = document.getElementById('barcodeLength');
+            
+            barcodeFormat.textContent = format || 'Unknown';
+            barcodeType.textContent = detectBarcodeType(data);
+            barcodeLength.textContent = data.length + ' characters';
+            
+            barcodeDetails.classList.remove('hidden');
+        }
+
+        function hideBarcodeDetails() {
+            document.getElementById('barcodeDetails').classList.add('hidden');
+        }
+
+        function detectBarcodeType(data) {
+            // Simple detection based on common barcode patterns
+            if (/^\d{12,13}$/.test(data)) return 'Product Code (UPC/EAN)';
+            if (/^[A-Za-z0-9]+$/.test(data) && data.length > 5) return 'Alphanumeric Code';
+            if (data.startsWith('http')) return 'URL';
+            return 'Text/Other';
+        }
+
+        function showQuickActions(data, format) {
+            const quickActions = document.getElementById('quickActions');
+            const searchProductBtn = document.getElementById('searchProductBtn');
+            const copyTextBtn = document.getElementById('copyTextBtn');
+
+            quickActions.classList.remove('hidden');
+
+            // Show search button only for product codes
+            if (format && (format.includes('UPC') || format.includes('EAN'))) {
+                searchProductBtn.classList.remove('hidden');
+                searchProductBtn.onclick = () => {
+                    window.open(`https://www.google.com/search?q=${encodeURIComponent(data)}+product`, '_blank');
+                };
+            } else {
+                searchProductBtn.classList.add('hidden');
+            }
+
+            copyTextBtn.onclick = () => {
+                navigator.clipboard.writeText(data).then(() => {
+                    showPopup('Barcode content copied!');
+                });
+            };
+        }
+
+        function hideQuickActions() {
+            document.getElementById('quickActions').classList.add('hidden');
+        }
+
+        // Event Listeners
+        document.getElementById('scanBtn').addEventListener('click', () => toggleMode('camera'));
+        document.getElementById('uploadBtn').addEventListener('click', () => {
+            document.getElementById('imageInput').click();
+        });
+
+        document.getElementById('imageInput').addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                toggleMode('upload');
+                readBarcodeFromImage(e.target.files[0]);
+            }
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const result = document.getElementById('resultText').value;
+            if (result) {
+                navigator.clipboard.writeText(result).then(() => {
+                    showPopup('Barcode content copied!');
+                }).catch(() => {
+                    const errorMessage = document.getElementById('errorMessage');
+                    errorMessage.querySelector('p').textContent = 'Failed to copy text. Please try again.';
+                    errorMessage.classList.remove('hidden');
+                });
+            } else {
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.querySelector('p').textContent = 'No barcode scanned. Please scan a barcode first.';
+                errorMessage.classList.remove('hidden');
+            }
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            stopCamera();
+            document.getElementById('imageInput').value = '';
+            document.getElementById('resultText').value = '';
+            document.getElementById('errorMessage').classList.add('hidden');
+            hideBarcodeDetails();
+            hideQuickActions();
+            toggleMode('camera');
+        });
+
+        // Drag and drop support
+        const scannerContainer = document.getElementById('scannerContainer');
+        scannerContainer.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            scannerContainer.style.borderColor = '#2563eb';
+            scannerContainer.style.backgroundColor = '#f8fafc';
+        });
+
+        scannerContainer.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            scannerContainer.style.borderColor = '#e5e7eb';
+            scannerContainer.style.backgroundColor = 'white';
+        });
+
+        scannerContainer.addEventListener('drop', (e) => {
+            e.preventDefault();
+            scannerContainer.style.borderColor = '#e5e7eb';
+            scannerContainer.style.backgroundColor = 'white';
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type.startsWith('image/')) {
+                toggleMode('upload');
+                readBarcodeFromImage(files[0]);
+            }
+        });
+
+        // Initialize
+        toggleMode('camera');
+    </script>
+
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+</body>
+</html>

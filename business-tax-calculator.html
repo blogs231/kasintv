@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/business-tax-calculator.html">
+    <meta property="og:url" content="https://kasin-tv.com/business-tax-calculator.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Tax Calculator Online | KaSin TV</title>
+    <meta name="description" content="Estimate business tax, taxable profit and net profit with this free online calculator. Review current official rates before making tax decisions.">
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:title" content="Business Tax Calculator | KaSin TV">
+    <meta property="og:description" content="Estimate your business tax liability with our free online calculator.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Business Tax Calculator",
+      "description": "Free online business tax calculator to estimate corporate tax liability",
+      "url": "https://kasin-tv.com/business-tax-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "permissions": "none",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "KaSin TV",
+        "url": "https://kasin-tv.com/business-tax-calculator.html"
+      }
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+        }
+        
+        .tool-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .tool-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .tool-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tool-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .input-section, .results-section {
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            background-color: var(--light-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .result-label {
+            font-weight: 500;
+        }
+        
+        .result-value {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .highlight {
+            background-color: #fff9e6;
+            border-left: 4px solid #f1c40f;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .content-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .tip-card, .use-case-card {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+        }
+        
+        .tip-card h3, .use-case-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: #666;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .tool-card {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        
+        .tool-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body>
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <main class="container">
+        <section class="tool-section">
+            <div class="tool-header">
+                <h1>Business Tax Calculator</h1>
+                <p>Estimate your business tax liability with our comprehensive calculator. Input your revenue, expenses, and deductions to calculate your taxable income and estimated tax amount.</p>
+            </div>
+            
+            <div class="calculator-container">
+                <div class="input-section">
+                    <div class="form-group">
+                        <label for="revenue">Annual Revenue ($)</label>
+                        <input type="number" id="revenue" placeholder="Enter total annual revenue" step="0.01" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="expenses">Business Expenses ($)</label>
+                        <input type="number" id="expenses" placeholder="Enter total business expenses" step="0.01" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deductions">Additional Deductions ($)</label>
+                        <input type="number" id="deductions" placeholder="Enter additional deductions" step="0.01" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business-type">Business Type</label>
+                        <select id="business-type">
+                            <option value="sole-proprietor">Sole Proprietorship</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="llc" selected>LLC</option>
+                            <option value="s-corp">S-Corporation</option>
+                            <option value="c-corp">C-Corporation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tax-year">Tax Year</label>
+                        <select id="tax-year">
+                            <option value="2023">2023</option>
+                            <option value="2024" selected>2024</option>
+                        </select>
+                    </div>
+                    
+                    <button id="calculate-btn" class="btn btn-block">Calculate Tax</button>
+                    <button id="reset-btn" class="btn btn-block" style="background-color: #95a5a6; margin-top: 10px;">Reset</button>
+                </div>
+                
+                <div class="results-section">
+                    <h2 style="margin-bottom: 1.5rem; color: var(--primary-color);">Tax Calculation Results</h2>
+                    
+                    <div class="result-item">
+                        <span class="result-label">Taxable Income:</span>
+                        <span class="result-value" id="taxable-income">-</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">Estimated Tax Rate:</span>
+                        <span class="result-value" id="tax-rate">-</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">Tax Amount:</span>
+                        <span class="result-value" id="tax-amount">-</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">After-Tax Profit:</span>
+                        <span class="result-value" id="after-tax-profit">-</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">Effective Tax Rate:</span>
+                        <span class="result-value" id="effective-tax-rate">-</span>
+                    </div>
+                    
+                    <div class="highlight">
+                        <p><strong>Disclaimer:</strong> This calculator provides estimates only. Consult with a qualified tax professional for accurate tax planning and filing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">How Business Tax Calculator Works</h2>
+            <p>Our business tax calculator helps you estimate your tax liability based on your business financials. Here's how it calculates your taxes:</p>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Step 1: Calculate Taxable Income</h3>
+                    <p>The calculator first determines your taxable income by subtracting your business expenses and deductions from your total revenue:</p>
+                    <p><strong>Taxable Income = Revenue - Expenses - Deductions</strong></p>
+                </div>
+                
+                <div>
+                    <h3>Step 2: Apply Tax Rates</h3>
+                    <p>Based on your business type and taxable income, the calculator applies the appropriate tax rates:</p>
+                    <ul>
+                        <li>Sole Proprietorships: Personal income tax rates</li>
+                        <li>LLCs: Pass-through taxation (personal rates)</li>
+                        <li>C-Corporations: Corporate tax rates</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p>The calculator uses current tax brackets and rates for the selected tax year to provide the most accurate estimate possible.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Pro Tips for Business Tax Planning</h2>
+            
+            <div class="grid-2">
+                <div class="tip-card">
+                    <h3>Maximize Deductions</h3>
+                    <p>Keep detailed records of all business expenses throughout the year. Common deductions include office supplies, travel expenses, professional fees, and a portion of home expenses if you work from home.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Understand Your Business Structure</h3>
+                    <p>Different business structures have different tax implications. LLCs and S-Corps offer pass-through taxation, while C-Corps are subject to corporate tax rates and potential double taxation.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Plan for Quarterly Payments</h3>
+                    <p>Most businesses need to make estimated tax payments quarterly. Use this calculator throughout the year to plan these payments and avoid underpayment penalties.</p>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>Consider Retirement Contributions</h3>
+                    <p>Contributions to retirement accounts like SEP IRAs or Solo 401(k)s can reduce your taxable income while building your retirement savings.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Business Tax Calculator Use Cases</h2>
+            
+            <div class="grid-2">
+                <div class="use-case-card">
+                    <h3>Small Business Owners</h3>
+                    <p>Estimate your tax liability to better plan cash flow and set aside funds for tax payments throughout the year.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Startup Founders</h3>
+                    <p>Understand potential tax obligations as your business grows and help with financial projections and funding requests.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Freelancers & Contractors</h3>
+                    <p>Calculate estimated taxes on your self-employment income and plan for quarterly tax payments.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Business Consultants</h3>
+                    <p>Provide clients with quick tax estimates during financial planning sessions or business strategy meetings.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Accountants & Bookkeepers</h3>
+                    <p>Quickly generate tax estimates for clients during preliminary discussions or tax planning sessions.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Business Students</h3>
+                    <p>Learn about business taxation concepts and practice calculating tax liabilities for different business structures.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What's the difference between revenue and taxable income?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Revenue is the total amount of money your business brings in from sales or services. Taxable income is what remains after subtracting all allowable business expenses and deductions from your revenue. This is the amount that's actually subject to taxation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do business structures affect taxes?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Different business structures have different tax treatments:
+                        <ul>
+                            <li><strong>Sole Proprietorships/LLCs:</strong> Profits pass through to your personal tax return</li>
+                            <li><strong>S-Corporations:</strong> Profits pass through but may offer self-employment tax savings</li>
+                            <li><strong>C-Corporations:</strong> Subject to corporate income tax, with potential double taxation when profits are distributed as dividends</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What are common business tax deductions?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Common deductions include: office rent, utilities, employee salaries, business insurance, professional fees, marketing expenses, travel costs, home office expenses (if qualified), business equipment, and vehicle expenses for business use.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">When are business tax payments due?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most businesses need to make estimated tax payments quarterly:
+                        <ul>
+                            <li>April 15 (Q1)</li>
+                            <li>June 15 (Q2)</li>
+                            <li>September 15 (Q3)</li>
+                            <li>January 15 of following year (Q4)</li>
+                        </ul>
+                        Final tax returns are typically due March 15 for corporations and April 15 for other businesses, with extensions available.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What is the QBI deduction?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The Qualified Business Income (QBI) deduction allows eligible pass-through businesses (sole proprietorships, partnerships, S corporations, and some LLCs) to deduct up to 20% of their qualified business income. There are income limitations and specific rules for certain service businesses.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How can I reduce my business taxes?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Strategies to reduce business taxes include:
+                        <ul>
+                            <li>Maximizing all eligible deductions</li>
+                            <li>Contributing to retirement plans</li>
+                            <li>Using Section 179 expensing for equipment</li>
+                            <li>Timing income and expenses strategically</li>
+                            <li>Hiring family members when appropriate</li>
+                            <li>Exploring tax credits for which you qualify</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Should I consult a tax professional?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, while this calculator provides helpful estimates, tax laws are complex and change frequently. A qualified tax professional can provide personalized advice based on your specific situation, help identify all available deductions, ensure compliance, and represent you in case of an audit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Related Financial Tools</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>VAT Calculator</h3>
+                    <p>Calculate Value Added Tax for your products and services</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Profit Margin Calculator</h3>
+                    <p>Determine your business's profit margins and pricing strategy</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Break-Even Calculator</h3>
+                    <p>Calculate when your business will become profitable</p>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>Loan Calculator</h3>
+                    <p>Estimate business loan payments and interest costs</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const revenueInput = document.getElementById('revenue');
+            const expensesInput = document.getElementById('expenses');
+            const deductionsInput = document.getElementById('deductions');
+            const businessTypeSelect = document.getElementById('business-type');
+            const taxYearSelect = document.getElementById('tax-year');
+            const calculateBtn = document.getElementById('calculate-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            
+            // Result elements
+            const taxableIncomeElement = document.getElementById('taxable-income');
+            const taxRateElement = document.getElementById('tax-rate');
+            const taxAmountElement = document.getElementById('tax-amount');
+            const afterTaxProfitElement = document.getElementById('after-tax-profit');
+            const effectiveTaxRateElement = document.getElementById('effective-tax-rate');
+            
+            // Calculate tax
+            calculateBtn.addEventListener('click', function() {
+                calculateTax();
+            });
+            
+            // Reset form
+            resetBtn.addEventListener('click', function() {
+                revenueInput.value = '';
+                expensesInput.value = '';
+                deductionsInput.value = '';
+                businessTypeSelect.value = 'llc';
+                taxYearSelect.value = '2024';
+                
+                // Clear results
+                taxableIncomeElement.textContent = '-';
+                taxRateElement.textContent = '-';
+                taxAmountElement.textContent = '-';
+                afterTaxProfitElement.textContent = '-';
+                effectiveTaxRateElement.textContent = '-';
+            });
+            
+            // Calculate on Enter key
+            revenueInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    calculateTax();
+                }
+            });
+            
+            expensesInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    calculateTax();
+                }
+            });
+            
+            deductionsInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    calculateTax();
+                }
+            });
+            
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isVisible = answer.style.display === 'block';
+                    
+                    // Close all answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.display = 'none';
+                    });
+                    
+                    // Reset all icons
+                    document.querySelectorAll('.faq-question span').forEach(icon => {
+                        icon.textContent = '+';
+                    });
+                    
+                    // Toggle current answer
+                    if (!isVisible) {
+                        answer.style.display = 'block';
+                        this.querySelector('span').textContent = '−';
+                    }
+                });
+            });
+            
+            // Tax calculation function
+            function calculateTax() {
+                const revenue = parseFloat(revenueInput.value);
+                const expenses = parseFloat(expensesInput.value) || 0;
+                const deductions = parseFloat(deductionsInput.value) || 0;
+                
+                if (isNaN(revenue) || revenue < 0) {
+                    alert('Please enter a valid revenue amount');
+                    return;
+                }
+                
+                if (expenses < 0 || deductions < 0) {
+                    alert('Expenses and deductions cannot be negative');
+                    return;
+                }
+                
+                // Calculate taxable income
+                const taxableIncome = revenue - expenses - deductions;
+                
+                if (taxableIncome < 0) {
+                    alert('Your expenses and deductions exceed your revenue. Please check your inputs.');
+                    return;
+                }
+                
+                // Get business type
+                const businessType = businessTypeSelect.value;
+                
+                // Calculate tax based on business type and taxable income
+                let taxRate, taxAmount;
+                
+                // Simplified tax calculation for demonstration
+                // In a real application, this would use actual tax brackets
+                if (businessType === 'c-corp') {
+                    // Corporate tax rates (simplified)
+                    if (taxableIncome <= 50000) {
+                        taxRate = 15;
+                    } else if (taxableIncome <= 75000) {
+                        taxRate = 25;
+                    } else if (taxableIncome <= 100000) {
+                        taxRate = 34;
+                    } else {
+                        taxRate = 21; // Flat rate for larger corporations
+                    }
+                } else {
+                    // Pass-through entities (personal income tax rates - simplified)
+                    if (taxableIncome <= 20000) {
+                        taxRate = 10;
+                    } else if (taxableIncome <= 50000) {
+                        taxRate = 12;
+                    } else if (taxableIncome <= 100000) {
+                        taxRate = 22;
+                    } else if (taxableIncome <= 200000) {
+                        taxRate = 24;
+                    } else {
+                        taxRate = 32;
+                    }
+                }
+                
+                taxAmount = taxableIncome * (taxRate / 100);
+                const afterTaxProfit = taxableIncome - taxAmount;
+                const effectiveTaxRate = (taxAmount / revenue) * 100;
+                
+                // Format and display results
+                taxableIncomeElement.textContent = formatCurrency(taxableIncome);
+                taxRateElement.textContent = taxRate.toFixed(1) + '%';
+                taxAmountElement.textContent = formatCurrency(taxAmount);
+                afterTaxProfitElement.textContent = formatCurrency(afterTaxProfit);
+                effectiveTaxRateElement.textContent = effectiveTaxRate.toFixed(1) + '%';
+            }
+            
+            // Format currency function
+            function formatCurrency(amount) {
+                return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            }
+        });
+    </script>
+</body>
+</html>

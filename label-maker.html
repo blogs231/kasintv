@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/label-maker.html">
+    <meta property="og:url" content="https://kasin-tv.com/label-maker.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Label Maker Online - Free Custom Label Creator | KaSin TV</title>
+    <meta name="description" content="Free online label maker. Create custom labels for products, shipping, addresses, and more. Download as PNG or PDF. Multiple templates and customization options.">
+    <meta property="og:title" content="Free Online Label Maker | KaSin TV">
+    <meta property="og:description" content="Create custom labels for products, shipping and addresses, then export your design online.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free Online Label Maker | KaSin TV">
+    <meta name="twitter:description" content="Design and export custom labels in your browser.">
+    <meta name="keywords" content="label maker, online label creator, custom labels, free label generator, shipping labels, address labels, product labels">
+    <meta name="author" content="KaSin TV Tools Team">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Label Maker Online - KaSin TV",
+        "description": "Free online label maker to create custom labels for various purposes",
+        "url": "https://kasin-tv.com/label-maker.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "KaSin TV",
+            "url": "https://kasin-tv.com/label-maker.html"
+        }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #dc2626;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .input-field {
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -1px rgba(245, 158, 11, 0.3);
+        }
+        
+        .label-preview {
+            background: white;
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .label-preview.active {
+            border-color: var(--primary-color);
+        }
+        
+        .section-header {
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .copy-popup {
+            animation: popup 2s ease-in-out;
+        }
+        
+        @keyframes popup {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+        
+        .tool-tip {
+            position: relative;
+            cursor: help;
+        }
+        
+        .tool-tip:hover::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+        
+        .template-btn.active {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .label-template {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .label-template:hover {
+            transform: translateY(-2px);
+        }
+        
+        .label-template.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+        }
+        
+        #labelCanvas {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .tool-card {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .btn-mobile {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body class="min-h-screen py-8">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Header -->
+        <section class="text-center mb-12">
+            <div class="flex items-center justify-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl flex items-center justify-center mr-4">
+                    <i class="fas fa-tag text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Label Maker Online</h1>
+                    <p class="text-blue-600 font-medium">KaSin TV Free Tools</p>
+                </div>
+            </div>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Create professional custom labels for shipping, products, addresses, and more. 
+                Free templates, easy customization, and instant download.
+            </p>
+        </section>
+
+        <!-- Main Tool Section -->
+        <main class="tool-card p-6 md:p-8 mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Editor Section -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 section-header">Create Your Label</h2>
+                    
+                    <form onsubmit="return false;" class="space-y-6">
+                        <!-- Template Selection -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">
+                                Label Template
+                                <span class="tool-tip text-blue-500 ml-1" data-tip="Choose a template that fits your needs">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                            </label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <div class="label-template border-2 border-gray-200 rounded-lg p-3 text-center active" data-template="shipping">
+                                    <i class="fas fa-shipping-fast text-blue-600 text-xl mb-2"></i>
+                                    <p class="text-xs font-medium">Shipping</p>
+                                </div>
+                                <div class="label-template border-2 border-gray-200 rounded-lg p-3 text-center" data-template="address">
+                                    <i class="fas fa-home text-green-600 text-xl mb-2"></i>
+                                    <p class="text-xs font-medium">Address</p>
+                                </div>
+                                <div class="label-template border-2 border-gray-200 rounded-lg p-3 text-center" data-template="product">
+                                    <i class="fas fa-box text-purple-600 text-xl mb-2"></i>
+                                    <p class="text-xs font-medium">Product</p>
+                                </div>
+                                <div class="label-template border-2 border-gray-200 rounded-lg p-3 text-center" data-template="warning">
+                                    <i class="fas fa-exclamation-triangle text-orange-600 text-xl mb-2"></i>
+                                    <p class="text-xs font-medium">Warning</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Label Content -->
+                        <div class="space-y-4">
+                            <div>
+                                <label for="labelTitle" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Label Title
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="labelTitle" 
+                                    placeholder="Enter label title"
+                                    class="w-full p-3 input-field rounded-lg focus:outline-none text-base"
+                                    value="SHIPPING LABEL"
+                                >
+                            </div>
+
+                            <div>
+                                <label for="labelContent" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Label Content
+                                </label>
+                                <textarea 
+                                    id="labelContent" 
+                                    rows="4"
+                                    placeholder="Enter label content..."
+                                    class="w-full p-3 input-field rounded-lg focus:outline-none text-base resize-none"
+                                >From: John Doe
+123 Main Street
+City, State 12345
+
+To: Jane Smith
+456 Oak Avenue
+City, State 67890</textarea>
+                            </div>
+                        </div>
+
+                        <!-- Customization Options -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="labelSize" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Label Size
+                                </label>
+                                <select id="labelSize" class="w-full p-3 input-field rounded-lg focus:outline-none text-base">
+                                    <option value="small">Small (3x2 in)</option>
+                                    <option value="medium" selected>Medium (4x3 in)</option>
+                                    <option value="large">Large (5x4 in)</option>
+                                    <option value="custom">Custom Size</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="labelColor" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Label Color
+                                </label>
+                                <select id="labelColor" class="w-full p-3 input-field rounded-lg focus:outline-none text-base">
+                                    <option value="blue" selected>Blue Theme</option>
+                                    <option value="green">Green Theme</option>
+                                    <option value="red">Red Theme</option>
+                                    <option value="purple">Purple Theme</option>
+                                    <option value="orange">Orange Theme</option>
+                                    <option value="gray">Gray Theme</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Custom Size Options (Hidden by Default) -->
+                        <div id="customSizeOptions" class="hidden grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="customWidth" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Width (inches)
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="customWidth" 
+                                    min="1" 
+                                    max="10" 
+                                    value="4"
+                                    class="w-full p-3 input-field rounded-lg focus:outline-none text-base"
+                                >
+                            </div>
+                            <div>
+                                <label for="customHeight" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Height (inches)
+                                </label>
+                                <input 
+                                    type="number" 
+                                    id="customHeight" 
+                                    min="1" 
+                                    max="10" 
+                                    value="3"
+                                    class="w-full p-3 input-field rounded-lg focus:outline-none text-base"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                            <button 
+                                id="generateBtn" 
+                                class="btn-primary text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-sync-alt mr-2"></i>
+                                Update Preview
+                            </button>
+                            <button 
+                                id="downloadPngBtn" 
+                                class="btn-secondary text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-download mr-2"></i>
+                                Download PNG
+                            </button>
+                            <button 
+                                id="downloadPdfBtn" 
+                                class="btn-accent text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 btn-mobile"
+                            >
+                                <i class="fas fa-file-pdf mr-2"></i>
+                                Download PDF
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Preview Section -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 section-header">Label Preview</h2>
+                    
+                    <div class="label-preview active">
+                        <canvas id="labelCanvas" width="400" height="300"></canvas>
+                    </div>
+
+                    <!-- Label Info -->
+                    <div class="mt-6 space-y-4">
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                            <h3 class="font-bold text-blue-900 mb-3 flex items-center">
+                                <i class="fas fa-lightbulb mr-2"></i>
+                                Pro Tips
+                            </h3>
+                            <ul class="text-blue-800 text-sm space-y-2">
+                                <li>• Use clear, concise text for better readability</li>
+                                <li>• Test print on regular paper before using label sheets</li>
+                                <li>• Ensure important information is prominently displayed</li>
+                                <li>• Choose colors that provide good contrast</li>
+                            </ul>
+                        </div>
+
+                        <!-- Quick Templates -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">Quick Templates</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button class="template-btn bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm hover:bg-gray-200 transition" data-template="fragile">
+                                    <i class="fas fa-wine-bottle mr-1"></i> Fragile
+                                </button>
+                                <button class="template-btn bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm hover:bg-gray-200 transition" data-template="urgent">
+                                    <i class="fas fa-bolt mr-1"></i> Urgent
+                                </button>
+                                <button class="template-btn bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm hover:bg-gray-200 transition" data-template="confidential">
+                                    <i class="fas fa-lock mr-1"></i> Confidential
+                                </button>
+                                <button class="template-btn bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-sm hover:bg-gray-200 transition" data-template="return">
+                                    <i class="fas fa-undo mr-1"></i> Return Address
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div id="errorMessage" class="hidden p-4 bg-red-50 border border-red-200 rounded-xl">
+                            <p class="text-red-700 font-medium text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- How It Works Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-edit text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">1. Choose Template</h3>
+                    <p class="text-gray-600 text-sm">Select from various label templates designed for shipping, addresses, products, or warnings</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-palette text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">2. Customize Design</h3>
+                    <p class="text-gray-600 text-sm">Add your text, choose colors, adjust sizes, and preview your label in real-time</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-download text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">3. Download & Print</h3>
+                    <p class="text-gray-600 text-sm">Download your label as PNG or PDF and print it on standard label paper or regular paper</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Common Use Cases</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shipping-fast text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Shipping Labels</h3>
+                    <p class="text-gray-600 text-sm">Create professional shipping labels for packages, envelopes, and parcels with sender/recipient details</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-home text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Address Labels</h3>
+                    <p class="text-gray-600 text-sm">Design return address labels for personal or business correspondence and mailings</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-box text-purple-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Product Labels</h3>
+                    <p class="text-gray-600 text-sm">Create labels for product packaging, inventory management, and retail displays</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-exclamation-triangle text-orange-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Warning Labels</h3>
+                    <p class="text-gray-600 text-sm">Design safety labels, caution signs, and instructional labels for equipment and products</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-folder text-red-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">File & Organization</h3>
+                    <p class="text-gray-600 text-sm">Create labels for file folders, storage boxes, and office organization systems</p>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-gift text-indigo-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Gift & Event Labels</h3>
+                    <p class="text-gray-600 text-sm">Design custom labels for gifts, party favors, wedding invitations, and special events</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pro Tips Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Pro Label Making Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 rounded-xl p-6">
+                    <h3 class="font-bold text-blue-900 mb-3 flex items-center">
+                        <i class="fas fa-print mr-2"></i>
+                        Printing Best Practices
+                    </h3>
+                    <ul class="text-blue-800 text-sm space-y-2">
+                        <li>• Use high-quality label paper for professional results</li>
+                        <li>• Test print on regular paper first to check alignment</li>
+                        <li>• Ensure your printer settings match the label dimensions</li>
+                        <li>• Use laser printers for smudge-resistant labels</li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-xl p-6">
+                    <h3 class="font-bold text-green-900 mb-3 flex items-center">
+                        <i class="fas fa-paint-brush mr-2"></i>
+                        Design Guidelines
+                    </h3>
+                    <ul class="text-green-800 text-sm space-y-2">
+                        <li>• Maintain sufficient margins around text</li>
+                        <li>• Use high contrast colors for better readability</li>
+                        <li>• Keep important information at the top</li>
+                        <li>• Use appropriate font sizes for different label sizes</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 rounded-xl p-6">
+                    <h3 class="font-bold text-purple-900 mb-3 flex items-center">
+                        <i class="fas fa-ruler mr-2"></i>
+                        Size & Layout
+                    </h3>
+                    <ul class="text-purple-800 text-sm space-y-2">
+                        <li>• Standard shipping labels are typically 4x6 inches</li>
+                        <li>• Address labels are commonly 1x2.5 inches</li>
+                        <li>• Consider the surface area where the label will be applied</li>
+                        <li>• Leave space for barcodes if needed for tracking</li>
+                    </ul>
+                </div>
+                <div class="bg-orange-50 rounded-xl p-6">
+                    <h3 class="font-bold text-orange-900 mb-3 flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        Durability & Application
+                    </h3>
+                    <ul class="text-orange-800 text-sm space-y-2">
+                        <li>• Use waterproof label paper for outdoor applications</li>
+                        <li>• Consider laminate coating for extra protection</li>
+                        <li>• Ensure adhesive is appropriate for the surface material</li>
+                        <li>• Clean surface before application for better adhesion</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What types of labels can I create with this tool?</h3>
+                    <p class="text-gray-600">You can create various types of labels including shipping labels, address labels, product labels, warning labels, file folder labels, and custom labels for special occasions. The tool provides templates for common use cases with customization options.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What file formats can I download my labels in?</h3>
+                    <p class="text-gray-600">You can download your labels as PNG images for digital use or quick printing, or as PDF documents for professional printing and sharing. Both formats maintain high quality and can be used with standard printers.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Can I use these labels for commercial purposes?</h3>
+                    <p class="text-gray-600">Yes, all labels created with our free tool can be used for personal and commercial purposes without any restrictions or attribution required. You own the rights to the labels you create.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">What are the optimal dimensions for different label types?</h3>
+                    <p class="text-gray-600">Shipping labels typically work best at 4x6 inches, address labels at 1x2.5 inches, product labels at 3x2 inches or 4x3 inches, and warning labels at 2x3 inches. Our tool provides preset sizes for these common formats.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Do I need special paper to print these labels?</h3>
+                    <p class="text-gray-600">While you can print on regular paper, we recommend using adhesive label paper for the best results. Label paper is available in various sizes and formats at office supply stores and online retailers.</p>
+                </div>
+                <div class="faq-item pb-6">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Can I add barcodes or QR codes to my labels?</h3>
+                    <p class="text-gray-600">Currently, our label maker focuses on text-based labels. For barcodes or QR codes, we recommend using our dedicated barcode and QR code generator tools, then combining them with your labels during the design process.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3">Is there a limit to how many labels I can create?</h3>
+                    <p class="text-gray-600">No, there are no limits. You can create as many labels as you need, completely free. All processing happens in your browser, so there are no server-side restrictions or account requirements.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools Section -->
+        <section class="tool-card p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center section-header">More Free Tools</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="/qr-code-generator.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-500 block text-center">
+                    <i class="fas fa-qrcode text-blue-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">QR Code Generator</h3>
+                </a>
+                <a href="/barcode-generator.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-green-500 block text-center">
+                    <i class="fas fa-barcode text-green-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">Barcode Generator</h3>
+                </a>
+                <a href="/barcode-scanner.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-purple-500 block text-center">
+                    <i class="fas fa-camera text-purple-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">Barcode Scanner</h3>
+                </a>
+                <a href="https://kasin-tv.com/qr-code-reader.html" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-orange-500 block text-center">
+                    <i class="fas fa-qrcode text-blue-600 text-2xl mb-3"></i>
+                    <h3 class="font-bold text-gray-900">QR Code Scanner</h3>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Copy Popup -->
+    <div id="copyPopup" class="copy-popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg font-semibold hidden">
+        Label Downloaded!
+    </div>
+
+    <script>
+        // Color schemes for different themes
+        const colorSchemes = {
+            blue: { primary: '#2563eb', secondary: '#1e40af', background: '#dbeafe', text: '#1e3a8a' },
+            green: { primary: '#10b981', secondary: '#059669', background: '#d1fae5', text: '#065f46' },
+            red: { primary: '#dc2626', secondary: '#b91c1c', background: '#fee2e2', text: '#991b1b' },
+            purple: { primary: '#8b5cf6', secondary: '#7c3aed', background: '#ede9fe', text: '#6d28d9' },
+            orange: { primary: '#f59e0b', secondary: '#d97706', background: '#fef3c7', text: '#92400e' },
+            gray: { primary: '#6b7280', secondary: '#4b5563', background: '#f3f4f6', text: '#374151' }
+        };
+
+        // Template configurations
+        const templates = {
+            shipping: {
+                title: 'SHIPPING LABEL',
+                content: 'From: John Doe\n123 Main Street\nCity, State 12345\n\nTo: Jane Smith\n456 Oak Avenue\nCity, State 67890',
+                color: 'blue'
+            },
+            address: {
+                title: 'RETURN ADDRESS',
+                content: 'John Doe\n123 Main Street\nCity, State 12345',
+                color: 'green'
+            },
+            product: {
+                title: 'PRODUCT LABEL',
+                content: 'Product: Sample Item\nSKU: ABC-123\nPrice: $19.99\nDescription: High-quality product',
+                color: 'purple'
+            },
+            warning: {
+                title: 'WARNING',
+                content: 'CAUTION: FRAGILE\nHandle with Care\nThis Side Up',
+                color: 'orange'
+            },
+            fragile: {
+                title: 'FRAGILE',
+                content: 'HANDLE WITH CARE\nGLASS CONTENTS\nTHIS SIDE UP',
+                color: 'orange'
+            },
+            urgent: {
+                title: 'URGENT',
+                content: 'PRIORITY SHIPPING\nEXPEDITE PROCESSING\nTIME SENSITIVE',
+                color: 'red'
+            },
+            confidential: {
+                title: 'CONFIDENTIAL',
+                content: 'PRIVATE AND CONFIDENTIAL\nFOR ADDRESSEE ONLY\nDO NOT FORWARD',
+                color: 'purple'
+            },
+            return: {
+                title: 'RETURN ADDRESS',
+                content: 'Jane Smith\n456 Oak Avenue\nCity, State 67890',
+                color: 'green'
+            }
+        };
+
+        // Size configurations (in pixels at 150 DPI)
+        const sizeConfigs = {
+            small: { width: 450, height: 300 },   // 3x2 inches
+            medium: { width: 600, height: 450 },  // 4x3 inches
+            large: { width: 750, height: 600 },   // 5x4 inches
+            custom: { width: 600, height: 450 }   // Default custom size
+        };
+
+        let currentTemplate = 'shipping';
+        let currentColor = 'blue';
+        let currentSize = 'medium';
+
+        function showPopup(message) {
+            const popup = document.getElementById('copyPopup');
+            popup.textContent = message;
+            popup.classList.remove('hidden');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 2000);
+        }
+
+        function updateLabelPreview() {
+            const canvas = document.getElementById('labelCanvas');
+            const ctx = canvas.getContext('2d');
+            const title = document.getElementById('labelTitle').value;
+            const content = document.getElementById('labelContent').value;
+            
+            // Get current size
+            let width, height;
+            if (currentSize === 'custom') {
+                const customWidth = parseFloat(document.getElementById('customWidth').value) || 4;
+                const customHeight = parseFloat(document.getElementById('customHeight').value) || 3;
+                width = customWidth * 150; // Convert inches to pixels at 150 DPI
+                height = customHeight * 150;
+            } else {
+                width = sizeConfigs[currentSize].width;
+                height = sizeConfigs[currentSize].height;
+            }
+            
+            // Update canvas size
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Get color scheme
+            const colors = colorSchemes[currentColor];
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw background
+            ctx.fillStyle = colors.background;
+            ctx.fillRect(0, 0, width, height);
+            
+            // Draw border
+            ctx.strokeStyle = colors.primary;
+            ctx.lineWidth = 3;
+            ctx.strokeRect(2, 2, width - 4, height - 4);
+            
+            // Draw title background
+            ctx.fillStyle = colors.primary;
+            ctx.fillRect(0, 0, width, 50);
+            
+            // Draw title
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 20px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(title, width / 2, 30);
+            
+            // Draw content
+            ctx.fillStyle = colors.text;
+            ctx.font = '14px Inter, sans-serif';
+            ctx.textAlign = 'left';
+            
+            const lines = content.split('\n');
+            let yPosition = 80;
+            const lineHeight = 20;
+            
+            lines.forEach(line => {
+                if (line.trim() === '') {
+                    yPosition += lineHeight / 2; // Extra space for empty lines
+                } else {
+                    ctx.fillText(line, 20, yPosition);
+                    yPosition += lineHeight;
+                }
+            });
+            
+            // Add template icon
+            ctx.fillStyle = colors.secondary;
+            ctx.font = '12px Inter, sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText(`Template: ${currentTemplate.toUpperCase()}`, width - 15, height - 10);
+        }
+
+        function applyTemplate(templateName) {
+            const template = templates[templateName];
+            if (template) {
+                document.getElementById('labelTitle').value = template.title;
+                document.getElementById('labelContent').value = template.content;
+                document.getElementById('labelColor').value = template.color;
+                currentTemplate = templateName;
+                currentColor = template.color;
+                
+                // Update template selection UI
+                document.querySelectorAll('.label-template').forEach(el => {
+                    el.classList.remove('active');
+                });
+                document.querySelector(`.label-template[data-template="${templateName}"]`).classList.add('active');
+                
+                updateLabelPreview();
+            }
+        }
+
+        function downloadLabel(format) {
+            const canvas = document.getElementById('labelCanvas');
+            const title = document.getElementById('labelTitle').value || 'label';
+            
+            if (format === 'png') {
+                const link = document.createElement('a');
+                link.download = `${title.replace(/\s+/g, '_')}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                showPopup('PNG Label Downloaded!');
+            } else if (format === 'pdf') {
+                // For PDF, we'll use html2canvas to capture the canvas
+                html2canvas(canvas).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF({
+                        orientation: 'portrait',
+                        unit: 'px',
+                        format: [canvas.width, canvas.height]
+                    });
+                    
+                    pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+                    pdf.save(`${title.replace(/\s+/g, '_')}.pdf`);
+                    showPopup('PDF Label Downloaded!');
+                });
+            }
+        }
+
+        // Event Listeners
+        document.getElementById('generateBtn').addEventListener('click', updateLabelPreview);
+        
+        document.getElementById('downloadPngBtn').addEventListener('click', () => downloadLabel('png'));
+        
+        document.getElementById('downloadPdfBtn').addEventListener('click', () => downloadLabel('pdf'));
+        
+        // Template selection
+        document.querySelectorAll('.label-template').forEach(button => {
+            button.addEventListener('click', () => {
+                const template = button.dataset.template;
+                applyTemplate(template);
+            });
+        });
+        
+        // Quick template buttons
+        document.querySelectorAll('.template-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const template = button.dataset.template;
+                applyTemplate(template);
+            });
+        });
+        
+        // Color change
+        document.getElementById('labelColor').addEventListener('change', (e) => {
+            currentColor = e.target.value;
+            updateLabelPreview();
+        });
+        
+        // Size change
+        document.getElementById('labelSize').addEventListener('change', (e) => {
+            currentSize = e.target.value;
+            const customOptions = document.getElementById('customSizeOptions');
+            
+            if (currentSize === 'custom') {
+                customOptions.classList.remove('hidden');
+            } else {
+                customOptions.classList.add('hidden');
+            }
+            
+            updateLabelPreview();
+        });
+        
+        // Custom size inputs
+        document.getElementById('customWidth').addEventListener('input', updateLabelPreview);
+        document.getElementById('customHeight').addEventListener('input', updateLabelPreview);
+        
+        // Auto-update on content changes
+        document.getElementById('labelTitle').addEventListener('input', updateLabelPreview);
+        document.getElementById('labelContent').addEventListener('input', updateLabelPreview);
+        
+        // Initialize
+        applyTemplate('shipping');
+    </script>
+
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+</body>
+</html>

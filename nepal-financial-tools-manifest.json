@@ -1,0 +1,1159 @@
+{
+  "generatedAt": "2026-07-10",
+  "count": 40,
+  "tools": [
+    {
+      "slug": "sip-calculator",
+      "title": "SIP Calculator",
+      "icon": "fa-coins",
+      "operation": "sip",
+      "description": "Estimate systematic investment plan maturity, total invested value and expected gain for Nepal-focused long-term saving.",
+      "fields": [
+        {
+          "id": "monthly",
+          "label": "Monthly investment (NPR)",
+          "value": 10000
+        },
+        {
+          "id": "annualReturn",
+          "label": "Expected annual return (%)",
+          "value": 12
+        },
+        {
+          "id": "years",
+          "label": "Investment years",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "slug": "simple-interest-calculator",
+      "title": "Simple Interest Calculator",
+      "icon": "fa-percent",
+      "operation": "simple-interest",
+      "description": "Calculate simple interest and maturity value from principal, annual rate and time period.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Principal amount (NPR)",
+          "value": 100000
+        },
+        {
+          "id": "annualRate",
+          "label": "Annual interest rate (%)",
+          "value": 10
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "slug": "irr-calculator",
+      "title": "IRR Calculator",
+      "icon": "fa-chart-line",
+      "operation": "irr",
+      "description": "Estimate internal rate of return from project or investment cash flows.",
+      "fields": [
+        {
+          "id": "cashFlows",
+          "label": "Cash flows, starting with initial investment",
+          "value": "-100000\n25000\n30000\n35000\n40000",
+          "type": "textarea",
+          "placeholder": "Example: -100000 25000 30000 35000"
+        }
+      ]
+    },
+    {
+      "slug": "mortgage-amortization",
+      "title": "Mortgage Amortization",
+      "icon": "fa-house",
+      "operation": "mortgage",
+      "description": "Estimate home loan monthly payment, total payment and interest using reducing balance EMI math.",
+      "fields": [
+        {
+          "id": "propertyPrice",
+          "label": "Property price (NPR)",
+          "value": 8000000
+        },
+        {
+          "id": "downPayment",
+          "label": "Down payment (NPR)",
+          "value": 2000000
+        },
+        {
+          "id": "annualRate",
+          "label": "Annual interest rate (%)",
+          "value": 10.5
+        },
+        {
+          "id": "years",
+          "label": "Loan years",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "slug": "future-value-calculator",
+      "title": "Future Value Calculator",
+      "icon": "fa-dollar-sign",
+      "operation": "future-value",
+      "description": "Project future value from current savings, monthly contribution, expected return and time.",
+      "fields": [
+        {
+          "id": "current",
+          "label": "Current amount (NPR)",
+          "value": 100000
+        },
+        {
+          "id": "monthly",
+          "label": "Monthly contribution (NPR)",
+          "value": 5000
+        },
+        {
+          "id": "annualReturn",
+          "label": "Expected annual return (%)",
+          "value": 8
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 10
+        },
+        {
+          "id": "target",
+          "label": "Optional target (NPR)",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "slug": "return-on-investment-calculator",
+      "title": "ROI Calculator",
+      "icon": "fa-percent",
+      "operation": "roi",
+      "description": "Calculate return on investment percentage, profit or loss and final value.",
+      "fields": [
+        {
+          "id": "initial",
+          "label": "Initial investment (NPR)",
+          "value": 100000
+        },
+        {
+          "id": "finalValue",
+          "label": "Final value (NPR)",
+          "value": 125000
+        }
+      ]
+    },
+    {
+      "slug": "debt-to-income-ratio",
+      "title": "Debt-to-Income Ratio",
+      "icon": "fa-scale-balanced",
+      "operation": "dti",
+      "description": "Measure monthly debt against gross income to estimate borrowing comfort.",
+      "fields": [
+        {
+          "id": "monthlyDebt",
+          "label": "Monthly debt payments (NPR)",
+          "value": 35000
+        },
+        {
+          "id": "grossIncome",
+          "label": "Gross monthly income (NPR)",
+          "value": 120000
+        }
+      ]
+    },
+    {
+      "slug": "nepal-loan-emi-calculator",
+      "title": "EMI Calculator (NPR)",
+      "icon": "fa-money-bill-wave",
+      "operation": "emi",
+      "description": "Calculate NPR loan EMI, total payment and interest for personal or business loans.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Loan amount (NPR)",
+          "value": 1000000
+        },
+        {
+          "id": "annualRate",
+          "label": "Annual interest rate (%)",
+          "value": 11
+        },
+        {
+          "id": "years",
+          "label": "Loan years",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "slug": "nepal-income-tax-calculator",
+      "title": "Nepal Income Tax Calculator",
+      "icon": "fa-file-invoice-dollar",
+      "operation": "income-tax",
+      "description": "Estimate Nepal income tax with editable taxable income, deductions and effective tax rate.",
+      "fields": [
+        {
+          "id": "income",
+          "label": "Annual income (NPR)",
+          "value": 900000
+        },
+        {
+          "id": "deductions",
+          "label": "Deductions / allowances (NPR)",
+          "value": 0
+        },
+        {
+          "id": "taxRate",
+          "label": "Effective tax rate (%)",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "slug": "nepal-vat-calculator",
+      "title": "Nepal VAT Calculator",
+      "icon": "fa-percent",
+      "operation": "vat",
+      "description": "Add or extract Nepal VAT from invoice amounts using an editable VAT rate.",
+      "fields": [
+        {
+          "id": "amount",
+          "label": "Amount (NPR)",
+          "value": 10000
+        },
+        {
+          "id": "vatRate",
+          "label": "VAT rate (%)",
+          "value": 13
+        },
+        {
+          "id": "mode",
+          "label": "Calculation mode",
+          "value": "add",
+          "type": "select",
+          "options": [
+            {
+              "label": "Add VAT to base amount",
+              "value": "add"
+            },
+            {
+              "label": "Extract VAT from gross amount",
+              "value": "extract"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "investment-returns-calculator",
+      "title": "Investment Returns Calculator",
+      "icon": "fa-chart-line",
+      "operation": "investment-returns",
+      "description": "Estimate investment maturity value from lump sum, monthly contributions and expected return.",
+      "fields": [
+        {
+          "id": "current",
+          "label": "Initial investment (NPR)",
+          "value": 200000
+        },
+        {
+          "id": "monthly",
+          "label": "Monthly contribution (NPR)",
+          "value": 10000
+        },
+        {
+          "id": "annualReturn",
+          "label": "Expected annual return (%)",
+          "value": 10
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 8
+        },
+        {
+          "id": "target",
+          "label": "Target amount (NPR)",
+          "value": 2000000
+        }
+      ]
+    },
+    {
+      "slug": "compound-interest-calculator",
+      "title": "Compound Interest Calculator",
+      "icon": "fa-piggy-bank",
+      "operation": "fd",
+      "description": "Calculate compound interest maturity using quarterly compounding and editable tax estimate.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Principal amount (NPR)",
+          "value": 100000
+        },
+        {
+          "id": "annualRate",
+          "label": "Annual rate (%)",
+          "value": 10
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 5
+        },
+        {
+          "id": "taxRate",
+          "label": "Tax on interest (%)",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "slug": "currency-converter",
+      "title": "Currency Converter",
+      "icon": "fa-right-left",
+      "operation": "currency-converter",
+      "description": "Convert foreign currency to NPR using an exchange rate and transfer fee.",
+      "fields": [
+        {
+          "id": "foreignAmount",
+          "label": "Foreign amount",
+          "value": 1000
+        },
+        {
+          "id": "exchangeRate",
+          "label": "Exchange rate to NPR",
+          "value": 133
+        },
+        {
+          "id": "feeRate",
+          "label": "Fee (%)",
+          "value": 0
+        },
+        {
+          "id": "fixedFee",
+          "label": "Fixed fee (NPR)",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "slug": "stock-portfolio-tracker",
+      "title": "Stock Portfolio Tracker",
+      "icon": "fa-chart-area",
+      "operation": "portfolio",
+      "description": "Estimate stock portfolio current value, gain or loss and return percentage.",
+      "fields": [
+        {
+          "id": "buyPrice",
+          "label": "Average buy price (NPR)",
+          "value": 300
+        },
+        {
+          "id": "currentPrice",
+          "label": "Current price (NPR)",
+          "value": 375
+        },
+        {
+          "id": "units",
+          "label": "Units / shares",
+          "value": 100
+        },
+        {
+          "id": "dividend",
+          "label": "Dividend received (NPR)",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "slug": "retirement-calculator",
+      "title": "Retirement Calculator",
+      "icon": "fa-umbrella-beach",
+      "operation": "retirement",
+      "description": "Project retirement corpus from current savings and monthly investing.",
+      "fields": [
+        {
+          "id": "current",
+          "label": "Current retirement savings (NPR)",
+          "value": 500000
+        },
+        {
+          "id": "monthly",
+          "label": "Monthly saving (NPR)",
+          "value": 15000
+        },
+        {
+          "id": "annualReturn",
+          "label": "Expected annual return (%)",
+          "value": 9
+        },
+        {
+          "id": "years",
+          "label": "Years until retirement",
+          "value": 25
+        },
+        {
+          "id": "target",
+          "label": "Retirement target (NPR)",
+          "value": 10000000
+        }
+      ]
+    },
+    {
+      "slug": "inflation-calculator",
+      "title": "Inflation Calculator",
+      "icon": "fa-chart-column",
+      "operation": "inflation",
+      "description": "Estimate future cost of today’s money after inflation.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Current cost (NPR)",
+          "value": 100000
+        },
+        {
+          "id": "inflationRate",
+          "label": "Annual inflation rate (%)",
+          "value": 6
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "slug": "loan-comparison",
+      "title": "Loan Comparison",
+      "icon": "fa-scale-balanced",
+      "operation": "loan-comparison",
+      "description": "Compare two loan offers by EMI and monthly payment difference.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Loan amount (NPR)",
+          "value": 1000000
+        },
+        {
+          "id": "rateA",
+          "label": "Option A rate (%)",
+          "value": 10
+        },
+        {
+          "id": "yearsA",
+          "label": "Option A years",
+          "value": 5
+        },
+        {
+          "id": "rateB",
+          "label": "Option B rate (%)",
+          "value": 11.5
+        },
+        {
+          "id": "yearsB",
+          "label": "Option B years",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "slug": "debt-payoff-calculator",
+      "title": "Debt Payoff Calculator",
+      "icon": "fa-credit-card",
+      "operation": "debt-payoff",
+      "description": "Estimate how long it takes to repay a debt and total interest paid.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Debt balance (NPR)",
+          "value": 250000
+        },
+        {
+          "id": "annualRate",
+          "label": "Annual interest rate (%)",
+          "value": 15
+        },
+        {
+          "id": "monthlyPayment",
+          "label": "Monthly payment (NPR)",
+          "value": 15000
+        }
+      ]
+    },
+    {
+      "slug": "education-fund-calculator",
+      "title": "Education Fund Calculator",
+      "icon": "fa-graduation-cap",
+      "operation": "education-fund",
+      "description": "Project an education fund and compare it against a target cost.",
+      "fields": [
+        {
+          "id": "current",
+          "label": "Current savings (NPR)",
+          "value": 100000
+        },
+        {
+          "id": "monthly",
+          "label": "Monthly saving (NPR)",
+          "value": 8000
+        },
+        {
+          "id": "annualReturn",
+          "label": "Expected annual return (%)",
+          "value": 8
+        },
+        {
+          "id": "years",
+          "label": "Years until study",
+          "value": 10
+        },
+        {
+          "id": "target",
+          "label": "Target education cost (NPR)",
+          "value": 2000000
+        }
+      ]
+    },
+    {
+      "slug": "business-profit-margin",
+      "title": "Business Profit Margin",
+      "icon": "fa-store",
+      "operation": "business-margin",
+      "description": "Calculate business profit and margin from revenue, cost of goods and expenses.",
+      "fields": [
+        {
+          "id": "revenue",
+          "label": "Revenue (NPR)",
+          "value": 500000
+        },
+        {
+          "id": "costs",
+          "label": "Cost of goods (NPR)",
+          "value": 280000
+        },
+        {
+          "id": "expenses",
+          "label": "Other expenses (NPR)",
+          "value": 75000
+        }
+      ]
+    },
+    {
+      "slug": "tax-advantaged-investment",
+      "title": "Tax-Advantaged Investment",
+      "icon": "fa-file-invoice-dollar",
+      "operation": "tax-advantaged",
+      "description": "Estimate investment growth plus possible tax benefit from eligible investment amount.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Eligible investment (NPR)",
+          "value": 200000
+        },
+        {
+          "id": "taxRate",
+          "label": "Tax benefit rate (%)",
+          "value": 10
+        },
+        {
+          "id": "annualReturn",
+          "label": "Expected annual return (%)",
+          "value": 8
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "slug": "nepse-return-calculator",
+      "title": "NEPSE Return Calculator",
+      "icon": "fa-chart-line",
+      "operation": "nepse-return",
+      "description": "Calculate estimated NEPSE stock return from buy price, sell price, units, fees and dividend.",
+      "fields": [
+        {
+          "id": "buyPrice",
+          "label": "Buy price per share (NPR)",
+          "value": 300
+        },
+        {
+          "id": "sellPrice",
+          "label": "Sell price per share (NPR)",
+          "value": 360
+        },
+        {
+          "id": "units",
+          "label": "Shares",
+          "value": 100
+        },
+        {
+          "id": "fees",
+          "label": "Fees / commissions (NPR)",
+          "value": 1200
+        },
+        {
+          "id": "dividend",
+          "label": "Dividend received (NPR)",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "slug": "real-estate-investment",
+      "title": "Real Estate Investment",
+      "icon": "fa-house",
+      "operation": "real-estate",
+      "description": "Estimate real estate value, net operating income and cap rate from rent and expenses.",
+      "fields": [
+        {
+          "id": "propertyPrice",
+          "label": "Property price (NPR)",
+          "value": 10000000
+        },
+        {
+          "id": "monthlyRent",
+          "label": "Monthly rent (NPR)",
+          "value": 60000
+        },
+        {
+          "id": "annualExpenses",
+          "label": "Annual expenses (NPR)",
+          "value": 150000
+        },
+        {
+          "id": "growthRate",
+          "label": "Annual property growth (%)",
+          "value": 6
+        },
+        {
+          "id": "years",
+          "label": "Holding years",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "slug": "foreign-remittance",
+      "title": "Foreign Remittance",
+      "icon": "fa-money-bill-transfer",
+      "operation": "remittance",
+      "description": "Estimate NPR received from foreign remittance after exchange rate and fees.",
+      "fields": [
+        {
+          "id": "foreignAmount",
+          "label": "Foreign amount",
+          "value": 1000
+        },
+        {
+          "id": "exchangeRate",
+          "label": "Exchange rate to NPR",
+          "value": 133
+        },
+        {
+          "id": "feeRate",
+          "label": "Fee (%)",
+          "value": 1
+        },
+        {
+          "id": "fixedFee",
+          "label": "Fixed fee (NPR)",
+          "value": 500
+        }
+      ]
+    },
+    {
+      "slug": "insurance-premium",
+      "title": "Insurance Premium",
+      "icon": "fa-shield-halved",
+      "operation": "insurance",
+      "description": "Estimate annual and monthly insurance premium from coverage and rate assumptions.",
+      "fields": [
+        {
+          "id": "coverage",
+          "label": "Coverage amount (NPR)",
+          "value": 1000000
+        },
+        {
+          "id": "ratePerThousand",
+          "label": "Rate per NPR 1,000",
+          "value": 4
+        },
+        {
+          "id": "ageFactor",
+          "label": "Age / risk factor",
+          "value": 1.2
+        },
+        {
+          "id": "years",
+          "label": "Policy years",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "slug": "budget-planner",
+      "title": "Budget Planner",
+      "icon": "fa-wallet",
+      "operation": "budget",
+      "description": "Plan monthly budget by comparing income, expenses and savings surplus.",
+      "fields": [
+        {
+          "id": "monthlyIncome",
+          "label": "Monthly income (NPR)",
+          "value": 100000
+        },
+        {
+          "id": "monthlyExpenses",
+          "label": "Monthly expenses (NPR)",
+          "value": 65000
+        },
+        {
+          "id": "costs",
+          "label": "Extra commitments (NPR)",
+          "value": 5000
+        }
+      ]
+    },
+    {
+      "slug": "cooperative-interest",
+      "title": "Cooperative Interest",
+      "icon": "fa-handshake",
+      "operation": "cooperative-interest",
+      "description": "Estimate cooperative deposit maturity and interest using editable rate and tax values.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Deposit amount (NPR)",
+          "value": 200000
+        },
+        {
+          "id": "annualRate",
+          "label": "Annual interest rate (%)",
+          "value": 9
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 3
+        },
+        {
+          "id": "taxRate",
+          "label": "Tax on interest (%)",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "slug": "fixed-deposit-comparison",
+      "title": "Fixed Deposit Comparison",
+      "icon": "fa-building-columns",
+      "operation": "fd-comparison",
+      "description": "Compare two fixed deposit interest rates and maturity values.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Deposit amount (NPR)",
+          "value": 500000
+        },
+        {
+          "id": "rateA",
+          "label": "Bank A rate (%)",
+          "value": 7.5
+        },
+        {
+          "id": "rateB",
+          "label": "Bank B rate (%)",
+          "value": 8.25
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 2
+        },
+        {
+          "id": "taxRate",
+          "label": "Tax on interest (%)",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "slug": "foreign-currency-investment",
+      "title": "Foreign Currency Investment",
+      "icon": "fa-dollar-sign",
+      "operation": "foreign-currency-investment",
+      "description": "Estimate NPR value of foreign currency investment after exchange rate and growth.",
+      "fields": [
+        {
+          "id": "nprAmount",
+          "label": "NPR invested",
+          "value": 200000
+        },
+        {
+          "id": "buyRate",
+          "label": "Buy exchange rate",
+          "value": 133
+        },
+        {
+          "id": "sellRate",
+          "label": "Future sell exchange rate",
+          "value": 140
+        },
+        {
+          "id": "annualReturn",
+          "label": "Foreign asset return (%)",
+          "value": 4
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "slug": "gold-investment",
+      "title": "Gold Investment",
+      "icon": "fa-coins",
+      "operation": "gold-investment",
+      "description": "Estimate gold investment gain or loss from buy price, sell price, grams and fees.",
+      "fields": [
+        {
+          "id": "buyPrice",
+          "label": "Buy price per gram (NPR)",
+          "value": 12000
+        },
+        {
+          "id": "sellPrice",
+          "label": "Sell price per gram (NPR)",
+          "value": 13500
+        },
+        {
+          "id": "grams",
+          "label": "Gold grams",
+          "value": 20
+        },
+        {
+          "id": "fees",
+          "label": "Fees / making charge (NPR)",
+          "value": 5000
+        }
+      ]
+    },
+    {
+      "slug": "agricultural-loan-subsidy",
+      "title": "Agricultural Loan/Subsidy",
+      "icon": "fa-tractor",
+      "operation": "agri-subsidy",
+      "description": "Estimate agricultural loan EMI after interest subsidy.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Loan amount (NPR)",
+          "value": 800000
+        },
+        {
+          "id": "annualRate",
+          "label": "Normal annual rate (%)",
+          "value": 12
+        },
+        {
+          "id": "subsidyRate",
+          "label": "Interest subsidy (%)",
+          "value": 5
+        },
+        {
+          "id": "years",
+          "label": "Loan years",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "slug": "microfinance-loan",
+      "title": "Microfinance Loan",
+      "icon": "fa-hand-holding-dollar",
+      "operation": "microfinance-loan",
+      "description": "Estimate microfinance loan installment including service fee.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Loan amount (NPR)",
+          "value": 150000
+        },
+        {
+          "id": "annualRate",
+          "label": "Annual interest rate (%)",
+          "value": 15
+        },
+        {
+          "id": "termMonths",
+          "label": "Term months",
+          "value": 24
+        },
+        {
+          "id": "serviceFee",
+          "label": "Service fee (%)",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "slug": "personal-loan-eligibility",
+      "title": "Personal Loan Eligibility",
+      "icon": "fa-user-check",
+      "operation": "eligibility",
+      "description": "Estimate maximum personal loan eligibility from income, EMI obligations and DTI limit.",
+      "fields": [
+        {
+          "id": "monthlyIncome",
+          "label": "Monthly income (NPR)",
+          "value": 100000
+        },
+        {
+          "id": "existingEmi",
+          "label": "Existing EMI (NPR)",
+          "value": 20000
+        },
+        {
+          "id": "maxDti",
+          "label": "Maximum DTI (%)",
+          "value": 45
+        },
+        {
+          "id": "annualRate",
+          "label": "Loan rate (%)",
+          "value": 12
+        },
+        {
+          "id": "years",
+          "label": "Loan years",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "slug": "vehicle-loan",
+      "title": "Vehicle Loan",
+      "icon": "fa-car",
+      "operation": "vehicle-loan",
+      "description": "Calculate vehicle loan EMI from price, down payment, rate and tenure.",
+      "fields": [
+        {
+          "id": "vehiclePrice",
+          "label": "Vehicle price (NPR)",
+          "value": 3500000
+        },
+        {
+          "id": "downPayment",
+          "label": "Down payment (NPR)",
+          "value": 1000000
+        },
+        {
+          "id": "annualRate",
+          "label": "Annual interest rate (%)",
+          "value": 11
+        },
+        {
+          "id": "years",
+          "label": "Loan years",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "slug": "nepal-pf-calculator",
+      "title": "Provident Fund",
+      "icon": "fa-piggy-bank",
+      "operation": "provident-fund",
+      "description": "Estimate provident fund corpus from monthly salary, contribution rates and annual return.",
+      "fields": [
+        {
+          "id": "monthlySalary",
+          "label": "Monthly basic salary (NPR)",
+          "value": 60000
+        },
+        {
+          "id": "employeeRate",
+          "label": "Employee contribution (%)",
+          "value": 10
+        },
+        {
+          "id": "employerRate",
+          "label": "Employer contribution (%)",
+          "value": 10
+        },
+        {
+          "id": "annualReturn",
+          "label": "Estimated annual return (%)",
+          "value": 7
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "slug": "citizen-investment-trust",
+      "title": "Citizen Investment Trust",
+      "icon": "fa-building-columns",
+      "operation": "citizen-investment-trust",
+      "description": "Estimate Citizen Investment Trust savings corpus and target gap.",
+      "fields": [
+        {
+          "id": "current",
+          "label": "Current CIT savings (NPR)",
+          "value": 100000
+        },
+        {
+          "id": "monthly",
+          "label": "Monthly contribution (NPR)",
+          "value": 5000
+        },
+        {
+          "id": "annualReturn",
+          "label": "Estimated annual return (%)",
+          "value": 7
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 10
+        },
+        {
+          "id": "target",
+          "label": "Target corpus (NPR)",
+          "value": 1000000
+        }
+      ]
+    },
+    {
+      "slug": "nepal-salary-tax-calculator",
+      "title": "Nepal Salary Tax",
+      "icon": "fa-wallet",
+      "operation": "salary-tax",
+      "description": "Estimate annual salary tax from monthly salary, bonus, deductions and editable effective tax rate.",
+      "fields": [
+        {
+          "id": "monthlySalary",
+          "label": "Monthly salary (NPR)",
+          "value": 80000
+        },
+        {
+          "id": "bonus",
+          "label": "Annual bonus (NPR)",
+          "value": 80000
+        },
+        {
+          "id": "deductions",
+          "label": "Annual deductions (NPR)",
+          "value": 0
+        },
+        {
+          "id": "taxRate",
+          "label": "Effective tax rate (%)",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "slug": "nepal-corporate-income-tax-calculator",
+      "title": "Nepal Corporate Tax",
+      "icon": "fa-building",
+      "operation": "corporate-tax",
+      "description": "Estimate corporate income tax using profit and editable tax rate.",
+      "fields": [
+        {
+          "id": "income",
+          "label": "Taxable profit (NPR)",
+          "value": 2000000
+        },
+        {
+          "id": "deductions",
+          "label": "Adjustments / deductions (NPR)",
+          "value": 0
+        },
+        {
+          "id": "taxRate",
+          "label": "Corporate tax rate (%)",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "slug": "nepal-ssf-calculator",
+      "title": "Nepal SSF Calculator",
+      "icon": "fa-shield-halved",
+      "operation": "ssf",
+      "description": "Estimate SSF-style contribution corpus from salary and employee/employer contribution rates.",
+      "fields": [
+        {
+          "id": "monthlySalary",
+          "label": "Monthly salary (NPR)",
+          "value": 80000
+        },
+        {
+          "id": "employeeRate",
+          "label": "Employee contribution (%)",
+          "value": 11
+        },
+        {
+          "id": "employerRate",
+          "label": "Employer contribution (%)",
+          "value": 20
+        },
+        {
+          "id": "annualReturn",
+          "label": "Estimated annual return (%)",
+          "value": 6
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "slug": "nepal-fixed-deposit-calculator",
+      "title": "Nepal FD Calculator",
+      "icon": "fa-building-columns",
+      "operation": "fd",
+      "description": "Calculate Nepal fixed deposit maturity, gross interest and estimated tax deduction.",
+      "fields": [
+        {
+          "id": "principal",
+          "label": "Deposit amount (NPR)",
+          "value": 500000
+        },
+        {
+          "id": "annualRate",
+          "label": "Annual interest rate (%)",
+          "value": 7.5
+        },
+        {
+          "id": "years",
+          "label": "Years",
+          "value": 2
+        },
+        {
+          "id": "taxRate",
+          "label": "Tax on interest (%)",
+          "value": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+        <link rel="canonical" href="https://kasin-tv.com/json-to-csv.html">
+    <meta property="og:url" content="https://kasin-tv.com/json-to-csv.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free JSON to CSV Converter Online | Fast & Secure Tool - KaSin TV</title>
+    <meta name="description" content="Convert JSON to CSV instantly with our free online tool. Download or copy results, supports manual input & file upload. Fast, secure & mobile-friendly.">
+    <meta name="keywords" content="json to csv converter, json to csv online, convert json to csv free, json parser, csv converter tool, data conversion">
+    <meta name="author" content="KaSin TV">
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free JSON to CSV Converter Online | KaSin TV">
+    <meta property="og:description" content="Convert JSON to CSV instantly with our free online tool. Download or copy results, supports manual input & file upload.">
+    <meta property="og:site_name" content="KaSin TV">
+    
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free JSON to CSV Converter Online | KaSin TV">
+    <meta name="twitter:description" content="Convert JSON to CSV instantly with our free online tool. Fast, secure & mobile-friendly.">
+    
+    
+    <!-- Favicon -->
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JSON to CSV Converter",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online JSON to CSV converter tool. Convert JSON data to CSV format instantly with manual input or file upload support, plus download functionality.",
+      "url": "https://kasin-tv.com/json-to-csv.html",
+      "provider": {
+        "@type": "Organization",
+        "name": "KaSin TV",
+        "url": "https://kasin-tv.com/json-to-csv.html"
+      },
+      "featureList": [
+        "Manual JSON input",
+        "JSON file upload",
+        "Instant conversion",
+        "Copy to clipboard",
+        "Download CSV file",
+        "Privacy-safe (client-side processing)",
+        "Mobile responsive"
+      ]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #dc2626;
+            --primary-hover: #b91c1c;
+            --secondary-color: #2563eb;
+            --secondary-hover: #1d4ed8;
+            --success-color: #16a34a;
+            --success-hover: #15803d;
+            --purple-color: #9333ea;
+            --purple-hover: #7e22ce;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .action-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .action-btn:active {
+            transform: translateY(0);
+        }
+        
+        .copy-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: var(--success-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        
+        .copy-popup.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .section-header {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .use-case-card, .faq-card {
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .use-case-card:hover, .faq-card:hover {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transform: translateX(4px);
+        }
+        
+        .ad-placeholder {
+            background: #f3f4f6;
+            border: 2px dashed #d1d5db;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 640px) {
+            .action-btn {
+                font-size: 0.875rem;
+                padding: 0.625rem 1rem;
+            }
+        }
+        
+        textarea {
+            transition: border-color 0.2s ease;
+        }
+        
+        textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            ring: 2px;
+            ring-color: rgba(220, 38, 38, 0.2);
+        }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        
+        <!-- Hero Section -->
+        <section class="text-center mb-12">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-file-code text-blue-600 text-4xl sm:text-5xl mr-4"></i>
+                <i class="fas fa-arrow-right text-gray-400 text-2xl sm:text-3xl mr-4"></i>
+                <i class="fas fa-file-csv text-red-600 text-4xl sm:text-5xl"></i>
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">JSON to CSV Converter</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">Transform your JSON data into CSV format instantly. Free, fast, and secure — all processing happens in your browser.</p>
+        </section>
+
+        <!-- Converter Tool Card -->
+        <section class="card p-6 lg:p-8 mb-8">
+            <div class="mb-6">
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <button type="button" id="manualBtn" class="action-btn flex-1 sm:flex-none bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition flex items-center justify-center">
+                        <i class="fas fa-keyboard mr-2"></i>
+                        Manual Input
+                    </button>
+                    <button type="button" id="uploadBtn" class="action-btn flex-1 sm:flex-none bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition flex items-center justify-center">
+                        <i class="fas fa-cloud-upload-alt mr-2"></i>
+                        Upload File
+                    </button>
+                </div>
+                
+                <input type="file" id="fileInput" accept=".json" class="hidden" aria-label="Upload JSON file">
+                
+                <div id="inputSection">
+                    <label for="inputText" class="block text-sm font-semibold text-gray-800 mb-2" id="inputLabel">Enter JSON Data</label>
+                    <textarea 
+                        id="inputText" 
+                        placeholder='[&#10;  {"name": "John Doe", "age": 30, "city": "New York"},&#10;  {"name": "Jane Smith", "age": 25, "city": "Los Angeles"}&#10;]'
+                        class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-red-600 transition text-sm font-mono bg-gray-50 resize-y min-h-[180px]"
+                        aria-label="JSON input field"></textarea>
+                </div>
+                
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <button type="button" id="convertBtn" class="action-btn flex-1 sm:flex-none bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition flex items-center justify-center">
+                        <i class="fas fa-sync-alt mr-2"></i>
+                        Convert to CSV
+                    </button>
+                    <button type="button" id="copyBtn" class="action-btn flex-1 sm:flex-none bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition flex items-center justify-center">
+                        <i class="fas fa-copy mr-2"></i>
+                        Copy Result
+                    </button>
+                    <button type="button" id="downloadBtn" class="action-btn flex-1 sm:flex-none bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition flex items-center justify-center">
+                        <i class="fas fa-download mr-2"></i>
+                        Download CSV
+                    </button>
+                    <button type="button" id="resetBtn" class="action-btn flex-1 sm:flex-none bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-purple-700 transition flex items-center justify-center">
+                        <i class="fas fa-undo mr-2"></i>
+                        Reset
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-6">
+                <label for="resultText" class="block text-sm font-semibold text-gray-800 mb-2">CSV Output</label>
+                <textarea 
+                    id="resultText" 
+                    readonly 
+                    class="w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-sm font-mono resize-y min-h-[180px]" 
+                    placeholder="Your CSV output will appear here..."
+                    aria-label="CSV output field"></textarea>
+                <p id="errorMessage" class="text-sm text-red-600 mt-2 hidden flex items-center">
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    <span id="errorText"></span>
+                </p>
+            </div>
+        </section>
+
+
+        <!-- What is JSON to CSV Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">What is JSON to CSV Conversion?</h2>
+            <div class="card p-6 lg:p-8">
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    JSON (JavaScript Object Notation) and CSV (Comma-Separated Values) are two popular data formats used in modern applications. JSON is a lightweight format for storing and transporting structured data, while CSV is a simple tabular format perfect for spreadsheets and databases.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Our JSON to CSV converter transforms complex nested JSON structures into flat, spreadsheet-ready CSV files. The conversion is instant, secure, and happens entirely in your browser — no data is uploaded to any server. Perfect for data analysis, reporting, and database imports.
+                </p>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">How It Works</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-upload text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">1. Input Data</h3>
+                    <p class="text-sm text-gray-600">Type JSON data manually or upload a .json file from your device.</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">2. Parse JSON</h3>
+                    <p class="text-sm text-gray-600">Our tool validates JSON syntax and extracts keys and values automatically.</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-exchange-alt text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">3. Convert</h3>
+                    <p class="text-sm text-gray-600">Data is transformed into properly formatted CSV with headers and rows.</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-download text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">4. Export</h3>
+                    <p class="text-sm text-gray-600">Copy the CSV or download it as a file for immediate use.</p>
+                </div>
+            </div>
+        </section>
+
+       
+        <!-- Pro Tips Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">Pro Tips for Best Results</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="use-case-card">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-600 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Use Array of Objects</h3>
+                            <p class="text-sm text-gray-700">Ensure your JSON is an array of objects with consistent keys for proper CSV conversion.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-600 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Validate JSON First</h3>
+                            <p class="text-sm text-gray-700">Make sure your JSON is properly formatted with correct brackets, quotes, and commas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-600 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Consistent Structure</h3>
+                            <p class="text-sm text-gray-700">All objects should have the same properties for clean, aligned CSV output.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-600 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Download for Large Files</h3>
+                            <p class="text-sm text-gray-700">For large datasets, use the download button instead of copy to avoid browser limitations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">Common Use Cases</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-file-excel text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Excel Integration</h3>
+                    <p class="text-sm text-gray-600">Convert JSON API responses into CSV files for easy import into Excel or Google Sheets.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Database Import</h3>
+                    <p class="text-sm text-gray-600">Transform JSON data into CSV format for bulk imports into SQL databases.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-bar text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Data Analysis</h3>
+                    <p class="text-sm text-gray-600">Convert API data to CSV for analysis in tools like R, Python pandas, or Tableau.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-file-download text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Report Generation</h3>
+                    <p class="text-sm text-gray-600">Export JSON reports from web applications into CSV for sharing with stakeholders.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-sync-alt text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Data Migration</h3>
+                    <p class="text-sm text-gray-600">Migrate data from NoSQL databases to relational databases using CSV format.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-archive text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Data Backup</h3>
+                    <p class="text-sm text-gray-600">Create CSV backups of JSON configuration files for easy archival and recovery.</p>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- FAQ Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Is my JSON data secure when using this tool?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Yes, absolutely! All conversion happens directly in your browser using JavaScript. No data is sent to any server, ensuring complete privacy and security.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        What JSON format does this tool support?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">The tool supports JSON arrays of objects. Each object should have the same keys/properties for proper CSV conversion with consistent columns.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Can I convert nested JSON objects?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">The tool works best with flat JSON structures. Deeply nested objects may not convert properly. Consider flattening your JSON first for best results.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        How do I download the CSV file?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">After conversion, click the "Download CSV" button. The file will be saved as "output.csv" to your device's download folder.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        What if I get an error message?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Error messages typically indicate invalid JSON syntax or format issues. Check for missing brackets, quotes, or commas in your JSON data.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Can I convert large JSON files?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Yes, you can convert JSON files of any size. However, very large files may take longer to process depending on your device's performance.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Do I need to install any software?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">No installation required! This is a web-based tool that works directly in your browser on any device — desktop, tablet, or mobile.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Is this tool free to use?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">Yes! This JSON to CSV converter is completely free to use with no limitations, registration, or hidden fees.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                        <i class="fas fa-question-circle text-red-600 mr-3"></i>
+                        Can I convert CSV back to JSON?
+                    </h3>
+                    <p class="text-sm text-gray-700 ml-9">This tool specifically converts JSON to CSV. For the reverse conversion (CSV to JSON), check out our CSV to JSON converter on KaSin TV.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 section-header">Related Tools</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="https://kasin-tv.com/csv-to-json.html" class="card p-4 hover:shadow-lg transition group">
+                    <div class="flex items-center">
+                        <i class="fas fa-file-csv text-red-600 text-2xl mr-3 group-hover:scale-110 transition"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 text-sm">CSV to JSON</h3>
+                            <p class="text-xs text-gray-600">Convert CSV to JSON</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://kasin-tv.com/xml-to-json.html" class="card p-4 hover:shadow-lg transition group">
+                    <div class="flex items-center">
+                        <i class="fas fa-file-alt text-orange-600 text-2xl mr-3 group-hover:scale-110 transition"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 text-sm">XML to JSON</h3>
+                            <p class="text-xs text-gray-600">Convert XML to JSON</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://kasin-tv.com/json-formatter.html" class="card p-4 hover:shadow-lg transition group">
+                    <div class="flex items-center">
+                        <i class="fas fa-align-left text-purple-600 text-2xl mr-3 group-hover:scale-110 transition"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 text-sm">JSON Formatter</h3>
+                            <p class="text-xs text-gray-600">Format & beautify JSON</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://kasin-tv.com/json-validator.html" class="card p-4 hover:shadow-lg transition group">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-600 text-2xl mr-3 group-hover:scale-110 transition"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900 text-sm">JSON Validator</h3>
+                            <p class="text-xs text-gray-600">Validate JSON syntax</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+
+    <!-- JavaScript -->
+    <script>
+        let mode = 'manual';
+
+        function showPopup(message = 'Copied to clipboard!') {
+            const popup = document.createElement('div');
+            popup.className = 'copy-popup';
+            popup.innerHTML = '<i class="fas fa-check-circle mr-2"></i>' + message;
+            document.body.appendChild(popup);
+            setTimeout(() => popup.classList.add('show'), 10);
+            setTimeout(() => {
+                popup.classList.remove('show');
+                setTimeout(() => popup.remove(), 300);
+            }, 2000);
+        }
+
+        function parseJSON(json) {
+            try {
+                const data = JSON.parse(json);
+                if (!Array.isArray(data)) {
+                    throw new Error('JSON must be an array of objects');
+                }
+                if (data.length === 0) {
+                    throw new Error('JSON array cannot be empty');
+                }
+                return data;
+            } catch (e) {
+                throw new Error(`Invalid JSON format: ${e.message}`);
+            }
+        }
+
+        function convertToCSV(jsonData) {
+            if (!jsonData || jsonData.length === 0) {
+                return '';
+            }
+
+            const headers = Object.keys(jsonData[0]);
+            const csvRows = [];
+
+            // Add headers
+            csvRows.push(headers.join(','));
+
+            // Add data rows
+            jsonData.forEach(obj => {
+                const values = headers.map(header => {
+                    const value = obj[header] !== undefined && obj[header] !== null ? obj[header] : '';
+                    // Escape commas and quotes in values
+                    const stringValue = String(value);
+                    if (stringValue.includes(',') || stringValue.includes('"') || stringValue.includes('\n')) {
+                        return `"${stringValue.replace(/"/g, '""')}"`;
+                    }
+                    return stringValue;
+                });
+                csvRows.push(values.join(','));
+            });
+
+            return csvRows.join('\n');
+        }
+
+        function downloadCSV(csv) {
+            if (!csv) return;
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'output.csv';
+            link.click();
+            URL.revokeObjectURL(url);
+            showPopup('CSV file downloaded!');
+        }
+
+        function toggleMode(newMode) {
+            mode = newMode;
+            const manualBtn = document.getElementById('manualBtn');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const inputLabel = document.getElementById('inputLabel');
+            const inputText = document.getElementById('inputText');
+            const inputSection = document.getElementById('inputSection');
+            const convertBtn = document.getElementById('convertBtn');
+
+            if (mode === 'manual') {
+                manualBtn.classList.add('bg-red-600', 'hover:bg-red-700');
+                manualBtn.classList.remove('bg-gray-300', 'text-gray-700');
+                uploadBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                uploadBtn.classList.add('bg-gray-300', 'text-gray-700');
+                inputLabel.textContent = 'Enter JSON Data';
+                inputSection.classList.remove('hidden');
+                convertBtn.classList.add('bg-red-600', 'hover:bg-red-700');
+                convertBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+            } else {
+                uploadBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                uploadBtn.classList.remove('bg-gray-300', 'text-gray-700');
+                manualBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
+                manualBtn.classList.add('bg-gray-300', 'text-gray-700');
+                inputLabel.textContent = 'Upload JSON File';
+                inputSection.classList.add('hidden');
+                convertBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                convertBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
+            }
+            
+            document.getElementById('resultText').value = '';
+            document.getElementById('errorMessage').classList.add('hidden');
+        }
+
+        function processJSON() {
+            const inputText = document.getElementById('inputText').value;
+            const resultText = document.getElementById('resultText');
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            errorMessage.classList.add('hidden');
+
+            if (mode === 'manual' && !inputText.trim()) {
+                resultText.value = '';
+                return;
+            }
+
+            try {
+                if (mode === 'manual') {
+                    const jsonData = parseJSON(inputText);
+                    resultText.value = convertToCSV(jsonData);
+                }
+            } catch (e) {
+                errorText.textContent = e.message;
+                errorMessage.classList.remove('hidden');
+                resultText.value = '';
+            }
+        }
+
+        function handleFileUpload(file) {
+            const resultText = document.getElementById('resultText');
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            errorMessage.classList.add('hidden');
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const jsonData = parseJSON(e.target.result);
+                    resultText.value = convertToCSV(jsonData);
+                } catch (err) {
+                    errorText.textContent = err.message;
+                    errorMessage.classList.remove('hidden');
+                    resultText.value = '';
+                }
+            };
+            reader.onerror = () => {
+                errorText.textContent = 'Unable to read the file. Please try again.';
+                errorMessage.classList.remove('hidden');
+                resultText.value = '';
+            };
+            reader.readAsText(file);
+        }
+
+        // Event Listeners
+        document.getElementById('manualBtn').addEventListener('click', () => toggleMode('manual'));
+        
+        document.getElementById('uploadBtn').addEventListener('click', () => {
+            toggleMode('upload');
+            document.getElementById('fileInput').click();
+        });
+        
+        document.getElementById('fileInput').addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileUpload(e.target.files[0]);
+            }
+        });
+        
+        document.getElementById('convertBtn').addEventListener('click', processJSON);
+        
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const result = document.getElementById('resultText').value;
+            if (result) {
+                navigator.clipboard.writeText(result).then(() => {
+                    showPopup('Copied to clipboard!');
+                }).catch(() => {
+                    alert('Failed to copy. Please try selecting and copying manually.');
+                });
+            }
+        });
+        
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            const result = document.getElementById('resultText').value;
+            if (result) {
+                downloadCSV(result);
+            }
+        });
+        
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            document.getElementById('inputText').value = '';
+            document.getElementById('fileInput').value = '';
+            document.getElementById('resultText').value = '';
+            document.getElementById('errorMessage').classList.add('hidden');
+            toggleMode('manual');
+        });
+        
+        document.getElementById('inputText').addEventListener('input', processJSON);
+
+        // Initialize
+        toggleMode('manual');
+    </script>
+</body>
+</html>

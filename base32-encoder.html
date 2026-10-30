@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+        <link rel="canonical" href="https://kasin-tv.com/base32-encoder.html">
+    <meta property="og:url" content="https://kasin-tv.com/base32-encoder.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+    <meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Base32 Encoder Tool - Free Online Base32 Converter | KaSin TV</title>
+  <meta name="description" content="Free online Base32 Encoder tool to convert text or files to Base32 format. Supports multiple input encodings with copy and download options. Works on all devices.">
+  <meta name="keywords" content="base32 encoder, free base32 converter, online base32 encoder, base32 encoding tool, text to base32, file to base32, base32 data converter">
+  <meta name="author" content="Base32 Encoder Tool Team">
+  <meta property="og:title" content="Base32 Encoder Tool - Free Online Base32 Converter">
+  <meta property="og:description" content="Encode text or files to Base32 format with this free online tool. Includes copy and download features. Works in your browser on all devices.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Base32 Encoder Tool - Free Online Base32 Converter">
+  <meta name="twitter:description" content="Convert text or files to Base32 encoding with this free online tool. Works securely in your browser.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Base32 Encoder","url":"https://kasin-tv.com/base32-encoder.html","description":"Encode text or files into Base32 format in the browser.","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .copy-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      background: #16a34a;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 2000;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .copy-popup.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .about-heading {
+      background-color: #f3f4f6;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
+  </style>
+    <link rel="stylesheet" href="/styles.css">
+  <meta property="og:site_name" content="KaSin TV">
+</head>
+<body class="bg-gray-50 font-inter min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+
+<!-- START SITE GLOBAL HEADER -->
+<header class="site-global-header">
+        <div class="max-w-[1200px] mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+            <a href="/" class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-900">
+                <img src="/favicon.ico" alt="KaSin TV logo"
+                    class="w-10 h-10 rounded-xl border border-gray-200 shadow-sm">
+                <span>
+                    <span class="block">KaSin TV</span>
+                    <span class="text-xs text-slate-500">100+ free online tools</span>
+                </span>
+            </a>
+            <nav class="site-nav text-xs sm:text-sm text-slate-600">
+                <a href="/" class="hover:text-slate-900">Home</a>
+                <a href="/password-generator.html" class="hover:text-slate-900">Password</a>
+                <a href="/qr-code-generator.html" class="hover:text-slate-900">QR Code</a>
+                <a href="/nepal-salary-tax-calculator.html" class="hover:text-slate-900">Nepal Tax</a>
+                <a href="/bmi-calculator.html" class="hover:text-slate-900">BMI</a>
+                <a href="/about-us.html" class="hover:text-slate-900">About</a>
+                <a href="/contact-us.html" class="hover:text-slate-900">Contact</a>
+            </nav>
+        </div>
+    </header>
+<!-- END SITE GLOBAL HEADER -->
+
+  <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 w-full max-w-4xl">
+    <section class="text-center mb-6 sm:mb-8">
+      <div class="flex items-center justify-center mb-4">
+        <i class="fas fa-lock text-green-600 text-3xl mr-3"></i>
+        <h1 class="text-2xl font-bold text-gray-800">Base32 Encoder Tool</h1>
+      </div>
+      <p class="text-sm text-gray-600">
+        Encode text or files to Base32 format. Supports multiple input encodings (UTF-8, ASCII, UTF-16, ISO-8859-1, Windows-1252). Includes copy and download features. Works on all devices.
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <form onsubmit="return false;">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <button type="button" id="manualBtn" class="action-btn w-full sm:w-1/3 md:w-1/5 bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition active">Manual Input</button>
+            <button type="button" id="uploadBtn" class="action-btn w-full sm:w-1/3 md:w-1/5 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition">Upload File</button>
+          </div>
+
+          <input type="file" id="fileInput" class="hidden">
+          <label id="inputLabel" class="block text-sm font-semibold text-gray-800 mb-2">Enter Text to Encode</label>
+          <textarea id="inputText" placeholder="Enter text to encode to Base32" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition text-sm h-32 resize-y font-mono"></textarea>
+
+          <div class="mt-4">
+            <label class="block text-sm font-semibold text-gray-800 mb-2">Input Encoding</label>
+            <select id="encodingInput" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
+              <option value="utf-8">UTF-8</option>
+              <option value="ascii">ASCII</option>
+              <option value="utf-16">UTF-16</option>
+              <option value="iso-8859-1">ISO-8859-1</option>
+              <option value="windows-1252">Windows-1252</option>
+            </select>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-4">
+            <button type="button" id="encodeBtn" class="action-btn w-full sm:w-1/3 md:w-1/5 bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition flex items-center justify-center text-sm">
+              <i class="fas fa-lock mr-2"></i>Encode
+            </button>
+            <button type="button" id="copyBtn" class="action-btn w-full sm:w-1/3 md:w-1/5 bg-yellow-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-yellow-700 transition flex items-center justify-center text-sm">
+              <i class="fas fa-copy mr-2"></i>Copy Result
+            </button>
+            <button type="button" id="downloadBtn" class="action-btn w-full sm:w-1/3 md:w-1/5 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition flex items-center justify-center text-sm">
+              <i class="fas fa-download mr-2"></i>Download
+            </button>
+            <button type="button" id="resetBtn" class="action-btn w-full sm:w-1/3 md:w-1/5 bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-700 transition flex items-center justify-center text-sm">
+              <i class="fas fa-undo mr-2"></i>Reset
+            </button>
+          </div>
+        </form>
+
+        <div class="mt-4">
+          <label class="block text-sm font-semibold text-gray-800 mb-2">Base32 Encoded Result</label>
+          <textarea id="resultText" readonly class="w-full p-2 border border-gray-300 rounded-lg bg-gray-100 text-sm h-32 resize-y font-mono" placeholder="Base32 encoded result will appear here..."></textarea>
+          <p id="errorMessage" class="text-sm text-red-600 mt-2 hidden">Error: Invalid input or encoding issue.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-gray-800 mb-4 about-heading">About Base32 Encoder Tool</h2>
+      <article class="mb-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">What is Base32 Encoding?</h3>
+        <p class="text-sm text-gray-600">Base32 encoding converts binary data into a text format using 32 ASCII characters. It is used for data transmission, file naming, and encoding binary data in readable form.</p>
+      </article>
+      <article class="mb-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">How to Use</h3>
+        <p class="text-sm text-gray-600">Enter text manually or upload a file. Choose the encoding type and click Encode. Copy or download the result. Use Reset to clear the form.</p>
+      </article>
+      <article class="mb-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Why Use This Tool</h3>
+        <p class="text-sm text-gray-600">This Base32 Encoder runs entirely in your browser, ensuring data privacy. It is free, fast, and accurate across devices.</p>
+      </article>
+    </section>
+
+    
+<!-- START SITE GLOBAL FOOTER -->
+<footer class="site-global-footer bg-slate-900 text-slate-300">
+        <div class="footer-content max-w-[1200px] mx-auto px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+                <p class="font-semibold text-white mb-3">KaSin TV</p>
+                <p class="text-sm text-slate-400 max-w-md">Free online utilities for text, finance, conversions, QR
+                    codes, barcodes, and more. Fast, browser-based, and no signup required.</p>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Popular tools</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/password-generator.html" class="hover:text-white">Password Generator</a></li>
+                    <li><a href="/qr-code-generator.html" class="hover:text-white">QR Code Generator</a></li>
+                    <li><a href="/nepal-salary-tax-calculator.html" class="hover:text-white">Nepal Salary Tax</a>
+                    </li>
+                    <li><a href="/bmi-calculator.html" class="hover:text-white">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-semibold text-white mb-3">Information</p>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="/about-us.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="/contact-us.html" class="hover:text-white">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">© 2026 KaSin TV. Free tools,
+            fast and secure. Designed for Google indexing and AdSense readiness.</div>
+    </footer>
+<!-- END SITE GLOBAL FOOTER -->
+
+  </div>
+
+  <script>
+    let mode = 'manual';
+
+    function showPopup() {
+      const popup = document.createElement('div');
+      popup.className = 'copy-popup';
+      popup.textContent = 'Copied!';
+      document.body.appendChild(popup);
+      setTimeout(() => popup.classList.add('show'), 10);
+      setTimeout(() => {
+        popup.classList.remove('show');
+        setTimeout(() => popup.remove(), 300);
+      }, 2000);
+    }
+
+    function base32Encode(input, encoding) {
+      try {
+        let bytes;
+        if (encoding === 'utf-8') {
+          bytes = new TextEncoder().encode(input);
+        } else if (encoding === 'ascii') {
+          bytes = new Uint8Array(input.split('').map(c => c.charCodeAt(0) & 0x7F));
+        } else if (encoding === 'utf-16') {
+          const buffer = new ArrayBuffer(input.length * 2);
+          const view = new DataView(buffer);
+          for (let i = 0; i < input.length; i++) view.setUint16(i * 2, input.charCodeAt(i), true);
+          bytes = new Uint8Array(buffer);
+        } else {
+          bytes = new Uint8Array(input.split('').map(c => c.charCodeAt(0) & 0xFF));
+        }
+
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+        let bits = 0;
+        let value = 0;
+        let output = "";
+
+        for (let i = 0; i < bytes.length; i++) {
+          value = (value << 8) | bytes[i];
+          bits += 8;
+          while (bits >= 5) {
+            output += alphabet[(value >>> (bits - 5)) & 31];
+            bits -= 5;
+          }
+        }
+
+        if (bits > 0) {
+          output += alphabet[(value << (5 - bits)) & 31];
+        }
+
+        while (output.length % 8 !== 0) {
+          output += "=";
+        }
+
+        return output;
+      } catch (e) {
+        throw new Error('Error encoding to Base32: ' + e.message);
+      }
+    }
+
+    function processInput() {
+      const inputText = document.getElementById('inputText').value;
+      const encoding = document.getElementById('encodingInput').value;
+      const resultText = document.getElementById('resultText');
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.classList.add('hidden');
+
+      if (mode === 'manual' && !inputText) {
+        resultText.value = '';
+        return;
+      }
+
+      try {
+        resultText.value = base32Encode(inputText, encoding);
+      } catch (e) {
+        errorMessage.textContent = 'Error: ' + e.message;
+        errorMessage.classList.remove('hidden');
+        resultText.value = '';
+      }
+    }
+
+    function handleFileUpload(file) {
+      const encoding = document.getElementById('encodingInput').value;
+      const resultText = document.getElementById('resultText');
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.classList.add('hidden');
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const text = e.target.result;
+          resultText.value = base32Encode(text, encoding);
+        } catch (err) {
+          errorMessage.textContent = 'Error: ' + err.message;
+          errorMessage.classList.remove('hidden');
+          resultText.value = '';
+        }
+      };
+      reader.onerror = () => {
+        errorMessage.textContent = 'Error: Unable to read file.';
+        errorMessage.classList.remove('hidden');
+      };
+      reader.readAsText(file, encoding);
+    }
+
+    function downloadBase32(base32) {
+      if (!base32) return;
+      const blob = new Blob([base32], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'encoded_base32.txt';
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    document.getElementById('manualBtn').addEventListener('click', () => {
+      mode = 'manual';
+      document.getElementById('inputText').classList.remove('hidden');
+      document.getElementById('fileInput').value = '';
+      document.getElementById('inputLabel').textContent = 'Enter Text to Encode';
+    });
+
+    document.getElementById('uploadBtn').addEventListener('click', () => {
+      mode = 'upload';
+      document.getElementById('fileInput').click();
+      document.getElementById('inputText').classList.add('hidden');
+      document.getElementById('inputLabel').textContent = 'Upload File to Encode';
+    });
+
+    document.getElementById('fileInput').addEventListener('change', (e) => {
+      if (e.target.files.length > 0) handleFileUpload(e.target.files[0]);
+    });
+    document.getElementById('encodeBtn').addEventListener('click', processInput);
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const result = document.getElementById('resultText').value;
+      if (result) {
+        navigator.clipboard.writeText(result);
+        showPopup();
+      }
+    });
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const result = document.getElementById('resultText').value;
+      if (result) downloadBase32(result);
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      document.getElementById('inputText').value = '';
+      document.getElementById('resultText').value = '';
+      document.getElementById('errorMessage').classList.add('hidden');
+      mode = 'manual';
+      document.getElementById('inputText').classList.remove('hidden');
+      document.getElementById('inputLabel').textContent = 'Enter Text to Encode';
+    });
+  </script>
+</body>
+</html>
